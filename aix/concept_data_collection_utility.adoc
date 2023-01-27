@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_data_collection_utility.html 
+sidebar: sidebar 
+keywords: snap, snapshot, data, collection, utility, troubleshoot 
+summary: La utilidad de recopilación de datos de SnapDrive es una herramienta de solución de problemas que recopila información para diagnosticar los problemas. 
+---
+= Utilidad de recopilación de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La utilidad de recopilación de datos de SnapDrive es una herramienta de solución de problemas que recopila información para diagnosticar los problemas.
+
+SnapDrive para UNIX proporciona una utilidad de recogida de datos (snapdrive.dc) que recopila información de diagnóstico acerca de SnapDrive para UNIX, comprobador de configuración de SnapDrive y configuración del sistema.

@@ -1,0 +1,22 @@
+---
+permalink: aix/concept_benefits_of_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, benefits, flexcone, volumes 
+summary: Los volúmenes FlexClone ofrecen ventajas de gestión de datos y rendimiento. 
+---
+= Ventajas de los volúmenes FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los volúmenes FlexClone ofrecen ventajas de gestión de datos y rendimiento.
+
+* Gestión de datos simplificada y reducción del riesgo.
+* Flexibilidad y mayor aprovechamiento.
++
+Puede usar volúmenes FlexClone para crear varias copias de datos para usuarios adicionales sin tener que darles acceso a los datos originales.
+
+* Más rápido que un clon LUN.
+

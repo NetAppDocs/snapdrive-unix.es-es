@@ -1,0 +1,27 @@
+---
+permalink: linux-administration/concept_snapdrive_limitations_for_data_ontap_operating_in_cluster_mode.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, clustered, ontap, limitations, operations 
+summary: Algunas funciones y operaciones de SnapDrive no son compatibles con Clustered Data ONTAP. 
+---
+= Limitaciones de SnapDrive para Clustered Data ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Algunas funciones y operaciones de SnapDrive no son compatibles con Clustered Data ONTAP.
+
+* Las operaciones de gestión de Snapshot y aprovisionamiento de almacenamiento no se admiten en el volumen raíz del Vserver.
+* No se admiten las operaciones sobre las especificaciones de archivo o las LUN que abarcan Data ONTAP en 7-Mode y los sistemas de almacenamiento que se ejecutan en Clustered Data ONTAP.
+* No se admiten los enlaces simbólicos que residen dentro de un punto de montaje.
+* Los agregados que contienen volúmenes Vserver deben asignarse a la lista de agregados del Vserver para configurar el Vserver y ejecutar las operaciones de SnapDrive.
+* SnapDrive para UNIX no admite la migración del Vserver porque no es compatible con Clustered Data ONTAP.
+* Conecte a presión la operación con el `-readonly` la opción monta solo el `.snapshot` directorio en el host y no crea el volumen clonado.
++
+En Clustered Data ONTAP, la política de exportación se define solo a nivel de volumen, no a nivel de directorio. Por lo tanto, la `.snapshot` el directorio no se puede exportar al host secundario (el host que no tiene el permiso de exportación en el volumen principal).
+
+* SnapDrive para UNIX no admite operaciones de SnapRestore (VBSR) basadas en volumen desde una copia de Snapshot creada antes de la copia de Snapshot básica, cuando el volumen está en una operación de SnapMirror o SnapVault.
+* SnapDrive para UNIX no es compatible con `snapdelete` Funcionamiento de la copia Snapshot creada antes de la actualización de SnapVault, cuando el volumen se encuentra en una relación de SnapVault (XDP).
+

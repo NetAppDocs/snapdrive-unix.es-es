@@ -1,0 +1,27 @@
+---
+permalink: solaris/reference_understanding_exit_status_values_of_error_messages.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, exit, status, value, error, message 
+summary: Cada mensaje de error de SnapDrive for UNIX está asociado a un valor de estado de salida. El valor de estado de salida contiene la causa del error y su tipo-Advertencia, comando, Administrador o Fatal. 
+---
+= Comprender los valores de estado de cierre de los mensajes de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cada mensaje de error de SnapDrive for UNIX está asociado a un valor de estado de salida. El valor de estado de salida contiene la causa del error y su tipo-Advertencia, comando, Administrador o Fatal.
+
+Cada ID de mensaje de error de SnapDrive está vinculado a un valor de estado de salida. Los valores de estado de cierre contienen la siguiente información:
+
+* Valor de estado de salida: Indica la causa básica de la condición de error.
+* Tipo: Indica el tipo de error. El nivel de gravedad depende del mensaje, no del valor. Los siguientes son los posibles valores:
++
+** Advertencia: SnapDrive para UNIX ejecutó el comando pero emitió una advertencia acerca de las condiciones que podrían requerir su atención.
+** Comando- SnapDrive para UNIX no ha podido ejecutar el comando debido a un error en la línea de comandos. Compruebe el formato de la línea de comandos para asegurarse de que es correcto.
+** Admin: SnapDrive para UNIX no ha podido ejecutar el comando debido a las incompatibilidades de la configuración del sistema. Póngase en contacto con el administrador del sistema para revisar los parámetros de configuración.
+** Fatal: SnapDrive para UNIX no pudo ejecutar el comando debido a una condición inesperada. Los errores graves son raros. Si se produce un error grave y tiene problemas para solucionarlo, póngase en contacto con el soporte técnico de NetApp para obtener ayuda y determinar los pasos que debe seguir para recuperar correctamente y corregir cualquier condición de error.
+
+
+

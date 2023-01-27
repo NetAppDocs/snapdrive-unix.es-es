@@ -1,0 +1,168 @@
+---
+permalink: aix/task_snapdrive_configuration_wizard_in_nfs_san_and_mixed_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, wizard 
+summary: El asistente de configuración le permite configurar en un entorno NFS, SAN o mixto. 
+---
+= Con el asistente de configuración de SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El asistente de configuración le permite configurar en un entorno NFS, SAN o mixto.
+
+
+
+== Pasos para configurar en entorno NFS
+
+A continuación, se muestran los pasos que se deben configurar en un entorno NFS.
+
+.Pasos
+. Seleccione el perfil *NFS*.
+. Habilite la integración de Protection Manager.
++
+** Seleccione `Yes` Para habilitar las comprobaciones de permisos de acceso mediante DataFabric Manager.
++
+*** Introduzca el nombre del servidor o la dirección IP de DataFabric Manager, seguido del nombre de usuario y la contraseña.
+*** Introduzca el `http/https` Puerto para comunicarse con DataFabric Manager. El valor predeterminado es `8088`.
+*** Introduzca el puerto del servidor SSL para acceder a DataFabric Manager. El valor predeterminado es `8488`.
+*** Habilite la función HTTPS habilitada para comunicarse con DataFabric Manager.
+
+
+** Seleccione `No` para habilitar las comprobaciones de permisos de acceso mediante el rbac.
+
+
+. Especifique los métodos de control de acceso basado en roles. Los posibles valores son `native` y.. `dfm`.
++
+** Seleccione `native` para comprobar el permiso de acceso del host mediante el archivo de control almacenado en `/vol/vol0/sdprbac/sdhost-name.prbac` o. `/vol/vol0/sdprbac/sdgenericname.prbac`.
+** Seleccione `dfm` Para comprobar el permiso de acceso mediante la consola de Operations Manager.
+
+
++
+
+NOTE: Si selecciona `dfm` como `rbac-method` Sin configurar DataFabric Manager, se mostrará un mensaje de advertencia indicando que se ha seleccionado el método RBAC como `dfm` Sin habilitar la integración de Protection Manager, se mostrará.
+
+. Especifique `https` o. `http` para comunicarse con el sistema de almacenamiento.
+. El paso final es guardar los cambios de configuración en `snapdrive.conf` file y reinicie el daemon.
++
+** Si selecciona `Yes`, Se reinicia el daemon SnapDrive y se reflejan los cambios de configuración.
+** Si selecciona `No`, los valores de las variables se cambian en `snapdrive.conf` archivo, pero los cambios no se reflejan.
+
+
+
+
+
+
+== Pasos para configurar en entorno SAN
+
+A continuación, se muestran los pasos que se deben configurar en un entorno SAN.
+
+.Pasos
+. Seleccione el perfil SAN.
+. Seleccione el protocolo de transporte requerido.
++
+** Seleccione `fcp` para establecer el transporte predeterminado.
+** Seleccione `iscsi` para establecer el transporte predeterminado.
+
+
+. Seleccione la pila DE almacenamiento SAN (combinación de la solución MPIO, el gestor de volúmenes y el sistema de archivos). Las opciones son `native`, `veritas`, y. `none`.
++
+SnapDrive no es compatible con el protocolo de transporte veritas para iSCSI.
+
+. Habilite la integración de Protection Manager.
++
+** Seleccione `Yes` Para habilitar las comprobaciones de permisos de acceso mediante DataFabric Manager.
++
+*** Introduzca el nombre del servidor o la dirección IP de DataFabric Manager, seguido del nombre de usuario y la contraseña.
+*** Introduzca el `http/https` Puerto para comunicarse con DataFabric Manager. El valor predeterminado es `8088`.
+*** Introduzca el puerto del servidor SSL para acceder a DataFabric Manager. El valor predeterminado es `8488`.
+*** Habilite la función HTTPS habilitada para comunicarse con DataFabric Manager
+
+
+** Seleccione `No` para habilitar las comprobaciones de permisos de acceso mediante el rbac.
+
+
+. Especifique los métodos de control de acceso basado en roles. Los posibles valores son `native` y.. `dfm`.
++
+** Seleccione `native` para comprobar el permiso de acceso del host mediante el archivo de control almacenado en `/vol/vol0/sdprbac/sdhost-name.prbac or /vol/vol0/sdprbac/sdgenericname.prbac`.
+** Seleccione `dfm` Para comprobar el permiso de acceso mediante Operations Manager.
+
+
++
+
+NOTE: Si selecciona `dfm` como `rbac-method` Sin configurar DataFabric Manager, se mostrará un mensaje de advertencia indicando que se ha seleccionado el método RBAC como `dfm` Sin habilitar la integración de Protection Manager, se mostrará.
+
+. Especifique `https` o. `http` para comunicarse con el sistema de almacenamiento.
+. El paso final es guardar los cambios de configuración en `snapdrive.conf` file y reinicie el daemon.
++
+** Si selecciona `Yes`, Se reinicia el daemon SnapDrive y se reflejan los cambios de configuración.
+** Si selecciona `No`, los valores de las variables se cambian en `snapdrive.conf` archivo, pero los cambios no se reflejan.
+
+
+
+
+
+
+== Pasos para configurar en entornos SAN y NFS mixtos
+
+A continuación, se muestran los pasos que se deben configurar en entornos SAN y NFS mixtos.
+
+.Pasos
+. Seleccione el perfil mixto.
+. Seleccione el protocolo de transporte requerido.
++
+** Seleccione `fcp` para establecer el transporte predeterminado.
+** Seleccione `iscsi` para establecer el transporte predeterminado.
+
+
+. Seleccione la pila DE almacenamiento SAN (combinación de solución MPIO, volume Manager, File system). Las opciones son `native`, `veritas`, y. `none`.
++
+SnapDrive no es compatible con el protocolo de transporte veritas para iSCSI.
+
+. Habilite la integración de Protection Manager.
++
+** Seleccione `Yes` Para habilitar las comprobaciones de permisos de acceso mediante DataFabric Manager
++
+*** Introduzca el nombre del servidor o la dirección IP de DataFabric Manager, seguido del nombre de usuario y la contraseña.
+*** Introduzca el `http/https` Puerto para comunicarse con DataFabric Manager. El valor predeterminado es `8088`.
+*** Introduzca el puerto del servidor SSL para acceder a DataFabric Manager. El valor predeterminado es 8488.
+*** Habilite la función HTTPS habilitada para comunicarse con DataFabric Manager.
+
+
+** Seleccione `No` para habilitar las comprobaciones de permisos de acceso mediante el rbac.
+
+
+. Especifique los métodos de control de acceso basado en roles. Los posibles valores son `native` y.. `dfm`.
++
+** Seleccione `native` para comprobar el permiso de acceso del host mediante el archivo de control almacenado en `/vol/vol0/sdprbac/sdhost-name.prbac` o. `/vol/vol0/sdprbac/sdgenericname.prbac`
+** Seleccione `dfm` Para comprobar el permiso de acceso mediante la consola de Operations Manager.
+
+
++
+
+NOTE: Si selecciona `dfm` como `rbac-method` Sin configurar DataFabric Manager, se mostrará un mensaje de advertencia indicando que se ha seleccionado el método RBAC como `dfm` Sin habilitar la integración de Protection Manager, se mostrará.
+
+. Especifique `https` o. `http` para comunicarse con el sistema de almacenamiento.
+. El paso final es guardar los cambios de configuración en `snapdrive.conf` file y reinicie el daemon.
++
+** Si selecciona `Yes`, Se reinicia el daemon SnapDrive y se reflejan los cambios de configuración.
+** Si selecciona `No`, los valores de las variables se cambian en `snapdrive.conf` archivo, pero los cambios no se reflejan.
+
+
+
+
+SnapDrive modifica las siguientes variables en el `snapdrive.conf` archivo.
+
+* `_contact-http-dfm-port_`
+* `_contact-ssl-dfm-port_`
+* `_use-https-to-dfm_`
+* `_default-transport_`
+* `_use-https-to-filer_`
+* `_fstype_`
+* `_multipathing-type_`
+* `_vmtype_`
+* `_rbac-method_`
+* `_rbac-cache_`
+

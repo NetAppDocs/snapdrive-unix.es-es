@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_rbac_and_storage_operation_examples.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, rbac, storage, example, operation 
+summary: El control de acceso basado en roles permite realizar operaciones de almacenamiento en función de las funcionalidades que tenga asignadas. Recibirá un mensaje de error si no dispone de las funcionalidades adecuadas para realizar la operación de almacenamiento. 
+---
+= RBAC y ejemplos de operaciones de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El control de acceso basado en roles permite realizar operaciones de almacenamiento en función de las funcionalidades que tenga asignadas. Recibirá un mensaje de error si no dispone de las funcionalidades adecuadas para realizar la operación de almacenamiento.

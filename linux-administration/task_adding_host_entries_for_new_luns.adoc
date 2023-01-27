@@ -1,0 +1,34 @@
+---
+permalink: linux-administration/task_adding_host_entries_for_new_luns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, entries, lun, command 
+summary: Puede crear un número específico de nuevas LUN mediante SnapDrive para UNIX. SnapDrive para UNIX proporciona comandos específicos para este fin. 
+---
+= Adición de entradas de host para nuevos LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear un número específico de nuevas LUN mediante SnapDrive para UNIX. SnapDrive para UNIX proporciona comandos específicos para este fin.
+
+Asegúrese de que el host esté listo para crear un número específico de nuevos LUN. Estas LUN residen en un sistema de almacenamiento que está asignado al host.
+
+.Pasos
+. `snapdrive config prepare luns -count count`
++
+`-count` Es el número de nuevos LUN para los que desea que esté preparado el host.
+
++
+En Linux, este comando agrega un nuevo comando `/dev/sg` Archivo de dispositivo para cada LUN potencial para el que no hay un archivo de dispositivo disponible actualmente.
+
++
+[NOTE]
+====
+Si ha editado manualmente el `/kernel/drv/lpfc.conf` Archivo para vinculaciones persistentes, asegúrese de que la entrada FC-bind-WWPN sea después
+
+`# BEGIN: LPUTIL-managed Persistent Bindings`.
+
+====
+

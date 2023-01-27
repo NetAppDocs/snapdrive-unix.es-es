@@ -1,0 +1,25 @@
+---
+permalink: solaris/task_restarting_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restart, daemon 
+summary: Debe reiniciar el daemon después de detenerlo para que los cambios que realice en el archivo de configuración o en los demás módulos surtan efecto. El daemon SnapDrive para UNIX sólo se reinicia después de completar todos los comandos que se encuentran en ejecución y en cola. Una vez recibida la solicitud de reinicio, no se ejecutan nuevos comandos. 
+---
+= Reiniciar el daemon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe reiniciar el daemon después de detenerlo para que los cambios que realice en el archivo de configuración o en los demás módulos surtan efecto. El daemon SnapDrive para UNIX sólo se reinicia después de completar todos los comandos que se encuentran en ejecución y en cola. Una vez recibida la solicitud de reinicio, no se ejecutan nuevos comandos.
+
+* Asegúrese de que ha iniciado sesión como usuario raíz.
+* Asegúrese de que no existan otras sesiones en ejecución en el mismo host en paralelo. La `snapdrived restart` el comando bloquea el sistema en estas situaciones.
+
+
+.Pasos
+. Introduzca el siguiente comando para reiniciar el daemon:
++
+`*snapdrived restart*`
+
+

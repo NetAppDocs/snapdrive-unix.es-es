@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_connecting_a_single_storage_entity_on_a_storage_system_or_storage_system_ha_pair.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, ha, storage, entity, system, connect 
+summary: Puede conectar una copia Snapshot que contenga una única entidad de almacenamiento. 
+---
+= Conectar una única entidad de almacenamiento en un par de alta disponibilidad del sistema de almacenamiento o del sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede conectar una copia Snapshot que contenga una única entidad de almacenamiento.
+
+Puede conectar una copia de Snapshot que contenga una única entidad de almacenamiento que resida en un sistema de almacenamiento o en un par de alta disponibilidad del sistema de almacenamiento. El nombre del volumen en el sistema de almacenamiento de destino debe coincidir con el nombre del volumen en el sistema de almacenamiento de origen.

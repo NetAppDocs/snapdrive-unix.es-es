@@ -1,0 +1,24 @@
+---
+permalink: linux-administration/concept_multipath_configuration_variables.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, multipath, configuration, variables, file, mpio 
+summary: Para que funcione con Linux, necesita cambiar pocas variables de configuración en el archivo snapdrive.conf para MPIO. 
+---
+= Variables de configuración de multivía
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe cambiar pocas variables de configuración en `snapdrive.conf` Archivo para que MPIO funcione con Linux.
+
+Después de instalar SnapDrive para UNIX en el host, edite el `/opt/Netapp/snapdrive/snapdrive.conf` archivar y cambiar la siguiente configuración a los valores adecuados:
+
+[listing]
+----
+enable-implicit-host-preparation=on  # Enable implicit host preparation for LUN creation
+  default-transport="FCP"  # Transport type to use for storage provisioning, when a decision is needed
+  multipathing-type= "nativempio"  # Multipathing software to use when more than one multipathing solution is available
+----
+Reinicie el daemon SnapDrive para el `snapdrive.conf` los cambios en el archivo se aplicarán. Después de reiniciar el daemon de SnapDrive, los comandos de SnapDrive comienzan a usar la pila DM-MP.

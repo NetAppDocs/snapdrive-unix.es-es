@@ -1,0 +1,27 @@
+---
+permalink: aix/concept_connecting_to_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, snapshot, copy 
+summary: Puede conectar una copia Snapshot de un host a otro. 
+---
+= Conectarse a una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede conectar una copia Snapshot de un host a otro.
+
+SnapDrive para UNIX le permite conectar un host a una copia Snapshot desde una ubicación diferente en un host. Esta nueva ubicación puede estar en el host en el que tomó la copia Snapshot (el host de origen) o en un host diferente (el host que no es de origen).
+
+Ser capaz de configurar las copias Snapshot en una nueva ubicación significa realizar el backup de una copia Snapshot en otro medio, realizar el mantenimiento de un grupo de discos o acceder a los datos de copia Snapshot sin interrumpir la copia original de los datos.
+
+Con este comando, es posible conectar un host a una copia Snapshot que contiene cualquiera de las siguientes opciones:
+
+* LUN
+* Un sistema de archivos creado directamente en un LUN
+* Grupos de discos, volúmenes de hosts y sistemas de archivos creados en LUN
+* Árboles de directorios NFS
+* Grupos de discos, volúmenes de hosts y sistemas de archivos en un sistema de almacenamiento compartido
+

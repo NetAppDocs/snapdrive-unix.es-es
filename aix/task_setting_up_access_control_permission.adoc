@@ -1,0 +1,62 @@
+---
+permalink: aix/task_setting_up_access_control_permission.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, access, control, permission 
+summary: Para configurar los permisos de control de acceso en SnapDrive para UNIX, se puede crear un directorio y un archivo especiales en el volumen raíz del sistema de almacenamiento. 
+---
+= Configurar el permiso de control de acceso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar los permisos de control de acceso en SnapDrive para UNIX, se puede crear un directorio y un archivo especiales en el volumen raíz del sistema de almacenamiento.
+
+Asegúrese de que ha iniciado sesión como usuario raíz.
+
+.Pasos
+. Cree el directorio `sdprbac` en el volumen raíz del sistema de almacenamiento de destino.
++
+Una manera de que el volumen raíz sea accesible es montar el volumen con NFS.
+
+. Cree el archivo de permisos en `sdprbac` directorio. Asegúrese de que las siguientes afirmaciones son verdaderas:
++
+** El archivo debe tener el nombre `sdhost-name.prbac` donde host-name es el nombre del host para el cual se especifican permisos de acceso.
+** El archivo debe ser de sólo lectura para garantizar que SnapDrive para UNIX pueda leerlo, pero que no se pueda modificar.
++
+Para otorgar a un host el permiso de acceso dev-sun1, debe crear el siguiente archivo en el sistema de almacenamiento: `/vol/vol1/sdprbac/sddev-sun1.prbac`
+
+
+
+. Configure los permisos del archivo para ese host.
++
+Debe utilizar el siguiente formato para el archivo:
+
++
+** Sólo puede especificar un nivel de permisos. Para otorgar al host acceso completo a todas las operaciones, introduzca la cadena DE ACCESO.
+** La cadena de permisos debe ser la primera cosa del archivo. El formato de archivo no es válido si la cadena de permisos no está en la primera línea.
+** Las cadenas de permisos no distinguen mayúsculas y minúsculas.
+** Ningún espacio en blanco puede preceder a la cadena de permisos.
+** No se permiten comentarios.
++
+Estas cadenas de permisos válidas permiten los siguientes niveles de acceso:
+
+** NONE: El host no tiene acceso al sistema de almacenamiento.
+** SNAP CREATE: El host puede crear copias de Snapshot.
+** USO SNAP--el host puede eliminar y cambiar el nombre de las copias Snapshot.
+** SNAP ALL: El host puede crear, restaurar, eliminar y cambiar el nombre de las copias Snapshot.
+** STORAGE CREATE DELETE: El host puede crear, redimensionar y eliminar almacenamiento.
+** USO DE ALMACENAMIENTO: El host puede conectar y desconectar el almacenamiento, así como realizar estimación de división de clones y comenzar a usar el almacenamiento.
+** TODO el ALMACENAMIENTO: El host puede crear, eliminar, conectar y desconectar el almacenamiento, y también realizar cálculos de división de clones y comenzar a dividir clones en el almacenamiento.
+** TODOS LOS ACCESOS: El host tiene acceso a todas las operaciones anteriores de la SnapDrive para UNIX. Cada una de estas cadenas de permisos es discreta. Si especifica EL USO SNAP, el host puede eliminar o cambiar el nombre de las copias Snapshot, pero no puede crear copias Snapshot ni restaurar ni realizar ninguna operación de aprovisionamiento de almacenamiento.
+
+
++
+Independientemente de los permisos establecidos, el host puede realizar operaciones de visualización y lista.
+
+. Verifique los permisos de acceso con el siguiente comando:
++
+`*snapdrive config access show _filer_name_*`
+
+

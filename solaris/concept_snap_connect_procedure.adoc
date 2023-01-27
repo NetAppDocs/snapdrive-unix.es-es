@@ -1,0 +1,33 @@
+---
+permalink: solaris/concept_snap_connect_procedure.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect 
+summary: El procedimiento de conexión a presión es válido para Data ONTAP 7.2 o posterior y explica los pasos para el funcionamiento de la conexión a presión. 
+---
+= Procedimiento de conexión a presión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El procedimiento de conexión a presión es válido para Data ONTAP 7.2 o posterior y explica los pasos para el funcionamiento de la conexión a presión.
+
+Los siguientes pasos muestran el procedimiento de conexión a snap:
+
+. SnapDrive para UNIX obtiene el nombre de especificación de archivo y el nombre de snapshot de la CLI de snap connect. A continuación, busca los volúmenes del sistema de almacenamiento original donde residen las copias de Snapshot.
+. SnapDrive para UNIX elige un método de clonado adecuado para entidades de sistemas de almacenamiento en función de las opciones de configuración de la CLI.
++
+
+NOTE: Si se especifica la opción CLI, siempre reemplaza la `snapdrive.conf` opción de archivo.
+
++
+.. Si `-clone lunclone` La opción se especifica en la CLI o en `san-clone-method=lunclone` en la `snapdrive.conf` File, a continuación, SnapDrive para UNIX crea un clon de LUN en el mismo volumen a partir de la copia de Snapshot indicada.
+.. Si `-clone unrestricted` La opción se especifica en la CLI o en `san-clone-method=unrestricted` en la `snapdrive.conf` File, a continuación SnapDrive para UNIX crea o reutiliza FlexClone multiuso a partir de la copia Snapshot indicada.
+.. Si `-clone optimal` La opción se especifica en la CLI o en `san-clone-method=optimal` en la `snapdrive.conf` File, entonces SnapDrive para UNIX elige automáticamente entre FlexClone restringido y clon de LUN, en función de la configuración del sistema de almacenamiento.
+
+
+
+
+
+NOTE: De forma predeterminada, los clones creados por SnapDrive para UNIX son clones de backups.

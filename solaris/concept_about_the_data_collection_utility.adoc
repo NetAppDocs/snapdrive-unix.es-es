@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_about_the_data_collection_utility.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, data, collection, utility, dc 
+summary: 'SnapDrive para UNIX proporciona una utilidad de recogida de datos \(snapdrive.dc\) que recopila información de diagnóstico acerca de SnapDrive para UNIX, comprobador de configuración de SnapDrive y configuración del sistema.' 
+---
+= Acerca de la utilidad de recopilación de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX proporciona una utilidad de recopilación de datos (`snapdrive.dc`) Que recopila información de diagnóstico acerca de SnapDrive para UNIX, el comprobador de configuración de SnapDrive y la configuración del sistema.
+
+Para ello, ejecuta las utilidades de diagnóstico de NetApp y copia de los archivos de registro de SnapDrive para UNIX en un directorio especial. A continuación, crea un archivo comprimido que contiene esta información que puede enviar al soporte técnico de NetApp para su análisis.
+
+En SnapDrive 5.0 para UNIX, el `-dump` y.. `-dumpall` las opciones están implementadas. La `-dump` La opción recopila el primer registro del comando SnapDrive y la `-dumpall` La opción recopila todos los registros del comando SnapDrive. Cuando se ejecutan las operaciones de SnapDrive con el `-dump` o. `-dumpall` opción, `snapdrive.dc` se genera y enumera la ubicación del archivo comprimido. El archivo tar recoge toda la información de registro de los comandos de la SnapDrive, puede destar y recuperar el archivo desde la ubicación correspondiente.
+
+La `-dump` o. `-dumpall` La opción se ha implementado para comandos SnapDrive como `snapdrive storage show`, `snapdrive storage create`, `snapdrive storage delete`, `snapdrive snap create`, `snapdrive snap connect`, `snapdrive snap disconnect`, `snapdrive snap restore`, `snapdrive clone split estimate`, y. `snapdrive clone split start` operaciones.
+
+
+NOTE: No copia el archivo que contiene información de inicio de sesión de los sistemas de almacenamiento. Tampoco realiza ningún cambio en la configuración.

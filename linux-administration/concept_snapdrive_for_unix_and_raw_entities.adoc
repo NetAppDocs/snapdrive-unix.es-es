@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_snapdrive_for_unix_and_raw_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, raw, entity, lun, file, host, lvm 
+summary: SnapDrive para UNIX permite una operación de almacenamiento para una entidad sin formato, como un LUN, o un sistema de archivos que se puede crear directamente en un LUN, y realiza la operación de almacenamiento sin usar el sistema host, LVM. 
+---
+= SnapDrive para UNIX y entidades RAW
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX permite una operación de almacenamiento para una entidad sin formato, como un LUN, o un sistema de archivos que se puede crear directamente en un LUN, y realiza la operación de almacenamiento sin usar el sistema host, LVM.
+
+Los comandos de almacenamiento de SnapDrive para UNIX gestionan entidades sin formato, como las LUN, sin activar LVM.SnapDrive para UNIX, le permite crear, eliminar, conectar y desconectar LUN, y los sistemas de archivos que contienen, sin activar el LVM.

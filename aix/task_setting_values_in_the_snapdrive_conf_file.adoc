@@ -1,0 +1,68 @@
+---
+permalink: aix/task_setting_values_in_the_snapdrive_conf_file.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, value, name, add, change 
+summary: Puede cambiar los valores del archivo snapdrive.conf o añadir nuevos pares nombre-valor. 
+---
+= Valores de configuración en el archivo snapdrive.conf
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede cambiar los valores de `snapdrive.conf` archivo o agregue nuevos pares nombre-valor.
+
+Debe iniciar sesión como usuario raíz.
+
+.Pasos
+. Realice una copia de seguridad del `snapdrive.conf` archivo.
+. Abra el `snapdrive.conf` archivo en un editor de texto.
+. Para añadir una pareja nombre-valor, utilice el siguiente formato:
++
+`*config-option-name=value _value_ # optional comment*`
+
++
+`_config-option-name_` es el nombre de la variable que se desea configurar; por ejemplo, archivo-registro-auditoría. `_value_` es el valor que desea asignar a esta opción.
+
++
+Si desea incluir un comentario con el par nombre-valor, preceda el comentario con un signo de número (#).
+
++
+Sólo debe introducir un par nombre-valor por línea.
+
++
+Si el nombre o el valor utiliza una cadena, encierre la cadena entre comillas simples ('') o dobles ("). Puede colocar las comillas alrededor de todo el par nombre-valor o alrededor del valor. Los siguientes ejemplos muestran cómo se pueden usar comillas y comentarios con pares de nombre-valor:
+
++
+`*"config-option-one=string with white space" # double quotes around the pair*`
+
++
+`*config-option-two="string with white space" # double quotes around the value*`
+
++
+`*config-option-2B=`'string with white space`' # single quotes around the value*`
+
+. Para modificar un par nombre-valor, reemplace el valor actual por el nuevo valor.
++
+Siga los pasos que se indican a continuación para asegurarse de que los valores predeterminados se registran en el archivo.
+
++
+.. Agregue el signo (#) a la línea que desea modificar.
+.. Copie la línea.
+.. Active el texto copiado eliminando el signo de número (#).
+.. Modifique el valor.
+
+
++
+Si desea especificar un valor en blanco (por ejemplo, para deshabilitar el archivo de registro de auditoría), introduzca una pareja de comillas dobles ("").
+
+. Guarde el archivo después de realizar los cambios.
++
+SnapDrive para UNIX comprueba automáticamente este archivo cada vez que se inicia. Los cambios surtirán efecto la próxima vez que se inicie.
+
+. Reinicie el daemon SnapDrive para UNIX mediante el `snapdrived restart` comando.
++
+Es necesario reiniciar el daemon para `snapdrive.conf` los cambios en el archivo se aplicarán.
+
+

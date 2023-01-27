@@ -1,0 +1,33 @@
+---
+permalink: aix/task_specifying_login_information_for_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, infromation, vserver, specify 
+summary: Debe especificar la información de inicio de sesión del usuario para el Vserver. En función de lo que haya especificado al configurar el Vserver, cada Vserver debe utilizar el nombre de usuario del Vserver configurado. Si se produce un cambio en el nombre de Vserver, debe asegurarse de que el nuevo nombre Vserver esté configurado en SnapDrive para UNIX. 
+---
+= Especificación de la información de inicio de sesión para el Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe especificar la información de inicio de sesión del usuario para el Vserver. En función de lo que haya especificado al configurar el Vserver, cada Vserver debe utilizar el nombre de usuario del Vserver configurado. Si se produce un cambio en el nombre de Vserver, debe asegurarse de que el nuevo nombre Vserver esté configurado en SnapDrive para UNIX.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config set _user_name filername_ [_filername..._]*`
+
++
+** `_user_name_` Es el nombre de usuario que se especificó para el Vserver al configurarlo por primera vez. El usuario predeterminado es vsadmin. `_filername_` Es el nombre del Vserver.
+** `_filer_name_` Permite introducir varios vServers en una línea de comandos si todos tienen el mismo inicio de sesión de usuario o contraseña. Debe introducir al menos un nombre de Vserver.
++
+[listing]
+----
+# snapdrive config set vsadmin clstr-vs2
+Password for vsadmin:
+Retype password:
+----
+
+
+

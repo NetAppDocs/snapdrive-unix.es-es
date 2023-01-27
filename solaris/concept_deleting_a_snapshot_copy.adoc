@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_deleting_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, snapshot, copy 
+summary: Puede eliminar una copia Snapshot de un sistema de almacenamiento mediante el comando SnapDrive snap delete. 
+---
+= Eliminar una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar una copia de Snapshot en un sistema de almacenamiento mediante el `snapdrive snap delete` comando.

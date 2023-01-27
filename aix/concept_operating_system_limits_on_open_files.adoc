@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_operating_system_limits_on_open_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, operating, system, limit, open, files 
+summary: SnapDrive para UNIX comprueba el número de archivos abiertos simultáneamente. Si se cruza el límite, SnapDrive para UNIX genera un error. 
+---
+= Límites del sistema operativo en archivos abiertos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX comprueba el número de archivos abiertos simultáneamente. Si se cruza el límite, SnapDrive para UNIX genera un error.
+
+SnapDrive para UNIX comprueba las limitaciones del sistema operativo en cuanto al número de archivos abiertos por un proceso.
+
+
+NOTE: El límite predeterminado para el número de identificadores de archivos abiertos simultáneamente por un solo proceso varía según el sistema operativo. Compruebe la documentación del sistema operativo para determinar el límite.
+
+Si el número de LUN abiertas para una operación supera el límite del sistema operativo en el número de identificadores de archivos abiertos simultáneamente por un proceso, SnapDrive para UNIX sale con el siguiente mensaje de error:
+
+`0001-001 Admin error: Unable to open device path-to-device`

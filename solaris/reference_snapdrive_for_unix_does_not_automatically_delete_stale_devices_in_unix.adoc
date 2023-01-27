@@ -1,0 +1,20 @@
+---
+permalink: solaris/reference_snapdrive_for_unix_does_not_automatically_delete_stale_devices_in_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, stale, devices 
+summary: 'Los dispositivos obsoletos pueden dejarse detrás en el entorno Fibre Channel sobre Ethernet \(FCoE\) cuando se producen errores en las operaciones de SnapDrive para UNIX debido a problemas de configuración. Estos dispositivos obsoletos no se eliminan automáticamente, por lo que debe conocer la solución.' 
+---
+= SnapDrive para UNIX no elimina automáticamente los dispositivos obsoletos de UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los dispositivos obsoletos pueden dejarse detrás en el entorno Fibre Channel sobre Ethernet (FCoE) cuando se producen errores en las operaciones de SnapDrive para UNIX debido a problemas de configuración. Estos dispositivos obsoletos no se eliminan automáticamente, por lo que debe conocer la solución.
+
+
+
+== Solución alternativa
+
+Ejecute el script de detección nativa proporcionado por el proveedor para eliminar todas las entradas antiguas o el script de nueva detección mediante el `rescan-scsibus.sh --r` comando que se incluye con `sg3` paquetes.

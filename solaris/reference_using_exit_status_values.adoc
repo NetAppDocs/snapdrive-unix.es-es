@@ -1,0 +1,18 @@
+---
+permalink: solaris/reference_using_exit_status_values.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, exit, status, value 
+summary: Los valores de estado de cierre se utilizan en las secuencias de comandos para determinar el éxito o el fallo de un comando de SnapDrive para UNIX. 
+---
+= Mediante el uso de valores de estado de cierre
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los valores de estado de cierre se utilizan en las secuencias de comandos para determinar el éxito o el fallo de un comando de SnapDrive para UNIX.
+
+* Un valor cero indica que el comando se ha completado correctamente.
+* Un valor distinto de cero indica que el comando no se ha completado, y proporciona información acerca de la causa y la gravedad de la condición de error.
+

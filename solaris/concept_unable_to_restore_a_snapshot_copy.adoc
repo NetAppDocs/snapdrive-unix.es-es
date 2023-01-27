@@ -1,0 +1,44 @@
+---
+permalink: solaris/concept_unable_to_restore_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot, copy 
+summary: Hay pocas condiciones que afectan a la capacidad del comando SnapDrive snap restore para restaurar una copia snapshot. 
+---
+= No se puede restaurar una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay pocas condiciones que afectan a la `snapdrive snap restore` Capacidad de un comando para restaurar una copia Snapshot.
+
+* La `snapdrive snap restore` el comando debe ser capaz de realizar las siguientes tareas:
++
+** Consulte todos los grupos de discos para obtener una lista de LUN.
+** Consulte todas las LUN a través del comando SCSI. Los volúmenes host y los sistemas de archivos no necesitan estar disponibles y montados para el `snapdrive snap restore` comando para tener éxito.
+
+
+* Los permisos de acceso deben permitir que el host cree y restaure una copia de Snapshot de la información de ese sistema de almacenamiento.
+* El directorio montado de NFS se debe exportar correctamente al host para poder montarse.
+
+
+
+NOTE: Siempre debe tomar otra copia Snapshot después de agregar una LUN a o quitar una LUN de un grupo de discos.
+
+* Si añade un volumen host o sistemas de archivos a un grupo de discos después de tomar una copia Snapshot y luego intenta restaurar la copia Snapshot, recibe un mensaje de error. Debe incluir el `force` opción (`-f`) en la línea de comandos de la operación de restauración para tener éxito en esta situación.
++
+
+NOTE: Cuando se crea y restaura la copia Snapshot, no se puede acceder a los volúmenes host y los sistemas de archivos que se añaden después de tomar una copia Snapshot.
+
+* Si cambia el nombre de un volumen de host o de un sistema de archivos o cambia el punto de montaje después de realizar una copia Snapshot y, a continuación, intenta restaurar ese volumen, se produce un error en la operación de restauración. Debe incluir el `force` opción (`-f`) en la línea de comandos de la operación de restauración para tener éxito en esta situación.
++
+
+NOTE: Utilice la `-f` opción con gran cuidado para asegurarse de que no sobrescribe accidentalmente algo que no tenía intención de sobrescribir.
+
+* Si cambia el nombre de una LUN después de tomar una copia Snapshot y luego intenta restaurar esa copia Snapshot, la operación de restauración falla. Tras cambiar el nombre a una LUN, debe crear una nueva copia Snapshot.
++
+
+NOTE: Después de iniciar una operación de restauración de Snapshot, no la detenga. Detener esta operación puede dejar el sistema en estado incoherente. Por tanto, es posible que deba realizar una recuperación manual.
+
+

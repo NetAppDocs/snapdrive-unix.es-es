@@ -1,0 +1,36 @@
+---
+permalink: aix/concept_reason_to_refresh_the_dmp_paths.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, dmp, path, refresh 
+summary: En los hosts con configuraciones FC y DMP, el comando SnapDrive Storage delete - lun puede bloquearse. 
+---
+= Motivo para actualizar las rutas DMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En hosts con configuraciones FC y DMP, el `snapdrive storage delete - lun` el comando puede bloquearse.
+
+El comando puede bloquearse debido a una instalación o configuración inadecuada de los siguientes componentes:
+
+* NTAPasl
+* Pila de Veritas (base de almacenamiento)
+* Licencias multivía
+
+
+Debe actualizar la información de las rutas de DMP correctamente después de que se haya habilitado, deshabilitado o añadido una ruta de FC. Para actualizar las rutas DMP, ejecute los comandos siguientes de la forma secuencial como se indica a continuación.
+
+|===
+| *Plataforma* | *Comando* 
+
+
+ a| 
+AIX
+ a| 
+* `cfgmg`
+* `vxdisk scandisk`
+
+
+|===

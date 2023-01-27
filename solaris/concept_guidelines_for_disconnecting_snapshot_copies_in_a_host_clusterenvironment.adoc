@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_guidelines_for_disconnecting_snapshot_copies_in_a_host_clusterenvironment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, copy, host, cluster 
+summary: Al desconectar una copia Snapshot para una entidad NFS, SnapDrive para UNIX desmonta el sistema de archivos, elimina la entrada de montaje en el sistema de archivos, elimina el punto de montaje, etc. 
+---
+= Directrices para desconectar las copias de Snapshot en un entorno de clústeres de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al desconectar una copia Snapshot para una entidad NFS, SnapDrive para UNIX desmonta el sistema de archivos, elimina la entrada de montaje en el sistema de archivos, elimina el punto de montaje, etc.
+
+* La `snapdrive snap disconnect` el comando se puede ejecutar desde cualquier nodo del clúster de hosts.
+* Para que la operación de desconexión de instantánea se realice correctamente, debe ser verdad una de las siguientes:
++
+** Las entidades de almacenamiento deben compartirse en todos los nodos del clúster de hosts.
+** Las LUN deben asignarse a todos los nodos del clúster de hosts.
+
+
+* Puede desconectar una entidad de almacenamiento de un nodo específico mediante el `-devicetype dedicated` o la `shared` opción. Si va a desconectar una entidad de almacenamiento que está en un modo dedicado, puede omitir `-devicetype` opción de la sintaxis de la línea de comandos, porque el valor predeterminado es dedicado.
+* La `snapdrive snap disconnect` El comando da un error si una entidad de almacenamiento compartido o LUN está desconectada con el `dedicated` O si una LUN o entidad de almacenamiento dedicada se desconecta con la opción compartida.
+* SnapDrive para UNIX ejecuta la `snapdrive snap disconnect` en el nodo maestro. Destruye las entidades de almacenamiento, desconecta las LUN de todos los nodos que no son maestros y, a continuación, desconecta las LUN del nodo maestro en el clúster de hosts. Si encuentra algún error, la operación de desconexión de Snapshot falla.
+

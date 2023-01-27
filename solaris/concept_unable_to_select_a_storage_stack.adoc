@@ -1,0 +1,28 @@
+---
+permalink: solaris/concept_unable_to_select_a_storage_stack.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, select, storage, stack 
+summary: No es posible seleccionar una pila de almacenamiento debido a que se han especificado valores incorrectos en el archivo snapdrive.conf. 
+---
+= No se pudo seleccionar una pila de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No es posible seleccionar una pila de almacenamiento debido a los valores incorrectos especificados en el `snapdrive.conf` archivo.
+
+Aparece el siguiente mensaje de advertencia.
+
+[listing]
+----
+WARNING!!! Unable to find a SAN storage stack. Please verify that the appropriate transport protocol, volume manager, file system and multipathing type are installed and configured in the system. If NFS is being used, this warning message can be ignored.
+----
+* Si utiliza un entorno NFS, ignore el mensaje de advertencia y continúe utilizando las operaciones de SnapDrive en el sistema host.
+* Si utiliza un entorno SAN, asegúrese de que se especifican los valores aceptables adecuados en la `snapdrive.conf` Archivo como se indica en la pila de matriz Solaris. A continuación, reinicie el daemon.
+
+
+*Información relacionada*
+
+xref:reference_stack_requirements.adoc[Requisitos de pila]

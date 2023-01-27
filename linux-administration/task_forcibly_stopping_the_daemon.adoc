@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/task_forcibly_stopping_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, daemon, stop, force, cancel, undefined 
+summary: Puede detener el daemon de manera forzada si no desea esperar a que todos los comandos completen la ejecución. Tras recibir la solicitud de detener el daemon de manera forzada, el daemon SnapDrive for UNIX cancela cualquier comando que se encuentre en ejecución o en cola. Cuando detenga el daemon de manera forzada, el estado de su sistema podría no estar definido. No se recomienda utilizar este método. 
+---
+= Detener al demonio por la fuerza
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede detener el daemon de manera forzada si no desea esperar a que todos los comandos completen la ejecución. Tras recibir la solicitud de detener el daemon de manera forzada, el daemon SnapDrive for UNIX cancela cualquier comando que se encuentre en ejecución o en cola. Cuando detenga el daemon de manera forzada, el estado de su sistema podría no estar definido. No se recomienda utilizar este método.
+
+Debe iniciar sesión como usuario raíz.
+
+.Pasos
+. Detenga forzosamente el demonio:
++
+`*snapdrived -force stop*`
+
+

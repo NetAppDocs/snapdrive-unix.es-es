@@ -1,0 +1,31 @@
+---
+permalink: solaris/concept_types_of_logs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, log, type 
+summary: SnapDrive para UNIX admite varios tipos de archivos de registro, lo que ayuda a solucionar problemas cuando SnapDrive para UNIX no funciona como se espera. 
+---
+= Tipos de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX admite varios tipos de archivos de registro, lo que ayuda a solucionar problemas cuando SnapDrive para UNIX no funciona como se espera.
+
+* Registro de auditoría
++
+SnapDrive para UNIX registra todos los comandos y sus códigos de devolución en un registro de auditoría. SnapDrive para UNIX realiza una entrada cuando inicia un comando y otro cuando éste se completa. La entrada posterior incluye el estado del comando y la hora de finalización.
+
+* Registro de recuperación
++
+Algunas operaciones de SnapDrive para UNIX tienen la posibilidad de dejar el sistema en un estado incoherente o menos utilizable si se interrumpe. Esta situación podría ocurrir si un usuario termina el programa o si el host se bloquea en medio de una operación. El registro de recuperación contiene los pasos de una operación de restauración de Snap. Documenta los pasos y el progreso realizado para que el soporte técnico pueda ayudarle con el proceso de recuperación manual.
+
+* Registro de seguimiento
++
+SnapDrive para UNIX informa de información útil para diagnosticar problemas. Si tiene un problema, el soporte técnico de NetApp puede solicitar este archivo de registro.
+
++
+SnapDrive 4.0 para UNIX introdujo el servicio del daemon de SnapDrive para UNIX. Para que se ejecuten los comandos de SnapDrive para UNIX, debe estar ejecutándose el daemon. El seguimiento de daemon debe llevarse a cabo para cada comando individual, incluso cuando los comandos se ejecuten en paralelo. La ubicación y el nombre del archivo de registro es `/var/log/sd-trace.log`. Estos archivos de seguimiento sólo tienen entradas de seguimiento específicas de comandos. Los registros de seguimiento para la ejecución del daemon se registran en un archivo de seguimiento diferente `/var/log/sd-daemon-trace.log`.
+
+

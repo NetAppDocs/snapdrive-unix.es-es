@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_deleting_a_userlogin_for_a_storagesystem.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, user, login, storage, system, command 
+summary: Puede eliminar un inicio de sesión de usuario para uno o más sistemas de almacenamiento ejecutando el comando SnapDrive config delete. 
+---
+= Eliminar un inicio de sesión de usuario en un sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar un inicio de sesión de usuario para uno o más sistemas de almacenamiento ejecutando el `snapdrive config delete` comando.
+
+Asegúrese de que ha iniciado sesión como usuario raíz.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config delete _appliance_name_ [_appliance_name_]*`
+
++
+`_appliance_name_` es el nombre del sistema de almacenamiento para el que se desea eliminar la información de inicio de sesión de usuario.
+
++
+SnapDrive para UNIX quita la información de inicio de sesión de nombre de usuario o contraseña de los sistemas de almacenamiento que especifique.
+
++
+
+NOTE: Para habilitar SnapDrive para UNIX con el fin de acceder al sistema de almacenamiento, debe especificar un nuevo inicio de sesión de usuario.
+
+

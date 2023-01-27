@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_host_cluster_environment_for_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, cluster, unix 
+summary: Las operaciones de SnapDrive para sistemas en clúster host solo están disponibles para Veritas SFRAC en un host Solaris. 
+---
+= Entorno de cluster host para SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las operaciones de SnapDrive para sistemas en clúster host solo están disponibles para Veritas SFRAC en un host Solaris.

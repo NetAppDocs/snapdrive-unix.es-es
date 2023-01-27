@@ -1,0 +1,49 @@
+---
+permalink: aix/reference_preconfigured_roles_for_ease_of_user_role_configuration.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, user, role, configuration 
+summary: Las funciones preconfiguradas simplifican la tarea de asignar funciones a los usuarios. 
+---
+= Funciones preconfiguradas para facilitar la configuración de funciones de usuario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las funciones preconfiguradas simplifican la tarea de asignar funciones a los usuarios.
+
+En la siguiente tabla, se enumeran los roles predefinidos:
+
+|===
+| Nombre del rol | Descripción 
+
+
+ a| 
+GlobalSDStorage
+ a| 
+Gestión del almacenamiento con SnapDrive para UNIX
+
+
+
+ a| 
+GlobalSDConfig
+ a| 
+Gestionar configuraciones con SnapDrive para UNIX
+
+
+
+ a| 
+GlobalSDSnapshot
+ a| 
+Gestión de copias Snapshot con SnapDrive para UNIX
+
+
+
+ a| 
+GlobalSDFullControl
+ a| 
+Uso completo de SnapDrive para UNIX
+
+|===
+En la tabla anterior, Global se refiere a todos los sistemas de almacenamiento gestionados por una consola de Operations Manager.

@@ -1,0 +1,56 @@
+---
+permalink: aix/concept_contents_of_an_audit_log_file.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, contents, aufit, log, file 
+summary: El registro de auditoría muestra información sobre los comandos emitidos con SnapDrive para UNIX. 
+---
+= Contenido de un archivo de registro de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El registro de auditoría muestra información sobre los comandos emitidos con SnapDrive para UNIX.
+
+El archivo de registro de auditoría mantiene el historial de la siguiente información:
+
+* Comandos emitidos.
+* El valor devuelto por esos comandos.
+* El ID de usuario del usuario que ha invocado el comando.
+* Marca de hora que indica cuándo se inició el comando (sin código de retorno) y otra Marca de hora que indica cuándo terminó el comando (con código de devolución). El registro de auditoría muestra solo información acerca de `snapdrive` utilice (comandos emitidos).
+
+
+Un archivo de registro de auditoría contiene la siguiente información.
+
+|===
+| Campo | Descripción 
+
+
+ a| 
+uid
+ a| 
+ID de usuario
+
+
+
+ a| 
+gid
+ a| 
+ID de grupo
+
+
+
+ a| 
+MsgText
+ a| 
+texto del mensaje
+
+
+
+ a| 
+Código de retorno
+ a| 
+código de retorno de un comando
+
+|===

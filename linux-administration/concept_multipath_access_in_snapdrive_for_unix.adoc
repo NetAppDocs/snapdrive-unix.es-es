@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/concept_multipath_access_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, storage, standard, multipath, multiple, network, path, host 
+summary: SnapDrive para UNIX admite el acceso multivía de FC a los sistemas de almacenamiento mediante una solución de software multivía estándar. Al utilizar la función multivía, puede configurar varias rutas de red entre el host y el sistema de almacenamiento. 
+---
+= Compatible con el acceso multivía en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX admite el acceso multivía de FC a los sistemas de almacenamiento mediante una solución de software multivía estándar. Al utilizar la función multivía, puede configurar varias rutas de red entre el host y el sistema de almacenamiento.
+
+|===
+| Plataforma | Solución multivía 
+
+
+ a| 
+Linux
+ a| 
+NativeMPIO [DM Multipath]
+
+|===
+Si una ruta falla, el tráfico de FC continúa en las rutas restantes. La multivía es necesaria si el host tiene varias rutas a una LUN y funciona haciendo que las rutas subyacentes sean transparentes para el usuario. Si la solución multivía especificada en el archivo de configuración para operaciones de SnapDrive para UNIX está configurada y es compatible, SnapDrive para UNIX utiliza la solución multivía especificada.

@@ -1,0 +1,20 @@
+---
+permalink: solaris/concept_splitting_the_flexclone_volume.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, split, flexclone, volume 
+summary: Puede dividir el volumen de FlexClone existente mediante los comandos de la SnapDrive para UNIX. 
+---
+= Separación del volumen FlexClone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede dividir el volumen de FlexClone existente mediante los comandos de la SnapDrive para UNIX.
+
+Para dividir el volumen FlexClone, debe especificar de forma adicional el `-split` La opción CLI con `snap connect` comando. Para desconectarse, debe proporcionar la `-split` opción con el comando desconectar a. `disconnect` El volumen FlexClone dividido. Los modos de bloqueo y no bloqueo de iniciar un `-split` la operación es válida aquí.
+
+*Información relacionada*
+
+xref:concept_splitting_the_volume_or_lun_clone_operations.adoc[Dividir un clon de volumen o LUN]

@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_connectingsnapshot_copies_onmirrored_storagesystems.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, snapshot, mirrored, storage 
+summary: En el caso de una copia Snapshot en un sistema de almacenamiento reflejado, puede conectar la copia Snapshot en el sistema de almacenamiento de origen y el sistema de destino. 
+---
+= Conexión de copias Snapshot en sistemas de almacenamiento duplicados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el caso de una copia Snapshot en un sistema de almacenamiento reflejado, puede conectar la copia Snapshot en el sistema de almacenamiento de origen y el sistema de destino.
+
+Cuando se crea una copia de Snapshot en un sistema de almacenamiento reflejado, la copia de Snapshot se replica automáticamente, desde el sistema de origen donde se crea, al sistema de almacenamiento de destino (reflejado). SnapDrive para UNIX permite conectar la copia Snapshot al sistema de almacenamiento de origen. También puede conectar la copia Snapshot al sistema de almacenamiento de destino.

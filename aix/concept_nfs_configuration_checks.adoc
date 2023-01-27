@@ -1,0 +1,26 @@
+---
+permalink: aix/concept_nfs_configuration_checks.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, nfs, configuration, check 
+summary: 'Para las configuraciones que utilizan Network File System \(NFS\), debe comprobar que los clientes NFS funcionan correctamente antes de configurar los sistemas host y de almacenamiento.' 
+---
+= Comprobaciones de configuración de NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para las configuraciones que utilizan Network File System (NFS), debe comprobar que los clientes de NFS funcionan correctamente antes de configurar los sistemas de almacenamiento y host.
+
+Si tiene una configuración que utiliza NFS, debe realizar las siguientes tareas:
+
+* Asegurarse de que los clientes NFS funcionan correctamente.
++
+Para obtener más información sobre la gestión de protocolos NFS, consulte link:https://library.netapp.com/ecm/ecm_download_file/ECMP1401220["Guía de acceso a archivos y gestión de protocolos para 7-Mode"] Si utiliza Data ONTAP 7-Mode, consulte link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["Guía de gestión de acceso a archivos para NFS"] Si utiliza Clustered Data ONTAP.
+
+* Configure su host y sus sistemas de almacenamiento.
++
+Para utilizar SnapDrive para UNIX con directorios montados en NFS en los sistemas de almacenamiento, debe asegurarse de que los directorios del sistema de almacenamiento se exporten correctamente al host. Si el host tiene varias interfaces de protocolo de Internet (IP), así como interfaces de datos y gestión para el sistema de almacenamiento, debe asegurarse de que el directorio se exporta correctamente a las interfaces de datos y de gestión. SnapDrive para UNIX emite advertencias a menos que todas estas interfaces tengan permisos de lectura o escritura, o en el caso del comando SnapDrive snap connect con la opción -readonly, al menos permisos de sólo lectura. Se produce un error en los comandos snap restore de SnapDrive y SnapDrive snap connect si ninguna de esas interfaces tiene permisos para acceder al directorio.
+
+

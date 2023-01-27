@@ -1,0 +1,30 @@
+---
+permalink: aix/concept_mandatory_checks_for_volume_based_snaprestore.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, check, colume, snaprestore, mandatory 
+summary: Antes de llevar a cabo el SnapRestore basado en volúmenes, SnapDrive para UNIX realiza algunas comprobaciones obligatorias con el sistema. Estas comprobaciones son necesarias para que el SnapRestore basado en volumen se utilice de forma segura. El usuario no puede sobreponer las comprobaciones obligatorias. 
+---
+= Comprobaciones obligatorias para SnapRestore basado en volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de llevar a cabo el SnapRestore basado en volúmenes, SnapDrive para UNIX realiza algunas comprobaciones obligatorias con el sistema. Estas comprobaciones son necesarias para que el SnapRestore basado en volumen se utilice de forma segura. El usuario no puede sobreponer las comprobaciones obligatorias.
+
+A continuación, se muestran las comprobaciones obligatorias que realiza SnapDrive para UNIX antes de implementar SnapRestore basado en volúmenes:
+
+* La SnapRestore basada en volúmenes sólo funciona con copias snapshot creadas mediante SnapDrive para UNIX.
+* El volumen en SnapRestore basado en volúmenes no debe ser el volumen raíz de un sistema de almacenamiento.
+* SnapDrive para UNIX comprueba si hay clones de volúmenes. No permite la operación de restauración de volúmenes si hay clones de volúmenes desde copias de Snapshot nuevas. Esta es una limitación impuesta por Data ONTAP.
+* El volumen de la SnapRestore basada en volumen no debe tener ninguna LUN asignada aparte de las LUN especificadas (LUN sin configurar o LUN presentes en el sistema de archivos, grupo de discos o volumen de host) para la restauración.
+* SnapDrive para UNIX comprueba si el volumen existe en una relación de SnapMirror.
+* SnapDrive para UNIX comprueba si el volumen existe en una relación de SnapVault.
+
+
+Las comprobaciones de SnapMirror y SnapVault pueden anularse si SnapDrive para UNIX utiliza Operations Manager para RBAC y el usuario tiene la funcionalidad SD.snapshot.DisruptBaseline en el volumen. Para obtener más información sobre la funcionalidad de RBAC específica para que un usuario anule estas comprobaciones, puede ver el control de acceso basado en roles en SnapDrive para UNIX.
+
+*Información relacionada*
+
+xref:concept_role_based_access_control_in_snapdrive_for_unix.adoc[Control de acceso basado en funciones de SnapDrive para UNIX]

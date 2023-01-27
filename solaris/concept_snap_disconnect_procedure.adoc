@@ -1,0 +1,35 @@
+---
+permalink: solaris/concept_snap_disconnect_procedure.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, cli 
+summary: En esta sección se explica el procedimiento seguido para la desconexión de encaje a presión. 
+---
+= Procedimiento de desconexión de presión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En esta sección se explica el procedimiento seguido para la desconexión de encaje a presión.
+
+Los siguientes pasos muestran el procedimiento de desconexión de broche:
+
+. SnapDrive para UNIX obtiene las especificaciones del archivo host `snap disconnect` La interfaz de línea de comandos e identifica el volumen del sistema de almacenamiento.
+. Tras eliminar las especificaciones del archivo de host y anular la asignación de los LUN, SnapDrive para UNIX comprueba si el volumen actual es un clon creado por SnapDrive.
+. Si SnapDrive crea FlexClone, SnapDrive para UNIX comprueba si:
++
+.. Hay cualquier LUN asignada en el volumen clonado
+.. Existen todos los LUN nuevos en el volumen clonado
+.. Existen copias Snapshot nuevas
+
+
+
+
+Si se cumplen todas las condiciones, SnapDrive para UNIX elimina el volumen clonado. En el caso de un FlexClone sin restricciones, si está configurado el control de acceso basado en roles, SnapDrive para UNIX no llevará a cabo comprobaciones en los subpasos 1 y 2.
+
+En los sistemas de almacenamiento con la versión de Data ONTAP anterior a la 7.2, SnapDrive para UNIX no elimina los volúmenes FlexClone restringidos. Los comandos del sistema de almacenamiento se deben usar para eliminarlos. Sin embargo, los volúmenes FlexClone sin restricciones se eliminan cuando se proporciona al usuario la funcionalidad RBAC adecuada.
+
+*Información relacionada*
+
+xref:concept_role_based_access_control_in_snapdrive_for_unix.adoc[Control de acceso basado en funciones de SnapDrive para UNIX]

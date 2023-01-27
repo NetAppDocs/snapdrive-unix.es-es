@@ -1,0 +1,35 @@
+---
+permalink: solaris/concept_changing_the_defaults_for_the_audit_logs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, audit, log, default 
+summary: El archivo snapdrive.conf se puede usar para cambiar los parámetros de registro de los archivos de registro de auditoría, como el tamaño máximo del archivo de registro de auditoría y el número máximo de archivos de auditoría antiguos. 
+---
+= Cambiar los valores predeterminados de los registros de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar `snapdrive.conf` archivo para modificar los parámetros de registro de los archivos del registro de auditoría, como el tamaño máximo del archivo de registro de auditoría y la cantidad máxima de archivos de auditoría antiguos.
+
+La `snapdrive.conf` file permite establecer los siguientes valores para el registro de auditoría:
+
+* El tamaño máximo del archivo de registro de auditoría. El tamaño predeterminado es 20K. Después de que el tamaño del archivo alcance el valor especificado en `snapdrive.conf` SnapDrive para UNIX cambia el nombre del archivo de registro de auditoría actual agregando un número arbitrario al nombre. A continuación, se inicia un nuevo archivo de auditoría utilizando el nombre especificado por `audit-log-file` valor.
+* La cantidad máxima de archivos de auditoría antiguos que guarda SnapDrive para UNIX. El valor predeterminado es 2.
+
+
+*Ejemplo de un archivo de registro de auditoría:*
+
+[listing]
+----
+2501: Begin uid=0 gid=1 15:35:02 03/12/04 snapdrv snap create -dg
+rdg -snapname snap_rdg1
+2501: Status=0 15:35:07 03/12/04
+2562: Begin uid=0 gid=1 15:35:16 03/12/04 snapdrv snap create -dg
+rdg -snapname snap_rdg1
+2562: FAILED Status=4 15:35:19 03/12/04
+----
+El primer par de líneas de este ejemplo muestra una operación que se realizó correctamente, como se indica en la línea "Status=0".
+
+La segunda pareja de líneas indica una operación que ha fallado. El código de retorno de "4" significa "'ya existe.`" If you look at the two command lines, you can see that the first created a Snapshot copy called `snap_rdg1`. La segunda línea intentó hacer lo mismo, pero el nombre ya existía, por lo que la operación falló.

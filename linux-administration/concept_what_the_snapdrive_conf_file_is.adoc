@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_what_the_snapdrive_conf_file_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, file, configuration, name, value, variable 
+summary: el archivo snapdrive.conf contiene un par nombre-valor para cada variable configurable que SnapDrive utiliza para UNIX para funcionar. SnapDrive para UNIX comprueba automáticamente la información de este archivo cada vez que se inicia. Puede utilizar un editor de texto para modificar este archivo. 
+---
+= Qué es el archivo snapdrive.conf
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive.conf` El archivo contiene un par nombre-valor para cada variable configurable que SnapDrive para UNIX utiliza para funcionar. SnapDrive para UNIX comprueba automáticamente la información de este archivo cada vez que se inicia. Puede utilizar un editor de texto para modificar este archivo.
+
+La `snapdrive.conf` El archivo se encuentra en el directorio de instalación de SnapDrive. La `snapdrive config show` el comando muestra el contenido actual y activo de `snapdrive.conf` archivo.

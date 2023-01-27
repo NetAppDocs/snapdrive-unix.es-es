@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_snapshot_copy_rename.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, copy, rename, snapshot 
+summary: Puede cambiar el nombre de una copia Snapshot mediante el comando instantánea snap rename. También es posible cambiar el nombre de una copia Snapshot en varios sistemas de almacenamiento o volúmenes de sistemas de almacenamiento. 
+---
+= Se cambia el nombre de las copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede cambiar el nombre de una copia Snapshot mediante el `snapshot snap rename` comando. También es posible cambiar el nombre de una copia Snapshot en varios sistemas de almacenamiento o volúmenes de sistemas de almacenamiento.

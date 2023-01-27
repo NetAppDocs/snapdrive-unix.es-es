@@ -1,0 +1,26 @@
+---
+permalink: aix/concept_supported_fc_iscsi_or_nfs_configurations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, fc, iscsi, nfs, configuration 
+summary: SnapDrive para UNIX admite las topologías de clústeres de hosts y parejas de alta disponibilidad. Las configuraciones de FC o iSCSI son compatibles con las mismas configuraciones de clúster de host y pareja de alta disponibilidad que son compatibles con las utilidades de host FC o iSCSI. 
+---
+= Configuraciones FC, iSCSI o NFS compatibles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX admite las topologías de clústeres de hosts y parejas de alta disponibilidad. Las configuraciones de FC o iSCSI son compatibles con las mismas configuraciones de clúster de host y pareja de alta disponibilidad que son compatibles con las utilidades de host FC o iSCSI.
+
+SnapDrive para UNIX admite las siguientes topologías de clústeres de hosts y parejas de alta disponibilidad:
+
+* Configuración independiente en la que hay un solo host conectado a un único sistema de almacenamiento
+* Cualquier topología que implique la recuperación tras fallos de parejas de alta disponibilidad de un sistema de almacenamiento
+* Cualquier topología que tenga clústeres de hosts compatibles con NetApp
+
+
+Para obtener más información acerca de las configuraciones recomendadas para el host y los sistemas de almacenamiento que utiliza, consulte la documentación de AIX Host Utilities.
+
+
+NOTE: Si necesita una configuración de SnapDrive para UNIX que no se menciona en la documentación de utilidades, póngase en contacto con el soporte técnico.

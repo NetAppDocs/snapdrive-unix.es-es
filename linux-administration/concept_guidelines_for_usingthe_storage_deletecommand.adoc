@@ -1,0 +1,25 @@
+---
+permalink: linux-administration/concept_guidelines_for_usingthe_storage_deletecommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, delete, command, guidelines, file 
+summary: El comando SnapDrive Storage delete tiene algunas restricciones en SnapDrive para UNIX. 
+---
+= Directrices para usar el comando Storage delete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage delete` Command tiene algunas restricciones en SnapDrive para UNIX.
+
+* Cuando se elimina un sistema de archivos, SnapDrive para UNIX siempre quita el punto de montaje del sistema de archivos.
++
+Los hosts Linux le permiten conectar varios sistemas de archivos a un único punto de montaje. Sin embargo, SnapDrive para UNIX requiere un punto de montaje único para cada sistema de archivos. La `snapdrive storage delete` el comando genera errores si el usuario lo utiliza para eliminar sistemas de archivos adjuntos a un único punto de montaje.
+
+* Si utiliza la `-lun` Opción para especificar el nombre de una LUN que sea miembro de un grupo de discos de host o de un sistema de archivos, la `snapdrive storage delete` error del comando.
+* Si utiliza `-lun` Opción para especificar el nombre del LUN que no se ha detectado mediante software multivía en el host, el `snapdrive storage delete` error del comando.
+
+
+
+NOTE: `snapdrive storage delete` Se produce un error en el comando mientras se usa el LUN de RDM, si el igroup de asignación tiene más de dos nombres de puerto WWPN en las versiones anteriores a SnapDrive 5.2 para UNIX.

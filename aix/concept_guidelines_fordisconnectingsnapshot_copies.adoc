@@ -1,0 +1,19 @@
+---
+permalink: aix/concept_guidelines_fordisconnectingsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, guidelines, disconnect, snapshot, copy 
+summary: A continuación se enumeran las directrices para desconectar una copia Snapshot para las LUN, las entidades de almacenamiento o los directorios de NFS. 
+---
+= Directrices para desconectar las copias snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A continuación se enumeran las directrices para desconectar una copia Snapshot para las LUN, las entidades de almacenamiento o los directorios de NFS.
+
+* Al desconectar un sistema de archivos, SnapDrive para UNIX elimina siempre el punto de montaje.
+* Para deshacer los efectos de la operación de conexión de instantánea, utilice el comando desconectar de instantánea.
+* Si establece la `_enable-split-clone_` valor de variable de configuración a. `on` o. `sync` Durante la operación de conexión de instantánea y. `off` Durante la operación de desconexión de Snapshot, SnapDrive para UNIX no elimina el volumen o la LUN originales presentes en la copia Snapshot.
+

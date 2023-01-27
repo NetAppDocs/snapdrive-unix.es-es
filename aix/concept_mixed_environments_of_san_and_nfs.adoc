@@ -1,0 +1,27 @@
+---
+permalink: aix/concept_mixed_environments_of_san_and_nfs.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, mixed, san, nfs, environment 
+summary: En entornos mixtos DE SAN y NFS, es necesario asignar la interfaz de gestión y datos de modo que la primera interfaz de datos sea la misma que la de gestión. 
+---
+= Entornos SAN y NFS mixtos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En entornos mixtos DE SAN y NFS, es necesario asignar la interfaz de gestión y datos de modo que la primera interfaz de datos sea la misma que la de gestión.
+
+En el ejemplo siguiente, la interfaz de gestión es `10.72.197.91`, y la interfaz de datos es `a10.72.220.91`.
+
+[listing]
+----
+
+#snapdrive config set -mgmtpath f3050-197-91 f3050-197-91 f3050-197-91 f3050-220-91
+
+#snapdrive config list -mgmtpath
+ system name        management interface   datapath interface
+ --------------------------------------------------------------------
+ bart               10.72.197.91           10.72.197.91|10.72.220.91
+----

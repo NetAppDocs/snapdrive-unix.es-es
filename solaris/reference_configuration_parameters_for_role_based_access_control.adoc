@@ -1,0 +1,68 @@
+---
+permalink: solaris/reference_configuration_parameters_for_role_based_access_control.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, variable, rbac, access, control, role 
+summary: Debe configurar las distintas variables de configuración relacionadas con el control de acceso basado en roles en el archivo snapdrive.conf. 
+---
+= Variables de configuración para el control de acceso basado en roles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar las diversas variables de configuración relacionadas con el control de acceso basado en roles en la `snapdrive.conf` archivo.
+
+|===
+| Variable | Descripción 
+
+
+ a| 
+`_contact-http-dfm-port = 8088_`
+ a| 
+Especifica el puerto HTTP que se utilizará para comunicarse con un servidor de consola de Operations Manager. El valor predeterminado es 8088.
+
+
+
+ a| 
+`_contact-ssl-dfm-port = 8488_`
+ a| 
+Especifica el puerto SSL que se debe utilizar para comunicarse con un servidor de consola de Operations Manager. El valor predeterminado es 8488.
+
+
+
+ a| 
+`_rbac-method=dfm_`
+ a| 
+Especifica los métodos de control de acceso. Los posibles valores son `native` y.. `dfm`.
+
+Si el valor es `native`, el archivo de control de acceso almacenado en `/vol/vol0/sdprbac/sdhost-name.prbac` se utiliza para comprobaciones de acceso.
+
+Si el valor se establece en `dfm`, La consola de Operations Manager es un requisito previo. En este caso, SnapDrive para UNIX envía comprobaciones de acceso a la consola de Operations Manager.
+
+
+
+ a| 
+`_rbac-cache=on_`
+ a| 
+SnapDrive para UNIX mantiene una memoria caché de consultas de comprobación de acceso y los resultados correspondientes. SnapDrive para UNIX utiliza esta caché sólo cuando todos los servidores de consola de Operations Manager configurados están inactivos.
+
+Puede establecer este valor en cualquiera de los dos `on` para habilitar la caché, o a. `off` para deshabilitarla. El valor predeterminado es `off` Para poder configurar SnapDrive para UNIX con el fin de usar la consola de Operations Manager y establecer la `rbac-method` variable de configuración a. `dfm`.
+
+
+
+ a| 
+`_rbac-cache-timeout_`
+ a| 
+Especifica el periodo de tiempo de espera de la caché rbac y se aplica solo cuando el `_rbac-cache_` está habilitado. El valor predeterminado es `24` horas
+
+SnapDrive para UNIX utiliza esta caché sólo cuando todos los servidores de consola de Operations Manager configurados están inactivos.
+
+
+
+ a| 
+`_use-https-to-dfm=on_`
+ a| 
+Esta variable le permite configurar SnapDrive para UNIX para que utilice el cifrado SSL (HTTPS) cuando se comunica con la consola de Operations Manager. El valor predeterminado es `on`.
+
+|===

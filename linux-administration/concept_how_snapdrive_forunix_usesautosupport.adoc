@@ -1,0 +1,24 @@
+---
+permalink: linux-administration/concept_how_snapdrive_forunix_usesautosupport.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, autosupport, storage, ems 
+summary: 'Los mensajes de AutoSupport se registran en la vista de registro de EMS del sistema de almacenamiento cuando la opción autosupport-enabled se configura en on en el archivo snapdrive.conf. De forma predeterminada, esta opción está configurada como on en el archivo snapdrive.conf. SnapDrive para UNIX envía mensajes de AutoSupport al sistema de almacenamiento, donde los mensajes se registran en el sistema de gestión de eventos \(EMS\).' 
+---
+= Cómo utiliza AutoSupport SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de AutoSupport se registran en la vista del registro de EMS del sistema de almacenamiento cuando el `autosupport-enabled` la opción está activada en la `snapdrive.conf` archivo. De forma predeterminada, esta opción se establece en `on` en la `snapdrive.conf` archivo. SnapDrive para UNIX envía mensajes de AutoSupport al sistema de almacenamiento, donde los mensajes se registran en el sistema de gestión de eventos (EMS).
+
+Se envía un mensaje de AutoSupport durante cualquiera de las siguientes situaciones:
+
+* Cuando se detiene una operación debido a un fallo operativo, se envía un mensaje de AutoSupport al sistema de almacenamiento para el cual falló la operación.
+* Si se conectan varios sistemas de almacenamiento al host y el fallo operativo se produce en más de un sistema de almacenamiento, SnapDrive para UNIX envía el mensaje de AutoSupport a un sistema de almacenamiento específico para el cual se produce un error en la operación.
+* Cuando se añade una nueva controladora de almacenamiento mediante `_snapdrive config set <username> <filername>_`, SnapDrive para UNIX envía un mensaje AutoSupport al sistema de almacenamiento especificado.
+* Cuando se reinicia o se inicia el daemon SnapDrive, el mensaje AutoSupport se envía al sistema de almacenamiento configurado.
+* Cuando la `snapdrive storage show` -All comando se ejecuta, el mensaje AutoSupport se envía a todos los sistemas de almacenamiento configurados.
+* Cuando la operación de creación rápida se realiza correctamente, el mensaje de AutoSupport se envía al sistema de almacenamiento.
+

@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_files_installed_by_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, install, file, unix 
+summary: SnapDrive para UNIX instala varios archivos, como archivos ejecutables, archivos de configuración, archivos de desinstalación, archivos de diagnóstico y páginas de manual, en el host. A través de estos archivos puede detectar problemas, almacenar información de configuración para la versión actual del producto, etc., en SnapDrive para UNIX. 
+---
+= Archivos instalados por SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX instala varios archivos, como archivos ejecutables, archivos de configuración, archivos de desinstalación, archivos de diagnóstico y páginas de manual, en el host. A través de estos archivos puede detectar problemas, almacenar información de configuración para la versión actual del producto, etc., en SnapDrive para UNIX.
+
+*Información relacionada*
+
+xref:concept_types_of_logs.adoc[Tipos de registros]

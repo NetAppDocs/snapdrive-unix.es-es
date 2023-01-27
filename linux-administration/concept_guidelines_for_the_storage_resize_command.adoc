@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_guidelines_for_the_storage_resize_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, command, resize, guidelines 
+summary: Debe seguir algunas directrices al utilizar el comando de cambio de tamaño del almacenamiento de SnapDrive. 
+---
+= Directrices para el comando Storage Resize
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe seguir algunas directrices al utilizar el `snapdrive storage resize` comando.
+
+* La operación de cambio de tamaño del almacenamiento solo puede aumentar el tamaño del almacenamiento. No se puede utilizar para reducir el tamaño de una entidad.
+* Todos los LUN deben residir en el mismo volumen del sistema de almacenamiento.
+* La operación de cambio de tamaño no admite directamente en los volúmenes de host lógicos, o en los sistemas de archivos que residen en volúmenes de host lógicos o en LUN. En esos casos, tiene que usar los comandos de LVM para cambiar el tamaño del almacenamiento.
+* No puede cambiar el tamaño de una LUN; debe usar el `-addlun` Opción para añadir una nueva LUN.
+

@@ -1,0 +1,21 @@
+---
+permalink: solaris/concept_guidelines_for_snapshot_copy_creation_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, create, host, cluster 
+summary: La creación de copias de Snapshot con SnapDrive para UNIX es compatible en algunos entornos, pero no en algunos. Consulte las directrices para obtener más información. 
+---
+= Directrices para la creación de copias Snapshot en un entorno de clústeres de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La creación de copias de Snapshot con SnapDrive para UNIX es compatible en algunos entornos, pero no en algunos. Consulte las directrices para obtener más información.
+
+* SnapDrive para UNIX puede crear copias Snapshot de grupos de discos y sistemas de archivos compartidos con un partner de clústeres de host en el entorno Veritas SFRAC 4.1.
+* La operación Snapshot create puede invocarse desde cualquier nodo del clúster de hosts.
+* Los múltiples sistemas de archivos y grupos de discos especificados en esta operación deben tener el mismo alcance: Es decir, todos deben compartirse o todos deben ser dedicados.
+* No se admite un sistema de archivos NFS en modo compartido de todo el clúster, pero se admite un sistema de archivos NFS en modo dedicado en nodos en clúster con hosts.
+* Los sistemas de archivos no son compatibles con los LUN sin configurar.
+

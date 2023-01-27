@@ -1,0 +1,72 @@
+---
+permalink: linux-administration/concept_clustered_data_ontap_features_available_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, data, ontap, clustered 
+summary: SnapDrive para UNIX 5.0 y versiones posteriores admiten algunas funciones de Clustered Data ONTAP. 
+---
+= Funciones de Clustered Data ONTAP disponibles en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX 5.0 y versiones posteriores admiten algunas funciones de Clustered Data ONTAP.
+
+Se admiten las siguientes funciones:
+
+* Conjuntos de puertos
+* Vserver
+* Gestionar los errores provocados por la migración de volúmenes mediante las variables de configuración adecuadas
+* Copias Snapshot consistentes con los fallos (grupos de consistencia)
+* AutoSupport
+* Número de unidad lógica (LUN) bruta de asignación de dispositivos (RDM) para vServers
+* Control de acceso basado en roles (RBAC) con la consola de Operations Manager
+* Mirroring con carga compartida (LSM)
++
+Un reflejo de uso compartido de carga reduce el tráfico de red al volumen FlexVol al proporcionar acceso adicional de solo lectura a los clientes. Es posible crear y gestionar los reflejos de uso compartido de carga para distribuir el tráfico de solo lectura lejos de un volumen de FlexVol. Los reflejos de uso compartido de carga no son compatibles con Infinite Volumes. Un conjunto de reflejos de uso compartido de carga consta de un volumen de origen que se puede conectar con uno o varios volúmenes de destino. Cada reflejo de uso compartido de la carga del conjunto debe pertenecer a la misma SVM que el volumen de origen del conjunto. Los duplicados de uso compartido de carga también se deben crear en distintos agregados y los diferentes nodos del clúster deben acceder a ellos para lograr un equilibrio de carga adecuado de las solicitudes de los clientes. Para obtener más información, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guía de gestión de almacenamiento lógico de Clustered Data ONTAP"].
+
++
+[NOTE]
+====
+** LSM es compatible con Clustered Data ONTAP 8.2 y la versión posterior de ONTAP. Pero tendrá que configurar el administrador de clúster si utiliza Clustered Data ONTAP 8.2.2 y una versión anterior mediante `snapdrive config set-cserver` comando.
+** LSM no es compatible en ninguna versión anterior a ONTAP 8.2 aunque esté configurado el administrador del clúster.
+
+
+====
+* Espacios IP
++
+Un espacio IP define un espacio de dirección IP diferente en el que se pueden crear las máquinas virtuales de almacenamiento (SVM). Una tabla de enrutamiento se mantiene para cada SVM dentro de un espacio IP; no se produce ninguna ruta de tráfico entre SVM o entre espacio IP. Para obtener más información, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["Guía de gestión de red de Clustered Data ONTAP"].
+
++
+
+NOTE: Esta función solo es compatible si se utiliza Clustered Data ONTAP 8.3.
+
+* Configuración de MetroCluster
++
+Esta función solo es compatible si se utiliza Clustered Data ONTAP 8.3. Para obtener más información acerca de la configuración de MetroCluster, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["Guía de instalación y configuración de Clustered Data ONTAP MetroCluster"].
+
+* Tokens para reservar espacio en el nodo a fin de crear archivos FlexClone y LUN FlexClone
++
+Debe tener la licencia de FlexClone si desea usar esta función. Para obtener más información, consulte link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guía de gestión de almacenamiento lógico de Clustered Data ONTAP"].
+
+* Exportaciones Qtree personalizadas
++
+El qtree puede tener una política de exportfs diferente a la del volumen principal.
+
++
+
+NOTE: Esta función solo es compatible si se utiliza Clustered Data ONTAP 8.2.1 y versiones posteriores.
+
+* Cumplimiento del estándar de procesamiento de información federal (FIPS)
+
+
+*Información relacionada*
+
+link:concept_support_for_storage_system_rename.adoc["Compatibilidad con el cambio de nombre del sistema de almacenamiento"]
+
+link:concept_using_port_set_in_snapdrive_for_unix.adoc["Uso del conjunto de puertos en SnapDrive para UNIX"]
+
+link:concept_managing_volume_migration_using_snapdrive_for_unix.adoc["Migración de volúmenes en SnapDrive para UNIX"]
+
+link:concept_support_for_vserver.adoc["Compatibilidad con Vserver"]

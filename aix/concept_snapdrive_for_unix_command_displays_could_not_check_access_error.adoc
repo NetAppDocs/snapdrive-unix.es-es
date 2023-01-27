@@ -1,0 +1,36 @@
+---
+permalink: aix/concept_snapdrive_for_unix_command_displays_could_not_check_access_error.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, display, access, error, check 
+summary: SnapDrive para UNIX puede mostrar un error cuando tiene acceso de escritura correcto en el objeto de almacenamiento. 
+---
+= Error de acceso al mostrar el comando SnapDrive for UNIX no se pudo comprobar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX puede mostrar un error cuando tiene acceso de escritura correcto en el objeto de almacenamiento.
+
+Muestra el siguiente mensaje de error:
+
+[listing]
+----
+0002-332 Admin error: Could not check SD.Storage.Write access on LUN storage_array1:/vol/vol1/lun1for user unix-host\root
+ on Operations Manager server(s) ops-mngr-server1 reason: Invalid resource specified.  Unable to find its Id on Operations Manager server ops-mngr-server1
+----
+La solución para este problema es:
+
+. Compruebe que el recurso de almacenamiento esté actualizado en Operations Manager. Si el recurso de almacenamiento no se actualiza en Operations Manager
++
+** Ejecución manual `dfm host discover <storage-system>`.
+** Asigne la funcionalidad {Global, DFM.Database.Write} `sd-admin`
++
+En este caso, SnapDrive para UNIX actualiza automáticamente Operations Manager y vuelve a emitir la comprobación de acceso.
+
+
+
+
+
+El intervalo de actualización predeterminado que utiliza SnapDrive para UNIX es de 15 segundos (`_dfm-rbac-retry-sleep-secs_`) Y el número predeterminado de reintentos que utiliza SnapDrive para UNIX es 12  `_dfm-rbac-retries_`). Si aún recibe el mensaje de error anterior, aumente el valor de `_dfm-rbac-retries_` variable de configuración de 14, 16, 18... y así sucesivamente para adaptarse a su entorno. El intervalo de actualización que requiere Operations Manager depende del número de LUN y volúmenes que tenga en el sistema de almacenamiento.

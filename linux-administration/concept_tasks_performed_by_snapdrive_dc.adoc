@@ -1,0 +1,37 @@
+---
+permalink: linux-administration/concept_tasks_performed_by_snapdrive_dc.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, diagnostic, copy, log, file, data, utility 
+summary: La utilidad de recogida de datos ejecuta las utilidades de diagnóstico de NetApp, copia SnapDrive para archivos de registro de UNIX y crea un archivo comprimido que se utiliza para el análisis. 
+---
+= Tareas realizadas por snapdrive.dc
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La utilidad de recogida de datos ejecuta las utilidades de diagnóstico de NetApp, copia SnapDrive para archivos de registro de UNIX y crea un archivo comprimido que se utiliza para el análisis.
+
+La `snapdrive.dc` la utilidad realiza las siguientes tareas:
+
+* Ejecuta el `host_info` y.. `filer_info` las utilidades para recoger información sobre el host y los sistemas de almacenamiento conectados al host y guardan la siguiente información en un archivo comprimido. La `host_info` utilidad y. `filer_info` La utilidad se incluye junto con el paquete de instalación de SnapDrive para UNIX.
++
+Por ejemplo, en Linux, es el `linux_info` utilidad.
+
+* Crea un directorio denominado /tmp/netapp/ntap_snapdrive_name. La herramienta coloca copias de los siguientes archivos en el directorio:
++
+** SnapDrive para UNIX, como se indica mediante la ejecución del comando SnapDrive version
+** La `snapdrive.conf` archivo
+** Los archivos del registro de auditoría
+** Los archivos de registro de seguimiento
+** Los archivos log de recuperación
+** Los archivos creados por la utilidad host_info
+
+
+* Crea un archivo comprimido del contenido del directorio y muestra un mensaje que indica que se envía este archivo al soporte técnico de NetApp.
+
+
+*Información relacionada*
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2547936["Guía de instalación de Linux Unified Host Utilities 7.1"]

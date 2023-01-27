@@ -1,0 +1,24 @@
+---
+permalink: linux-administration/task_disabling_consistency_group_snapshots.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disable, group, snapshot, consistency, configure 
+summary: Puede configurar SnapDrive para UNIX para deshabilitar una copia Snapshot de un grupo de consistencia. 
+---
+= Deshabilitar las copias de Snapshot de grupo de consistencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar SnapDrive para UNIX para deshabilitar una copia Snapshot de un grupo de consistencia.
+
+.Pasos
+. Introduzca:
++
+`*snapdrive snap create _-fs_ /mnt/fs3 _-snapname_ nfs_snap _-nofilerfence_*`
+
++
+La copia Snapshot del grupo de consistencia se deshabilita correctamente.
+
+

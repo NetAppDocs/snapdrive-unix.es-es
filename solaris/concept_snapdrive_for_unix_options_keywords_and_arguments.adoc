@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_options_keywords_and_arguments.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, options, keyword, argument 
+summary: Los comandos de SnapDrive para UNIX tienen opciones, palabras clave y argumentos asociados. 
+---
+= Opciones, palabras clave y argumentos de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los comandos de SnapDrive para UNIX tienen opciones, palabras clave y argumentos asociados.

@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_host_preparation_for_installing_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, preparation, install, snapdrive 
+summary: Debe preparar el host antes de poder instalar SnapDrive para UNIX en el sistema. Como parte de la preparación del host, debe instalar AIX Host Utilities. 
+---
+= Preparación del host para instalar SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe preparar el host antes de poder instalar SnapDrive para UNIX en el sistema. Como parte de la preparación del host, debe instalar AIX Host Utilities.

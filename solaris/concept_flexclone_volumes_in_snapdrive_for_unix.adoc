@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_flexclone_volumes_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, flexclone, volume 
+summary: SnapDrive para UNIX admite volúmenes FlexClone, que se basan en la tecnología FlexClone de Data ONTAP. Un volumen FlexClone es una copia puntual de un volumen flexible principal. Los volúmenes FlexClone son más rápidos que los clones de LUN y le dan la flexibilidad para crear varias copias de datos. 
+---
+= Volúmenes FlexClone en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX admite volúmenes FlexClone, que se basan en la tecnología FlexClone de Data ONTAP. Un volumen FlexClone es una copia puntual de un volumen flexible principal. Los volúmenes FlexClone son más rápidos que los clones de LUN y le dan la flexibilidad para crear varias copias de datos.

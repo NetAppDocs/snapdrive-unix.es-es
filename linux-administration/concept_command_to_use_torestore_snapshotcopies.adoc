@@ -1,0 +1,28 @@
+---
+permalink: linux-administration/concept_command_to_use_torestore_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, snapshot, copy, restore 
+summary: Utilice el comando snap restore de SnapDrive para restaurar una copia snapshot. 
+---
+= Comando que se utiliza para restaurar copias de Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice el comando `snapdrive snap restore` Para restaurar una copia Snapshot.
+
+La `snapdrive snap restore` El comando restaura los datos desde la copia Snapshot que usted especifica en el símbolo del sistema del sistema del sistema de almacenamiento. Esta operación reemplaza el contenido de `file_spec` Argumentos (por ejemplo, grupos de discos, archivos NFS, árboles de directorios NFS, sistemas de archivos creados directamente en las LUN) que especificó en la `snapdrive snap restore` con el contenido del `file_spec` Argumentos ubicados en la copia Snapshot especificada.
+
+También puede restaurar copias Snapshot si no existen `file_spec` argumentos. Esto sucede cuando el valor que especifica ya no existe en el host, pero existía cuando tomó la copia Snapshot. Por ejemplo, puede ser un sistema de archivos que ahora ha desmontado o un grupo de discos que ha quitado.
+
+Normalmente, se restauran las copias Snapshot del host en el que tomó las copias Snapshot (en otras palabras, el host de origen).
+
+[NOTE]
+====
+* En una entidad de NFS, cuando el mismo volumen se monta en dos IP diferentes, las operaciones de restauración rápida se pueden realizar solo para una especificación de archivo cada vez en estos volúmenes.
+* Si es un usuario que no es raíz, desde SnapDrive 4.1 para UNIX, debe disponer de capacidad de escritura de almacenamiento en global además de la capacidad GlobalSDSnapshot para restaurar la instantánea para funcionar.
+
+
+====

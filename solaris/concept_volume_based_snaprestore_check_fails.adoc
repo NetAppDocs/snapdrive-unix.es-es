@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_volume_based_snaprestore_check_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, colume, snaprestore, check, fail 
+summary: 'Se produce un error en la comprobación de SnapRestore \(Vbsr\) basada en el volumen, \(cuando NFS intenta exportar la lista que no tiene hosts externos\) en el equipo cliente \(SLES 11\) que tiene dos IP diferentes para un nombre de host en el archivo /etc/hosts.' 
+---
+= Error en la comprobación de SnapRestore basado en volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se produce un error en la comprobación de SnapRestore basada en volúmenes (Vbsr), (cuando NFS intenta exportar la lista que no tiene hosts externos) en la máquina cliente (SLES 11) que tiene dos IP diferentes para un nombre de host en el `/etc/hosts` archivo.
+
+Para resolver el problema, debe asegurarse de tener solo una IP para un nombre de host en el `/etc/hosts` archivo.

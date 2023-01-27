@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_thin_provisioning_in_snapdrive_for_unix_overview.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, thin, provisioning, fractional, reserve, value, ontap, autodelete, autosize 
+summary: No se puede establecer el valor de reserva fraccionaria y no se integra ninguna funcionalidad de Data ONTAP, como la eliminación automática y autosize, en SnapDrive para UNIX. Aunque puede utilizar las capacidades de Data ONTAP con seguridad en SnapDrive para UNIX, SnapDrive para UNIX no registra eventos de eliminación automática o de ajuste de tamaño automático. 
+---
+= Thin provisioning en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No se puede establecer el valor de reserva fraccionaria y no se integra ninguna funcionalidad de Data ONTAP, como la eliminación automática y autosize, en SnapDrive para UNIX. Aunque puede utilizar las capacidades de Data ONTAP con seguridad en SnapDrive para UNIX, SnapDrive para UNIX no registra eventos de eliminación automática o de ajuste de tamaño automático.

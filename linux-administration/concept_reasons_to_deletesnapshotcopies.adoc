@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/concept_reasons_to_deletesnapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, why, snapshot, copy, old, space 
+summary: Elimine copias Snapshot más antiguas para liberar espacio en el volumen del sistema de almacenamiento o para conservar menos copias Snapshot. 
+---
+= Motivos para eliminar copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Elimine copias Snapshot más antiguas para liberar espacio en el volumen del sistema de almacenamiento o para conservar menos copias Snapshot.
+
+Puede eliminar copias Snapshot más antiguas por los siguientes motivos:
+
+* Para conservar menos copias snapshot almacenadas que el límite mínimo de 255 en un volumen de sistema de almacenamiento. Una vez que alcanza el límite, se produce un error al intentar crear nuevas copias Snapshot.
+* Para liberar espacio en el volumen del sistema de almacenamiento. Incluso antes de que la copia Snapshot alcance el límite, una copia Snapshot genera errores si el disco no tiene suficiente espacio reservado.
+* También puede usar el carácter comodín (*) en los nombres de las copias Snapshot. La operación Snapshot show permite usar el carácter comodín para mostrar todos los nombres de copias de Snapshot que coinciden con un cierto patrón. Las siguientes reglas se aplican al uso del comodín en los nombres de copias de Snapshot:
++
+** Puede utilizar un comodín al final del nombre únicamente. No puede usar el carácter comodín al principio o a medio de un nombre de copia Snapshot.
+** No se puede usar el carácter comodín en los campos del sistema de almacenamiento o del volumen del sistema de almacenamiento de un nombre de copia de Snapshot.
+
+
+

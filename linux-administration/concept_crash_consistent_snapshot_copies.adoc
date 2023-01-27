@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_crash_consistent_snapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, copy, snapshot, crash, consistent 
+summary: Es posible que tenga que crear copias Snapshot consistentes con los fallos de su sistema de archivos o grupos de discos. SnapDrive para UNIX crea copias Snapshot que contienen la imagen de todos los volúmenes del sistema de almacenamiento especificados en la entidad. 
+---
+= Copias Snapshot coherentes con los fallos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que tenga que crear copias Snapshot consistentes con los fallos de su sistema de archivos o grupos de discos. SnapDrive para UNIX crea copias Snapshot que contienen la imagen de todos los volúmenes del sistema de almacenamiento especificados en la entidad.
+
+Cuando se crea una copia Snapshot de una entidad de almacenamiento, como un sistema de archivos o un grupo de discos, SnapDrive para UNIX crea una copia Snapshot que contiene la imagen de todos los volúmenes del sistema de almacenamiento que componen la entidad especificada mediante un `file_spec` argumento. La `file_spec` Argumento especifica la entidad de almacenamiento, como el sistema de archivos, LUN o árbol de directorios de NFS que SnapDrive para UNIX utiliza para crear la copia snapshot.
+
+SnapDrive para UNIX realiza componentes de almacenamiento coherentes que componen la entidad solicitada en la copia Snapshot. Esto significa que se están utilizando LUN o directorios fuera de los especificados en el `snapdrive snap create` comando `file_spec` Es posible que el argumento no tenga imágenes consistentes en la copia Snapshot. SnapDrive para UNIX le permite restaurar únicamente las entidades especificadas en `file_spec` Argumento coherente en la copia Snapshot.
+
+Las copias Snapshot de entidades que se encuentran en un único volumen de sistema de almacenamiento siempre son consistentes con los fallos. SnapDrive para UNIX toma medidas especiales para garantizar que las copias Snapshot que abarcan varios sistemas de almacenamiento o volúmenes de sistemas de almacenamiento también sean coherentes con los fallos. El método que utiliza SnapDrive para UNIX para garantizar la consistencia del bloqueo depende de la versión de Data ONTAP utilizada donde residen las entidades de almacenamiento de la copia de Snapshot.

@@ -1,0 +1,261 @@
+---
+permalink: linux-administration/reference_informationrequired_for_the_storagecreate_operation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, create, operation 
+summary: Debe proporcionar alguna información cuando complete la operación de creación de almacenamiento. 
+---
+= Información necesaria para la operación de creación de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe proporcionar alguna información cuando complete la operación de creación de almacenamiento.
+
+En la siguiente tabla se muestra la información que debe suministrar cuando utilice `snapdrive storage create` comando para crear almacenamiento:
+
+|===
+| Requisito | Argumento 
+
+
+ a| 
+Decidir el tipo de almacenamiento que se desea aprovisionar. Según el comando que introduzca, puede crear cualquiera de los siguientes elementos:
+
+* LUN
++
+Si se crean una o varias LUN, el primer argumento debe usar el formato largo del nombre de LUN, que especifica el nombre del sistema de almacenamiento, el nombre del volumen y el nombre de la LUN dentro del volumen.
+
++
+Para especificar más LUN, puede utilizar el nombre de LUN (nombre abreviado) solo si la nueva LUN se encuentra en el mismo sistema de almacenamiento y volumen que la LUN anterior. De lo contrario, es posible especificar un nuevo nombre de sistema de almacenamiento y un nombre de volumen (o solo un nombre de volumen) para sustituir los valores anteriores.
+
+* Un sistema de archivos creado directamente en un LUN
++
+Si se crea un sistema de archivos en una LUN, el primer argumento debe ser el `_-fs_` punto de montaje. Para crear el sistema de archivos en una LUN en un sistema de almacenamiento y un volumen, utilice `_-filervol_` argument y especifique el nombre del sistema de almacenamiento y del volumen. Para crear el sistema de archivos en una LUN específica, utilice `_-lun_` Argument y especifique el nombre del sistema de almacenamiento, el nombre del volumen y el nombre de LUN. También debe incluir el `-nolvm` Opción para crear el sistema de archivos en el LUN sin activar el LVM del host.
+
++
+De forma predeterminada, SnapDrive para UNIX realiza automáticamente todas las tareas asociadas con la preparación y la detección del host para la LUN, así como la asignación y conexión a ella.
+
++
+Si crea un LUN en un host Linux, SnapDrive para UNIX realiza las siguientes acciones:
+
++
+** Crea la LUN.
+** Configura el LUN en una partición.
+
+
+
+
+
+NOTE: Si está utilizando la actualización 2 de SLES10, el dispositivo RAW se utiliza para crear un sistema de archivos.
+
+* Grupos de discos de LVM con volúmenes host y sistemas de archivos
++
+Cuando se especifica un disco o grupo de volúmenes, sistema de archivos o volumen lógico, SnapDrive para UNIX ejecuta todas las acciones necesarias para crear la entidad especificada. Puede especificar explícitamente las LUN o solo proporcionar la información del volumen y del sistema de almacenamiento, y permitir que SnapDrive para UNIX cree las LUN automáticamente.
+
++
+Si va a crear una entidad, como un sistema de archivos, no es necesario proporcionar un valor para un disco o grupo de volúmenes. SnapDrive para UNIX crea una automáticamente.
+
+
+
+
+
+ a| 
+* Una LUN (-lun)
+
+ a| 
+`*long_lun_name*`
+
+
+
+ a| 
+* LUN adicionales
+
+ a| 
+`*lun_name*` (forma larga o corta)
+
+
+
+ a| 
+* Grupo de discos (`-dg *dgname*`) o grupo de volúmenes (`-vg *vgname*`)
+
+ a| 
+`*disk*` o. `*volume group name*`
+
+
+
+ a| 
+SnapDrive para UNIX crea un disco o un grupo de volúmenes que conserva las LUN en función del valor introducido con el `-dg` opción. El nombre que proporcione para el grupo no debe existir.
+
+
+
+ a| 
+* Volumen host (`-hostvol *file_spec*`) o volumen lógico (`-lvol *file_spec*`)
+
+ a| 
+`*Host*` o. `*logical volume name*`
+
+
+
+ a| 
+* Sistema de archivos (`-fs *file_spec*`)
+
+ a| 
+`*filesystem_name*`
+
+
+
+ a| 
+-nolvm
+ a| 
+~
+
+
+
+ a| 
+*Requerido:* Si está creando un sistema de archivos que reside directamente en un LUN, especifique el `-nolvm` opción.
+
+
+
+ a| 
+* Tamaño de LUN (`-lunsize`)
+
+ a| 
+`*size*`
+
+
+
+ a| 
+* Tamaño del grupo de discos (`-dgsize`)
+* El tamaño del grupo de volúmenes (`-vgsize`)
+
+ a| 
+`*size*`
+
+
+
+ a| 
+Especifique el tamaño en bytes o alguna otra unidad de datos para cada entidad que se va a crear. El tamaño de la entidad de LVM depende del tamaño agregado de las LUN que solicite.
+
+Para controlar el tamaño de la entidad host, utilice `-dgsize` opción para especificar el tamaño en bytes del grupo de discos subyacente.
+
+
+
+ a| 
+* Ruta al volumen del sistema de almacenamiento (`-filervol`)
+
+ a| 
+`*long_filer_path*`
+
+
+
+ a| 
+* `*-lun*`
+
+ a| 
+`*long_lun_path*`
+
+
+
+ a| 
+Especifique el sistema de almacenamiento y su volumen donde desee que SnapDrive para UNIX cree las LUN automáticamente.
+
+* Utilice la `-filervol` Opción para especificar el sistema de almacenamiento y el volumen donde desea crear los LUN.
++
+No especifique la LUN. SnapDrive para UNIX crea la LUN automáticamente al utilizar este formulario de `snapdrive storage create` comando. Utiliza los valores predeterminados del sistema para determinar los ID de LUN y el tamaño de cada LUN. Basa los nombres de los grupos de discos/volúmenes asociados en el nombre del volumen de host o del sistema de archivos.
+
+* Utilice la `-lun` Nombre de la opción para asignar los LUN que desea utilizar.
+
+
+
+
+ a| 
+Tipo de sistema de archivos (`-fstype`)
+ a| 
+`*type*`
+
+
+
+ a| 
+Si va a crear un sistema de archivos, introduzca la cadena que representa el tipo de sistema de archivos.
+
+SnapDrive para UNIX acepta Linux: `_ext4_` o. `ext3`
+
+
+NOTE: De forma predeterminada, SnapDrive para UNIX proporciona este valor si solo hay un tipo de sistema de archivos para la plataforma host. En ese caso, no es necesario introducirlo.
+
+
+
+ a| 
+`-vmtype`
+ a| 
+`*type*`
+
+
+
+ a| 
+*Opcional:* especifica el tipo de gestor de volúmenes que se va a utilizar para las operaciones de SnapDrive para UNIX.
+
+
+
+ a| 
+`-fsopts`
+ a| 
+`*option name and value*`
+
+
+
+ a| 
+`-mntopts`
+ a| 
+`*option name and value*`
+
+
+
+ a| 
+`-nopersist`
+ a| 
+~
+
+
+
+ a| 
+`-reserve | -noreserve`
+ a| 
+~
+
+
+
+ a| 
+*Opcional:* Si está creando un sistema de archivos, puede especificar las siguientes opciones:
+
+* Uso `-fsopts` para especificar las opciones que desea pasar al comando host utilizado para crear los sistemas de archivos. Por ejemplo, puede proporcionar opciones que el `mkfs` el comando utilizaría. El valor que proporcione normalmente necesita ser una cadena con comillas y debe contener el texto exacto que se va a pasar al comando.
+* Uso `-mntopts` para especificar las opciones que desea pasar al comando de montaje del host (por ejemplo, para especificar el comportamiento de registro del sistema host). Las opciones que especifique se almacenarán en el archivo de tabla del sistema de archivos host. Las opciones permitidas dependen del tipo de sistema de archivos del host.
++
+La `-mntopts` el argumento es un sistema de archivos `-type` opción especificada mediante `mount` comando `-o` bandera. No incluya el `-o` en la `_-mntopts_` argumento. Por ejemplo, la secuencia `-mntopts tmplog` pasa la cadena `-o tmplog` para la `mount` e inserta el texto tmplog en una nueva línea de comandos.
+
++
+Si el valor de `enable-mount-with-netdev` el parámetro de configuración se establece en `off` (valor predeterminado), debe especificar manualmente `-mntopts _netdev` en la `snapdrive storage create` comando. Sin embargo, si cambia el valor a On, el `-mntopts _netdev` se ejecuta automáticamente al ejecutar el `snapdrive storage create` comando.
+
++
+
+NOTE: Si pasa algo no válido `_-mntopts_` Opciones de almacenamiento y operaciones de snap, SnapDrive para UNIX no valida esas opciones de montaje no válidas.
+
+* Uso `-nopersist` para crear el sistema de archivos sin agregar una entrada al archivo de tabla de montaje del sistema de archivos en el host(por ejemplo, `fstab` En Linux). De forma predeterminada, la `snapdrive storage create` el comando crea montajes persistentes. Cuando crea una entidad de almacenamiento de LVM en un host Linux, SnapDrive para UNIX crea automáticamente el almacenamiento, monta el sistema de archivos y, a continuación, coloca una entrada para el sistema de archivos en la tabla del sistema de archivos del host. En sistemas Linux, SnapDrive para UNIX añade un UUID en la tabla del sistema de archivos host.
+* Uso `-reserve | -noreserve` para crear el almacenamiento con o sin crear una reserva de espacio.
+
+
+
+
+ a| 
+* nombre del igroup(`*-igroup*`)
+
+ a| 
+`*ig_name*`
+
+
+
+ a| 
+*Opcional:* NetApp recomienda utilizar el igroup predeterminado para el host en lugar de suministrar un nombre de igroup.
+
+|===

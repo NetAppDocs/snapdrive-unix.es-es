@@ -1,0 +1,27 @@
+---
+permalink: aix/concept_command_to_use_todisplay_availablestorage.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, display, storage 
+summary: La lista de almacenamiento de SnapDrive muestra o de almacenamiento de SnapDrive muestra los LUN o los árboles de directorios de NFS subyacentes de una o más entidades de almacenamiento. Puede usar el comando SnapDrive Storage show para conocer y saber qué contiene una copia snapshot de un grupo de discos, volumen de host, sistema de archivos o árbol de directorios NFS. 
+---
+= Comando que se utiliza para mostrar el almacenamiento disponible
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage show` o. `snapdrive storage list` Muestra los LUN o los árboles de directorios de NFS subyacentes de una o más entidades de almacenamiento. Puede utilizar el `snapdrive storage show` Comando para conocer y saber qué contiene una copia snapshot de un grupo de discos, volumen de host, sistema de archivos o árbol de directorios NFS.
+
+Puede utilizar estos comandos para mostrar la siguiente información:
+
+* LUN disponibles para sistemas de almacenamiento específicos o volúmenes de sistema de almacenamiento
+* LUN asociados con sistemas de archivos, volúmenes de host o grupos de discos
+* Puntos de montaje y árboles de directorios de NFS
+* LUN conocidas para un host específico y cualquier entidad LVM que incluyen las LUN
+* Dispositivos que se conocen con un host específico
+* Recursos en los hosts compartidos y dedicados
+
+
+
+NOTE: Puede utilizar cualquiera de los dos `snapdrive storage show` o. `snapdrive storage list` en la línea de comandos.

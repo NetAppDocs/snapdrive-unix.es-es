@@ -1,0 +1,134 @@
+---
+permalink: linux-administration/concept_informationrequired_forusing_the_snapdrive_snapcreate_command.html 
+sidebar: sidebar 
+keywords: create, command, snap, snapdrive, snapshot 
+summary: Al crear una copia Snapshot, debe determinar la entidad de almacenamiento que desea capturar y especificar un nombre de la copia Snapshot. 
+---
+= Información necesaria para utilizar el comando snap create de SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear una copia Snapshot, debe determinar la entidad de almacenamiento que desea capturar y especificar un nombre de la copia Snapshot.
+
+En la siguiente tabla se proporciona la información que necesita cuando utiliza el `snapdrive snap create` comando:
+
+|===
+| Requisitos/Opciones | Argumento 
+
+
+ a| 
+Determinar el tipo de entidad de almacenamiento que desea capturar en la copia Snapshot. Puede especificar entidades NFS, LUN, sistemas de archivos creados directamente en LUN y entidades de LVM en una sola línea de comandos.
+
+Proporcione el nombre de esa entidad con el argumento apropiado. Este es el valor para `file_spec` argumento.
+
+* Si especifica un grupo de discos que tiene un volumen de host o una especificación de archivo, el argumento se traduce en un conjunto de grupos de discos en el sistema de almacenamiento. SnapDrive para UNIX crea el grupo de discos completo que contiene la entidad, incluso si la entidad es un volumen host o un sistema de archivos.
+* Si especifica una especificación de archivo que es un punto de montaje NFS, el argumento se traduce en el árbol de directorios del volumen del sistema de almacenamiento.
+* Si especifica un LUN o una LUN que tiene un sistema de archivos, el argumento se convierte en la LUN o en la LUN que tiene el sistema de archivos.
++
+
+NOTE: No puede especificar caracteres especiales con entidades de almacenamiento como `-vg`, `-dg`, `-fs`, `-lvol`, y. `- hostvol`. Sin embargo, se permite la barra (/) para entidades de almacenamiento como `-fs`, `-lvol`, y. `-hostvol`.
+
+
+
+
+
+ a| 
+LUN (`-lun file_spec`)
+ a| 
+Nombre de la LUN
+
+Debe incluir el nombre del sistema de almacenamiento, el volumen y la LUN.
+
+
+
+ a| 
+Grupo de discos (`-dgfile_spec`) o grupo de volúmenes (`-vg file_spec`)
+ a| 
+Nombre del disco o del grupo de volúmenes
+
+
+
+ a| 
+Sistema de archivos (`-fs file_spec`)
+ a| 
+nombre_del_sistema de archivos
+
+
+
+ a| 
+Volumen host (`-hostvolfile_spec`) o volumen lógico (`-lvolfile_spec`)
+ a| 
+Nombre del host o del volumen lógico
+
+
+NOTE: Debe suministrar tanto el volumen solicitado como el grupo de discos que lo contiene; por ejemplo, `-hostvol dg3/acct_volume`.
+
+
+
+ a| 
+Nombre de la copia Snapshot (`-snapnamesnap_name`)
+ a| 
+Nombre_copia_Snapshot
+
+
+
+ a| 
+Especifique el nombre de la copia Snapshot. Esto puede ser la versión larga del nombre que incluye el sistema de almacenamiento y el volumen con el nombre de la copia de Snapshot o la versión corta que es el nombre de la copia de Snapshot.
+
+
+NOTE: Asegúrese de que el valor especificado para `snapname` no supera los 200 caracteres.
+
+
+
+ a| 
+`-unrelated`
+ a| 
+~
+
+
+
+ a| 
+Opcional: Para crear una copia Snapshot de entidades de almacenamiento que no tienen escrituras dependientes cuando se crea la copia Snapshot, SnapDrive para UNIX crea una copia Snapshot coherente con los fallos de las entidades de almacenamiento individuales, pero no intenta hacer que las entidades sean consistentes entre sí.
+
+
+
+ a| 
+`-force`
+ a| 
+~
+
+
+
+ a| 
+`-noprompt`
+ a| 
+~
+
+
+
+ a| 
+Opcional: Decida si desea sobrescribir una copia Snapshot existente. Sin esta opción, esta operación se detiene si se proporciona el nombre de una copia Snapshot existente. Cuando proporciona esta opción y especifica el nombre de una copia Snapshot existente, el comando le solicita que confirme que desea sobrescribir la copia Snapshot. Para evitar que SnapDrive para UNIX muestre el prompt, incluya el `-noprompt` opción también. (Debe incluir siempre el `-force` si desea utilizar el `-noprompt` opcional.)
+
+
+
+ a| 
+`-fstype`
+ a| 
+`_type_`
+
+
+
+ a| 
+`-vmtype`
+ a| 
+`_type_`
+
+
+
+ a| 
+Opcional: Indique el tipo de sistema de archivos y gestor de volúmenes que se usarán para las operaciones de SnapDrive para UNIX.
+
+|===

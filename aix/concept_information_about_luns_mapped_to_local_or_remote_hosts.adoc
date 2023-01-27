@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_information_about_luns_mapped_to_local_or_remote_hosts.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lun, mapped, local, remote, hosts 
+summary: La única información de asignación disponible del volumen a SnapDrive para UNIX durante la SnapRestore basada en volumen es la información del iGroup de una LUN. Si los iGroups que utiliza siempre se crean en SnapDrive para UNIX, el nombre de dominio completo del host forma parte del nombre del iGroup. 
+---
+= Información acerca de las LUN asignadas a hosts locales o remotos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La única información de asignación disponible del volumen a SnapDrive para UNIX durante la SnapRestore basada en volumen es la información del iGroup de una LUN. Si los iGroups que utiliza siempre se crean en SnapDrive para UNIX, el nombre de dominio completo del host forma parte del nombre del iGroup.
+
+Si el administrador de SnapDrive para UNIX especifica el `-igroup` CLI o si utiliza iGroups creados manualmente, en la `igroup` el nombre no tiene necesariamente el nombre de host. Por todos los motivos anteriores, SnapDrive para UNIX no puede detectar de forma fiable vinculaciones locales o remotas de una LUN. Por lo tanto, SnapDrive para UNIX muestra toda la información del iniciador y el iGroup de la LUN como parte de la SnapRestore basada en el volumen.

@@ -1,0 +1,38 @@
+---
+permalink: solaris/concept_storageprovisioning_withsnapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, operation 
+summary: 'SnapDrive para UNIX proporciona una gestión del almacenamiento integral. Es posible aprovisionar almacenamiento desde un host a un sistema de almacenamiento y gestionar ese almacenamiento con o sin usar el administrador de volúmenes lógicos \(LVM\) del host.' 
+---
+= Operaciones de almacenamiento en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX proporciona una gestión del almacenamiento integral. Puede aprovisionar almacenamiento desde un host a un sistema de almacenamiento y gestionar ese almacenamiento con o sin usar el administrador de volúmenes lógicos (LVM) del host.
+
+SnapDrive para UNIX permite realizar las siguientes operaciones de almacenamiento:
+
+* Cree el almacenamiento creando LUN, sistemas de archivos, volúmenes lógicos y grupos de discos.
+* Muestra información acerca del almacenamiento.
+* Conéctese al almacenamiento.
+* Cambie el tamaño del almacenamiento.
+* Desconectarse del almacenamiento.
+* Elimine el almacenamiento.
+
+
+Cuando crea un almacenamiento con el `snapdrive storage create` Comando, SnapDrive para UNIX realiza automáticamente todas las tareas necesarias para configurar LUN, incluida la preparación del host, la realización de asignaciones de detección y la conexión con cada LUN que cree. Puede utilizar el `snapdrive storage show` Comando para mostrar información acerca de las LUN, los grupos de discos, los volúmenes de host, los sistemas de archivos o los árboles de directorios de NFS que crea.
+
+Puede utilizar el `snapdrive storage connect` comando para asignar el almacenamiento a una nueva ubicación. Este comando le permite acceder al almacenamiento existente desde un host diferente al que se usa para crearlo. La `snapdrive storage connect` El comando le permite hacer que los LUN, sistemas de archivos, grupos de discos y volúmenes lógicos existentes sean accesibles en un nuevo host. Esto puede ser útil para realizar un backup de una entidad de almacenamiento desde el nuevo host a otro host.
+
+Con el `snapdrive storage resize` comando, puede aumentar el tamaño del almacenamiento de las siguientes maneras:
+
+* Especifica el tamaño del objetivo al que se desea alcanzar la entidad de host
+* Introducir un número de bytes en el que desea aumentar el almacenamiento
+
+
+Si ya no desea que su almacenamiento esté asignado a su ubicación actual, puede utilizar la `snapdrive storage disconnect` comando. Este comando elimina las asignaciones de una o más ubicaciones de host a las LUN que crean el almacenamiento para esa ubicación.
+
+Si desea eliminar el almacenamiento, puede usar el `snapdrive storage delete` comando. SnapDrive para UNIX elimina todas las entidades del host que especifique así como todas las entidades subyacentes y las LUN asociadas con ellas.

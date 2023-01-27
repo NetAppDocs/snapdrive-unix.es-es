@@ -1,0 +1,57 @@
+---
+permalink: solaris/task_specifying_login_information_for_virtual_storage_console.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, information, virtual, console, storage, specify 
+summary: Virtual Storage Console debe configurarse en SnapDrive para UNIX para aprovisionar LUN de RDM en el sistema operativo invitado. No obstante, existe un nombre de usuario y una contraseña que permiten que SnapDrive para UNIX acceda a Virtual Storage Console. Virtual Storage Console no autentica estas credenciales de inicio de sesión. 
+---
+= Especificación de la información de inicio de sesión para Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console debe configurarse en SnapDrive para UNIX para aprovisionar LUN de RDM en el sistema operativo invitado. No obstante, existe un nombre de usuario y una contraseña que permiten que SnapDrive para UNIX acceda a Virtual Storage Console. Virtual Storage Console no autentica estas credenciales de inicio de sesión.
+
+Asegúrese de que Virtual Storage Console esté configurado con vCenter.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config set -viadmin <user> <viadmin_name>*`
+
++
+`_user_` es el nombre de usuario del sistema de interfaz virtual.
+
++
+`_viadmin_name_` Es el nombre o la dirección IP del sistema de interfaz virtual.
+
+. En el aviso, introduzca la contraseña, si la hay.
++
+[NOTE]
+====
+Si no ha establecido ninguna contraseña, pulse
+
+`*Enter*`
+
+(valor nulo) cuando se le solicita una contraseña.
+
+====
++
+En este ejemplo se configura un usuario llamado `sdadmin` para una interfaz virtual:
+
++
+[listing]
+----
+guest# snapdrive config set -viadmin sdadmin ruffleskin
+Password for sdadmin:
+Retype Password:
+----
++
+SnapDrive para UNIX ahora está listo para aprovisionar LUN de RDM en el sistema operativo invitado.
+
++
+
+NOTE: Si desea configurar una nueva interfaz virtual, los detalles de la interfaz virtual existente se sobrescriben, ya que SnapDrive para UNIX le permite tener sólo una interfaz virtual configurada para un sistema operativo guest.
+
+

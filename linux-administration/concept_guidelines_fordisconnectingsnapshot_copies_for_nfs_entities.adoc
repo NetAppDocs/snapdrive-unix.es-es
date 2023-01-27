@@ -1,0 +1,35 @@
+---
+permalink: linux-administration/concept_guidelines_fordisconnectingsnapshot_copies_for_nfs_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, nfs, disconnect, host, command 
+summary: La operación de desconexión de una copia Snapshot puede ejecutarse desde cualquier nodo en un entorno de clúster de hosts. Utilice opciones de comandos para desconectar una entidad de almacenamiento de un nodo específico. 
+---
+= Directrices para desconectar las copias Snapshot para entidades NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La operación de desconexión de una copia Snapshot puede ejecutarse desde cualquier nodo en un entorno de clúster de hosts. Utilice opciones de comandos para desconectar una entidad de almacenamiento de un nodo específico.
+
+Siga estas directrices al desconectar copias Snapshot que contienen entidades NFS:
+
+* Si desconecta un árbol de directorios de NFS conectado con permiso de sólo lectura, SnapDrive para UNIX realiza las siguientes acciones:
++
+** Desmonta el sistema de archivos.
+** Elimina la entrada de montaje del archivo de tabla del sistema de archivos.
+** Elimina el punto de montaje.
+** No elimina las normas de exportación del directorio de copia Snapshot que se crearon al conectar un filespec NFS del host secundario (el host que no tiene permiso de exportación en el volumen original).
+
+
+* Si desconecta un árbol de directorios NFS que ha conectado con permiso de lectura y escritura, SnapDrive para UNIX realiza las siguientes acciones:
++
+** Desmonta el sistema de archivos.
+** Elimina la entrada de montaje del archivo de tabla del sistema de archivos.
+** Elimina el árbol de directorio NFS que corresponde al sistema de archivos del clon de volumen FlexVol.
+** Destruye el clon de volumen FlexVol subyacente (si está vacío).
+** Elimina el punto de montaje.
+
+
+

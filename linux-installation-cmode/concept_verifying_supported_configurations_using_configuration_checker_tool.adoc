@@ -1,0 +1,14 @@
+---
+permalink: linux-installation-cmode/concept_verifying_supported_configurations_using_configuration_checker_tool.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, verfiy, host, configuration, checker, tool 
+summary: El comprobador de configuración ayuda a confirmar que todos los componentes necesarios y las versiones correctas están disponibles en el host Linux antes de usar SnapDrive para UNIX. 
+---
+= Verificación de las configuraciones del host Linux mediante la herramienta comprobador de configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El comprobador de configuración ayuda a confirmar que todos los componentes necesarios y las versiones correctas están disponibles en el host Linux antes de usar SnapDrive para UNIX.

@@ -1,0 +1,21 @@
+---
+permalink: aix/concept_considerations_forrestoring_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, considerations, restore, snapshot, copy 
+summary: Antes de restaurar copias Snapshot, asegúrese de no utilizar el sistema de archivos y de no interrumpir el proceso de restauración. 
+---
+= Consideraciones que tener en cuenta para restaurar una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de restaurar copias Snapshot, asegúrese de no utilizar el sistema de archivos y de no interrumpir el proceso de restauración.
+
+Antes de restaurar una copia Snapshot, tenga en cuenta la siguiente información importante:
+
+* Asegúrese de que no está en ningún directorio de un sistema de archivos que desea restaurar. Puede llevar a cabo la `snapdrive snap restore` comando desde cualquier directorio, excepto el de un sistema de archivos en el que desea restaurar la información.
+* No interrumpa la operación de restauración introduciendo Ctrl-C. Si lo hace, podría dejar el sistema en una configuración inutilizable. Si eso sucede, es posible que tenga que ponerse en contacto con el soporte técnico de NetApp para la recuperación.
+* Al exportar las entidades NFS a un volumen, establezca la opción ID de usuario anónimo en "'0'" para `snapdrive snap restore` comando para trabajar correctamente.
+

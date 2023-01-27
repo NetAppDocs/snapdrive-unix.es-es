@@ -1,0 +1,35 @@
+---
+permalink: aix/concept_considerations_when_working_with_snapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, considerations, snapshot, copy 
+summary: Hay ciertas consideraciones que debe tener en cuenta al usar una copia Snapshot, como el hecho de que SnapDrive para UNIX sólo funciona con las copias Snapshot que crea, o que las copias Snapshot se replican automáticamente del sistema de almacenamiento al host, etc. 
+---
+= Consideraciones que tener en cuenta al trabajar con copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay ciertas consideraciones que debe tener en cuenta al usar una copia Snapshot, como el hecho de que SnapDrive para UNIX sólo funciona con las copias Snapshot que crea, o que las copias Snapshot se replican automáticamente del sistema de almacenamiento al host, etc.
+
+Cuando trabaje con las operaciones de Snapshot, debe tener en cuenta lo siguiente:
+
+* SnapDrive para UNIX sólo funciona con las copias snapshot que crea.
++
+No puede restaurar copias snapshot que no haya creado.
+
+* Cuando se crea una copia de Snapshot en un sistema de almacenamiento de destino, la copia de Snapshot se replica automáticamente desde el sistema de almacenamiento de origen en el que se crea en el sistema de almacenamiento de destino.
++
+SnapDrive para UNIX le permite restaurar también la copia de Snapshot en el sistema de almacenamiento de destino.
+
+* La conexión al host de origen se produce cuando se utiliza `snapdrive snap connect` Comando para conectarse a una copia Snapshot en una nueva ubicación en el mismo host en el que se conectó por última vez (o todavía está conectado).
+* La compatibilidad de Snapshot para entidades de almacenamiento que abarcan varios volúmenes de sistemas de almacenamiento o varios sistemas de almacenamiento está limitada en configuraciones que no permiten una operación de congelación en la pila de software.
+* Cuando exporte el volumen a través del protocolo NFS, debe establecer la opción ID de usuario anónimo en 0 para que funcionen los comandos de SnapDrive para UNIX.
+* Cuando hay dos sistemas de archivos JFS (JFS y JFS2) en un único grupo de discos, SnapDrive para UNIX admite operaciones sólo para el sistema de archivos JFS2.
+* SnapDrive para UNIX permite crear copias Snapshot de un grupo de volúmenes simultáneo, y clonar o restaurar con las mismas propiedades.
+* Se produce un error en una operación SnapRestore de archivo único (SFSR) seguida de inmediato por la creación de una copia Snapshot.
++
+Debe volver a intentar la operación después de un periodo de tiempo. Para obtener más información, consulte link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guía de gestión de almacenamiento lógico de Clustered Data ONTAP"].
+
+

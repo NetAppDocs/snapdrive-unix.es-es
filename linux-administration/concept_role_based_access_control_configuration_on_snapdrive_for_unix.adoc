@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_role_based_access_control_configuration_on_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configure, role, access, rbac, control, manager, command 
+summary: 'Debe completar varias tareas para configurar el control de acceso basado en roles \(RBAC\) para SnapDrive para UNIX. Puede usar la consola de Operations Manager o la interfaz de línea de comandos para ejecutar las tareas.' 
+---
+= La configuración del control de acceso basado en roles de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe completar varias tareas para configurar el control de acceso basado en roles (RBAC) para SnapDrive para UNIX. Puede usar la consola de Operations Manager o la interfaz de línea de comandos para ejecutar las tareas.

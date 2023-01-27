@@ -1,0 +1,45 @@
+---
+permalink: aix/concept_disconnecting_a_filespec.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, file, specification, filespec 
+summary: Puede desconectar una especificación de archivo. El siguiente ejemplo describe la forma de completar esta operación. 
+---
+= Desconexión de una especificación de archivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede desconectar una especificación de archivo. El siguiente ejemplo describe la forma de completar esta operación.
+
+La disposición de `/mnt/fs1_0` se proporciona en lo siguiente.
+
+[listing]
+----
+# snapdrive storage show -fs /mnt/fs_1_0 -capabilities
+raw device: /dev/sde1   mount point: /mnt/fs_1_0 (persistent) fstype jfs2
+allowed operations: all
+
+device filename    adapter  path    size    proto   state   clone         lun path                                                         backing snapshot
+----------------   -------  ----    ----    -----   -----   -----         --------                                                         ----------------
+/dev/sde              -      P      100m    iscsi   online  flex-clone    homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot/lun1    vol1:snap2
+----
+El siguiente resultado muestra cómo desconectar el sistema de archivos `/mnt/fs_1_0`:
+
+[listing]
+----
+#snapdrive snap disconnect -fs /mnt/fs_1_0
+ delete file system /mnt/fs_1_0
+- fs /mnt/fs_1_0 ... deleted
+         - LUN homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot/lun1 ... disconnected
+         - deleting volume clone ... homer:/vol/Snapdrive_vol1_volume_clone_from_snap2_snapshot  done
+----
+Tras desconectar el sistema de archivos `/mnt/fs_1_0`, SnapDrive para UNIX también elimina el volumen clonado `Snapdrive_vol1_0_volume_clone_from_snap2_snapshot`, si se cumplen las siguientes condiciones:
+
+* No hay ninguna LUN asignada presente en el volumen
+* No hay nuevas LUN presentes
+* No hay copias Snapshot nuevas
+
+
+*Eliminar un FlexClone no creado por SnapDrive para UNIX*: SnapDrive para UNIX no permite la eliminación de FlexClone no creado por él.

@@ -1,0 +1,17 @@
+---
+permalink: solaris/concept_configuring_igroups.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configure, igroup 
+summary: SnapDrive para UNIX le permite configurar un igroup que existe en el sistema de almacenamiento. El igroup configurado se utiliza para asignar las LUN en el sistema de almacenamiento. 
+---
+= Configurar iGroups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX le permite configurar un igroup que existe en el sistema de almacenamiento. El igroup configurado se utiliza para asignar las LUN en el sistema de almacenamiento.
+
+
+NOTE: Los iGroups deben contener el iniciador de origen y el iniciador de destino.

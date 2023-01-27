@@ -1,0 +1,31 @@
+---
+permalink: solaris/concept_hostvolumes_and_filesystem_resize_operation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, volume, resize, file 
+summary: El comando SnapDrive Storage Resize se aplica solo a los grupos de discos y los grupos de volúmenes del sistema de almacenamiento. Si desea aumentar el tamaño del volumen del host o del sistema de archivos, debe utilizar comandos de LVM. 
+---
+= Operación de cambio de tamaño de los volúmenes de host y del sistema de archivos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage resize` el comando se aplica solo a los grupos de discos y grupos de volúmenes del sistema de almacenamiento. Si desea aumentar el tamaño del volumen del host o del sistema de archivos, debe utilizar comandos de LVM.
+
+La siguiente tabla resume los comandos de LVM que puede utilizar en las diferentes plataformas. Para obtener más información acerca de estos comandos, consulte sus páginas de manual.
+
+|===
+| *Host* | *Administrador de volumen* | *Volumen del host* | *Sistemas de archivos* 
+
+
+ a| 
+Solaris
+ a| 
+VxVM
+ a| 
+`vxassist`
+ a| 
+`fsadm`
+
+|===

@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_audit_recovery_and_trace_logging_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, audit, recovery, trace, log 
+summary: SnapDrive para UNIX le permite mantener diversos tipos de archivos de registro, como los archivos de auditoría, recuperación y registro de seguimiento. Estos archivos de registro se utilizan más adelante para solucionar problemas. 
+---
+= Auditoría, recuperación y registro de seguimiento en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX le permite mantener diversos tipos de archivos de registro, como los archivos de auditoría, recuperación y registro de seguimiento. Estos archivos de registro se utilizan más adelante para solucionar problemas.

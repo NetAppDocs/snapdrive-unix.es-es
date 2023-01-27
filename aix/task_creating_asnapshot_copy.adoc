@@ -1,0 +1,29 @@
+---
+permalink: aix/task_creating_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, snapshot, copy 
+summary: Para crear una copia snapshot, ejecute el comando SnapDrive snap create. 
+---
+= Crear una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para crear una copia Snapshot, ejecute el `snapdrive snap create` comando.
+
+Antes de ejecutar esta sintaxis, debe comprender las opciones, palabras clave y argumentos mencionados en este comando.
+
+.Pasos
+. Introduzca la siguiente sintaxis de comando para crear una copia Snapshot:
++
+`*snapdrive snap create {-lun | -dg | -fs | -hostvol } _file_spec[file_spec ...]_ [ {-lun |-dg | -fs | -hostvol } _file_spec_ [_file_spec_...]] -snapname _snap_name_ [ -force [-noprompt]][-unrelated] [-nofilerfence] [-fstype _type_][-vmtype _type_]*`
+
+
+
+La `_file_spec_` los argumentos representan un conjunto de entidades de almacenamiento en uno o varios sistemas de almacenamiento. La operación de creación de Snapshot toma una copia Snapshot del volumen del sistema de almacenamiento que contiene esas entidades y le proporciona el nombre especificado en el `snap_name` argumento.
+
+*Información relacionada*
+
+xref:concept_creating_snapshotcopies_of_unrelatedentities.adoc[Crear copias Snapshot de entidades no relacionadas]

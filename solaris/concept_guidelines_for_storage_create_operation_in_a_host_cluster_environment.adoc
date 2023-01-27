@@ -1,0 +1,32 @@
+---
+permalink: solaris/concept_guidelines_for_storage_create_operation_in_a_host_cluster_environment.html 
+sidebar: sidebar 
+keywords: snap, snapshot, storage, create, host cluster 
+summary: Debe seguir ciertas directrices al crear almacenamiento en un entorno de clúster de hosts. 
+---
+= Directrices para la operación de creación de almacenamiento en un entorno de clústeres de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe seguir ciertas directrices al crear almacenamiento en un entorno de clúster de hosts.
+
+* Puede ejecutar el `snapdrive storage create` desde cualquier nodo del clúster de hosts.
+* Para que la operación de almacenamiento se realice correctamente, tampoco debe ser verdad:
++
+** Las entidades de almacenamiento no deben estar presentes en ningún nodo del clúster de hosts.
+** Las LUN no deben asignarse a ningún nodo del clúster de hosts.
+
+
+* Puede crear una entidad de almacenamiento en un nodo específico mediante el `-devicetype` dedicado o la `-devicetype shared` opción. Si crea una entidad de almacenamiento que se encuentra en un modo dedicado, puede omitir el `-devicetype` porque el valor predeterminado es `dedicated`.
+* Se admite la creación de un sistema de archivos en todo el clúster host en grupos de discos que utilizan Veritas volume Manager con el sistema de archivos Veritas (VxFS). Esta operación no admite las LUN sin configurar, sino el `-nolvm` la opción tampoco admite.
+* La `-igroup` la opción no es compatible con la operación de creación de almacenamiento.
+* Se produce un error en la operación de creación de almacenamiento si se produce alguna de las siguientes situaciones:
++
+** Si se produce algún mensaje de error durante el proceso de creación de una entidad de almacenamiento. SnapDrive para UNIX ejecuta la operación de creación de almacenamiento desde el nodo maestro en un clúster de hosts. Antes de crear las entidades de almacenamiento compartido, SnapDrive para UNIX crea LUN, asigna las LUN al nodo maestro y, a continuación, asigna las LUN a todos los nodos que no son maestros. SnapDrive para UNIX crea y gestiona internamente los iGroups de todos los nodos.
+** Si un nodo del clúster de hosts se apaga y se reinicia antes de iniciar el gestor de volúmenes en clúster (CVM) del host, el grupo de discos compartidos que utilizan las LUN debe detectarse en el nodo. De manera predeterminada, las LUN están visibles si la dirección del puerto FC no se ha cambiado; de lo contrario, debe asignar las LUN con el `snapdrive storage connect` comando.
+
+
+

@@ -1,0 +1,26 @@
+---
+permalink: linux-installation-cmode/task_importing_data_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, import, data, file, configuration, checker, tool 
+summary: Puede descargar los datos de la matriz de soporte más recientes y actualizar la herramienta comprobador de configuración antes de ejecutar la herramienta, de modo que dicha herramienta incluya la última configuración compatible para SnapDrive for UNIX. El comprobador de configuración con el archivo de datos actualizado comprueba las configuraciones admitidas por SnapDrive para UNIX y enumera todos los componentes admitidos en el sistema. 
+---
+= Importación de archivos de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede descargar los datos de la matriz de soporte más recientes y actualizar la herramienta comprobador de configuración antes de ejecutar la herramienta, de modo que dicha herramienta incluya la última configuración compatible para SnapDrive for UNIX. El comprobador de configuración con el archivo de datos actualizado comprueba las configuraciones admitidas por SnapDrive para UNIX y enumera todos los componentes admitidos en el sistema.
+
+.Pasos
+. Descargue el archivo de datos más reciente del ToolChest,
+. Importe el archivo de datos más reciente:
++
+`*sdconfcheck import -file ./confcheck_data.tar.gz*`
+
+
+
+*Información relacionada*
+
+http://mysupport.netapp.com/NOW/download/tools/snapdrive_config_checker_unix/["Descargas de NetApp: Comprobador de configuración de SnapDrive para UNIX"]

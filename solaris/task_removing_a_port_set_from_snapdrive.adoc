@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_removing_a_port_set_from_snapdrive.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, remove, port, set, command 
+summary: Es posible usar el comando SnapDrive portset delete para eliminar un conjunto de puertos configurado en SnapDrive. 
+---
+= Quitar un conjunto de puertos de SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el `snapdrive portset delete` Comando para eliminar un conjunto de puertos que está configurado en SnapDrive.
+
+.Pasos
+. Introduzca el siguiente comando en el sistema host:
++
+`*snapdrive portset delete _filername_ [_filername..._]*`
+
++
+`_filername_` Es el nombre Vserver en el que se configura el conjunto de puertos.
+
++
+[listing]
+----
+snapdrive portset delete vs91
+Deleted portset configuration for appliance: vs91
+----
++
+El conjunto de puertos configurado para SnapDrive se quitó correctamente.
+
+

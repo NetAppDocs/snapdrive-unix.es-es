@@ -1,0 +1,42 @@
+---
+permalink: linux-administration/concept_discrepancy_in_the_error_code_message.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, message, discrepancy 
+summary: Si ejecuta el comando SnapDrive Storage delete cuando los servicios FC e iSCSI están activos o están inactivos, SnapDrive para UNIX muestra un mensaje de error erróneo. 
+---
+= Discrepancia en el mensaje de código de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ejecuta la `snapdrive storage delete` Comando cuando los servicios FC e iSCSI están activos o cuando están inactivos, SnapDrive para UNIX muestra un mensaje de error erróneo.
+
+|===
+| *Protocolo de transporte* | *Mensaje visualizado (el mensaje incorrecto)* | *Mensaje que debe aparecer en su lugar (el mensaje correcto)* 
+
+
+ a| 
+FC e iSCSI están configurados
+ a| 
+[listing]
+----
+0002-181 Command error: Could not select appropriate File System. Please check the value of fstype in config file, and ensure proper file system is configured in the system.
+---- a| 
+`0002-143 Admin error: Coexistence of linuxiscsi linuxfcp drivers is not supported.`
+
+`Ensure that only one of the drivers is loaded in the host, and then retry.`
+
+
+
+ a| 
+FC e iSCSI no están configurados
+ a| 
+[listing]
+----
+0001-465 Command error: The following filespecs do not exist and cannot be deleted.
+---- a| 
+`0001-877 Admin error: HBA assistant not found. Commands involving LUNs should fail.`
+
+|===

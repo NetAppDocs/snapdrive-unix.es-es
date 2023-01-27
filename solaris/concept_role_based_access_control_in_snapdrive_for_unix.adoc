@@ -1,0 +1,24 @@
+---
+permalink: solaris/concept_role_based_access_control_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, rbac, access, control 
+summary: 'Se utiliza el control de acceso basado en roles \(RBAC\) para inicio de sesión de usuario y permisos de roles. Con RBAC, los administradores pueden gestionar grupos de usuarios al definir roles. Si necesita restringir el acceso a la base de datos a administradores específicos, debe configurar cuentas de administrador para ellos. Además, si desea restringir la información, estos administradores pueden ver y las operaciones que pueden realizar, debe aplicar roles a las cuentas de administrador que cree.' 
+---
+= Control de acceso basado en funciones de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El control de acceso basado en roles (RBAC) se usa para el inicio de sesión de usuario y permisos de roles. Con RBAC, los administradores pueden gestionar grupos de usuarios al definir roles. Si necesita restringir el acceso a la base de datos a administradores específicos, debe configurar cuentas de administrador para ellos. Además, si desea restringir la información, estos administradores pueden ver y las operaciones que pueden realizar, debe aplicar roles a las cuentas de administrador que cree.
+
+El control de acceso basado en roles se utiliza en SnapDrive para UNIX con la ayuda de la consola de Operations Manager. La consola de Operations Manager proporciona acceso granular a objetos de almacenamiento como LUN, qtrees, volúmenes, agregados y unidades vFiler.
+
+*Información relacionada*
+
+xref:concept_mandatory_checks_for_volume_based_snaprestore.adoc[Comprobaciones obligatorias para SnapRestore basado en volúmenes]
+
+xref:concept_restoring_snapshotcopies_ona_destination_storagesystem.adoc[Restaurar copias de Snapshot en un sistema de almacenamiento de destino]
+
+xref:concept_snap_disconnect_procedure.adoc[Procedimiento de desconexión de presión]

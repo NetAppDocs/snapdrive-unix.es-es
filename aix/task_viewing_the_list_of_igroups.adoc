@@ -1,0 +1,29 @@
+---
+permalink: aix/task_viewing_the_list_of_igroups.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, view, igroup, list 
+summary: Es posible ver todos los iGroups que están configurados en el host. 
+---
+= Consulte la lista de iGroups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ver todos los iGroups que están configurados en el host.
+
+.Pasos
+. Introduzca el siguiente comando en el sistema host:
++
+`*snapdrive igroup list*`
+
++
+[listing]
+----
+snapdrive igroup list
+appliance name   igroup name
+-----------------------------
+toaster        ig
+----
+

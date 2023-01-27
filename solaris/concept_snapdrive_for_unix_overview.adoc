@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_snapdrive_for_unix_overview.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix 
+summary: SnapDrive para UNIX simplifica la gestión de datos y aumenta la disponibilidad y la fiabilidad de los datos de aplicaciones mediante el aprovisionamiento simplificado del almacenamiento y las copias de SnapVault coherentes con los sistemas de archivos. 
+---
+= Descripción general de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX simplifica la gestión de datos y aumenta la disponibilidad y la fiabilidad de los datos de aplicaciones mediante el aprovisionamiento simplificado del almacenamiento y las copias de SnapVault coherentes con los sistemas de archivos.
+
+SnapDrive para UNIX simplifica los backups de datos de modo que puede recuperar datos incluso si se han eliminado o modificado. SnapDrive para UNIXutiliza la tecnología Snapshot para crear una imagen de los datos en un sistema de almacenamiento compartido o no compartido conectado a un host UNIX. Cuando restaura una copia Snapshot, reemplaza los datos actuales del sistema de almacenamiento por los datos de la copia Snapshot.
+
+SnapDrive para UNIX le permite automatizar el aprovisionamiento de almacenamiento en el sistema de almacenamiento para gestionar sistemas de archivos compartidos tanto de nodo local como de clúster en un entorno de Veritas Storage Foundation para Oracle Real Application Clusters (SFRAC). SnapDrive para UNIX proporciona funciones de almacenamiento que permiten gestionar toda la jerarquía del almacenamiento, como el archivo visible para aplicaciones en el lado del host, el administrador de volúmenes y el número de unidad lógica (LUN) del sistema de almacenamiento.
+
+SnapDrive para UNIX ofrece compatibilidad con el control de acceso basado en roles. Un administrador de almacenamiento usa RBAC para restringir el acceso de un usuario al sistema de almacenamiento en función de la función y la tarea que ejecuta el usuario.
+
+
+NOTE: Debe utilizar Operations Manager Console 3.7 o posterior para usar RBAC.

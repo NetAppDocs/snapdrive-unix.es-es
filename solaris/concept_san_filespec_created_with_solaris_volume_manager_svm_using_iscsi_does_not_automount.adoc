@@ -1,0 +1,40 @@
+---
+permalink: solaris/concept_san_filespec_created_with_solaris_volume_manager_svm_using_iscsi_does_not_automount.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, filespec, iscsi, volume, solaris, manager, network, mount 
+summary: 'Cuando se reinicia el sistema host, la especificación del archivo de red de área de almacenamiento creada con Solaris Volume Manager \(SVM\) mediante iSCSI no se monta automáticamente y el host no se inicia.' 
+---
+= La especificación del archivo de red de área de almacenamiento creada con Solaris Volume Manager usando iSCSI no se monta automáticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se reinicia el sistema host, la especificación del archivo de red de área de almacenamiento creada con Solaris Volume Manager (SVM) mediante iSCSI, no se monta automáticamente y el host no se inicia.
+
+Si el host se inicia, puede montar la especificación del archivo siguiendo los pasos mencionados.
+
+
+
+== Solución alternativa
+
+. Introduzca el metaset
++
+`*-s dgname -t*`
+
++
+comando para cambiar manualmente la propiedad del conjunto de discos.
+
++
+
+NOTE: Asegúrese de que la metadb esté definida.
+
+. Introduzca el
++
+`*mount -a*`
+
++
+comando para montar la especificación del archivo.
+
+

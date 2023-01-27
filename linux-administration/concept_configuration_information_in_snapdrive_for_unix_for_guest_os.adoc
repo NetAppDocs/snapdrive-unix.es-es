@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_configuration_information_in_snapdrive_for_unix_for_guest_os.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, guest, lun, operating 
+summary: Es necesario configurar los sistemas de almacenamiento y Virtual Storage Console en el sistema operativo invitado para aprovisionar las LUN de RDM. 
+---
+= Información de configuración en SnapDrive para UNIX para el sistema operativo invitado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es necesario configurar los sistemas de almacenamiento y Virtual Storage Console en el sistema operativo invitado para aprovisionar las LUN de RDM.
+
+La información de inicio de sesión es necesaria para comunicarse con Virtual Storage Console para aprovisionar LUN de RDM. Una vez completada la configuración, SnapDrive para UNIX permite crear LUN de RDM en el sistema operativo invitado.

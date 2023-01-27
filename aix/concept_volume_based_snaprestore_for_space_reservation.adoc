@@ -1,0 +1,74 @@
+---
+permalink: aix/concept_volume_based_snaprestore_for_space_reservation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snaprestore, space, reservation, volume 
+summary: Para la reserva de espacio con la reserva snap basada en volúmenes, debe establecer la opción space-reservations-volume-enabled en el archivo snapdrive.conf. 
+---
+= SnapRestore basado en volúmenes para la reserva de espacio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la reserva de espacio con la reserva snap basada en volúmenes, es necesario establecer `_space-reservations-volume-enabled_` en la `snapdrive.conf` archivo.
+
+La `_space-reservations-volume-enabled_` la opción se utiliza para establecer la política de garantía de espacio en un volumen y puede adoptar los tres valores siguientes.
+
+* *Snapshot*: Este es el valor predeterminado. La garantía de espacio en el volumen no cambia.
+* *VOLUME*: La garantía de espacio en el volumen está en el nivel de volumen.
+* *Ninguno*: La garantía de espacio está establecida como ninguna.
+
+
+La siguiente tabla describe el comportamiento de la reserva snap basada en volúmenes para la reserva de espacio.
+
+|===
+| No se utiliza ninguna opción CLI de reserva de espacio; `-vbsr execute` está especificado | espacio-reservations-volume-enabled= | Resultado 
+
+
+ a| 
+ninguno
+ a| 
+snapshot
+ a| 
+La garantía de espacio en el volumen no cambia.
+
+
+
+ a| 
+ninguno
+ a| 
+ninguno
+ a| 
+Intentar establecer la garantía de espacio como «'none'» para los volúmenes.
+
+
+
+ a| 
+`-reserve`
+ a| 
+el valor de configuración está sobremontado
+ a| 
+Intentar establecer la garantía de espacio para volúmenes como "volumen"
+
+
+
+ a| 
+`-noreserve`
+ a| 
+el valor de configuración está sobremontado
+ a| 
+Intentar establecer la garantía de espacio para volúmenes como "ninguno"
+
+
+
+ a| 
+ninguno
+ a| 
+volumen
+ a| 
+Intentar establecer la garantía de espacio para volúmenes como "volumen"
+
+|===
+
+NOTE: `-vbsr preview` no comprueba ninguna de las opciones de reserva de espacio.

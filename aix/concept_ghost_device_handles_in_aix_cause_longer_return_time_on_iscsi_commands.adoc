@@ -1,0 +1,22 @@
+---
+permalink: aix/concept_ghost_device_handles_in_aix_cause_longer_return_time_on_iscsi_commands.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, ghost, device, aix, handle, iscsi, command, return 
+summary: 'La consulta de dispositivos AIX a través de iSCSI o FC que tienen controladores de dispositivos fantasma \(controladores de dispositivos en un estado definido o con error\) puede hacer que los comandos SCSI esperen el tiempo de espera predeterminado de AIX que es de unos 30 segundos.' 
+---
+= Los controladores de dispositivos fantasma en AIX provocan un tiempo de retorno mayor en los comandos iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La consulta de dispositivos AIX a través de iSCSI o FC que tienen controladores de dispositivos fantasma (los dispositivos se manejan en un estado definido o con error) puede hacer que los comandos SCSI esperen el tiempo de espera predeterminado de AIX, que es de unos 30 segundos.
+
+Puede ver este problema tras cambiar el uso de FC a un sistema AIX si no se borran las asas de dispositivo hijo de FC o si no se deja un HBA de FC conectado a un switch.
+
+*Solución:*
+
+* Si el adaptador de bus de host de Fibre Channel no está conectado a un switch, instale un conector IOA de Fibre Channel en todos los iniciadores de Fibre Channel que no están conectados a un switch Fibre Channel.
+* Si el HBA de Fibre Channel está conectado a un switch pero ha producido un error o definido en los controladores de dispositivo como dispositivos secundarios, elimine los controladores obsoletos de dispositivos con el `rmdev` comando.
+

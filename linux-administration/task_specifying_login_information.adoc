@@ -1,0 +1,58 @@
+---
+permalink: linux-administration/task_specifying_login_information.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, login, user, password 
+summary: Debe especificar la información de inicio de sesión de usuario para un sistema de almacenamiento de. Según lo especificado al configurar el sistema de almacenamiento, cada sistema de almacenamiento podría usar el mismo nombre de usuario o una misma contraseña, o bien un nombre de usuario o una contraseña únicos. Si todos los sistemas de almacenamiento utilizan la misma información de nombre de usuario o contraseña, se deben realizar una vez los pasos siguientes. Si los sistemas de almacenamiento utilizan nombres de usuario o contraseñas únicos, se deben repetir los siguientes pasos para cada sistema de almacenamiento. 
+---
+= Especificar información de inicio de sesión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe especificar la información de inicio de sesión de usuario para un sistema de almacenamiento de. Según lo especificado al configurar el sistema de almacenamiento, cada sistema de almacenamiento podría usar el mismo nombre de usuario o una misma contraseña, o bien un nombre de usuario o una contraseña únicos. Si todos los sistemas de almacenamiento utilizan la misma información de nombre de usuario o contraseña, se deben realizar una vez los pasos siguientes. Si los sistemas de almacenamiento utilizan nombres de usuario o contraseñas únicos, se deben repetir los siguientes pasos para cada sistema de almacenamiento.
+
+Asegúrese de que ha iniciado sesión como usuario raíz.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config set _user_name filername_ [_filername..._]*`
+
++
+`_user_name_` es el nombre de usuario que se especificó para ese sistema de almacenamiento cuando se lo configuró por primera vez.
+
++
+`_filername_` es el nombre del sistema de almacenamiento.
+
++
+`_[filername...]_` define que puede introducir varios nombres de sistemas de almacenamiento en una línea de comandos si todos tienen el mismo inicio de sesión o contraseña de usuario. Debe introducir el nombre de al menos un sistema de almacenamiento.
+
+. En el aviso, introduzca la contraseña, si la hay.
++
+
+NOTE: Si no se ha establecido ninguna contraseña, pulse Intro (el valor nulo) cuando se le solicite una contraseña.
+
++
+En este ejemplo se configura un usuario llamado `root` para un sistema de almacenamiento llamado tostadora:
+
++
+[listing]
+----
+# snapdrive config set root toaster
+Password for root:
+Retype Password:
+----
++
+En este ejemplo se configura un usuario llamado `root` para tres sistemas de almacenamiento:
+
++
+[listing]
+----
+# snapdrive config set root toaster oven broiler
+Password for root:
+Retype Password:
+----
+. Si tiene otro sistema de almacenamiento con un nombre de usuario o una contraseña diferentes, repita estos pasos.
+

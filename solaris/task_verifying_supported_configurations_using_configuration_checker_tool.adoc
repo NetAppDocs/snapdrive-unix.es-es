@@ -1,0 +1,18 @@
+---
+permalink: solaris/task_verifying_supported_configurations_using_configuration_checker_tool.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, verify 
+summary: El comprobador de configuración de SnapDrive para UNIX ayuda a identificar y verificar las configuraciones admitidas para SnapDrive for UNIX. 
+---
+= Verificación de las configuraciones admitidas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El comprobador de configuración de SnapDrive para UNIX ayuda a identificar y verificar las configuraciones admitidas para SnapDrive for UNIX.
+
+El comprobador de configuración con el archivo de datos actualizado comprueba las configuraciones admitidas por SnapDrive para UNIX y enumera todos los componentes admitidos y no compatibles en el sistema.
+
+La herramienta permite confirmar que todos los componentes necesarios y las versiones correctas están disponibles en el host antes de utilizar SnapDrive para UNIX.

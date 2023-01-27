@@ -1,0 +1,19 @@
+---
+permalink: linux-administration/task_receiving_error_iscsi64_snapdrive_0001_666_fatal_error.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, connect, command, fatal, iscsi64 
+summary: Si el comando SnapDrive snap connect falla con el error GRAVE de iscsi64 SnapDrive 0001-666, a continuación se describe la solución. 
+---
+= Error de recepción iscsi64 SnapDrive: 0001-666 error GRAVE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la `snapdrive snap connect` error del comando con `iscsi64 snapdrive: 0001-666 FATAL error`:, a continuación se describe la solución.
+
+.Pasos
+. Agregar `filter = [ "r|/dev/cciss/.*|" ]` como primer filtro a. `/etc/lvm/lvm.conf` archivo, si el filtro no está especificado.
+. Quitar `/etc/lvm/.cache` y tema `pvscan` para confirmar que ninguna de las `/dev/cciss/*` se muestran las entradas.
+

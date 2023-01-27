@@ -1,0 +1,39 @@
+---
+permalink: linux-administration/concept_snapdrive_storage_create_command_fails_when_multiple_san_paths_are_present.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, command, storage, fails, san, multipathing 
+summary: El comando SnapDrive Storage create falla cuando hay varias rutas SAN pero está deshabilitado el acceso multivía. 
+---
+= Se produce un error en el comando SnapDrive Storage create cuando hay varias rutas SAN presentes pero el acceso multivía está deshabilitado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El almacenamiento de SnapDrive `create` Error del comando cuando hay varias rutas SAN pero el acceso multivía está deshabilitado.
+
+Por ejemplo, para dos LIF iSCSI para una SVM:
+
+[listing]
+----
+[root@scspr0189449001 etc]# iscsiadm --mode session --rescan
+Rescanning session [sid: 1, target: iqn.1992-08.com.netapp:sn.f7335762b23e11e695360050569c153a:vs.3, portal: 10.224.70.253,3260]
+Rescanning session [sid: 2, target: iqn.1992-08.com.netapp:sn.f7335762b23e11e695360050569c153a:vs.3, portal: 10.224.70.254,3260]
+----
+Cuando `multipathing-type` se establece en `none` En el archivo snapdrive.conf y el servicio de multivía está deshabilitado, intentar crear un almacenamiento con LVM, devuelve el siguiente error:
+
+[listing]
+----
+root@scspr0189449001 etc]# snapdrive storage create -fs /mnt/test -lun rgvsim:/vol/asmvol/test -lunsize 500m
+        LUN rgvsim:/vol/asmvol/test ... created
+        mapping new lun(s) ... done
+        discovering new lun(s) ... *failed*
+        Cleaning up ...
+         - LUN rgvsim:/vol/asmvol/test ... deleted
+         0001-422 Admin error: LVM initialization of luns failed:
+        Device /dev/sdb,/dev/sdc not found (or ignored by filtering).
+----
+Esto sucede porque `pvcreate` el comando utiliza ambos dispositivos separados por una coma como un único dispositivo `pvcreate /dev/sdb,/dev/sdc` y un dispositivo llamado `/dev/sdb,/dev/sdc` eso no existe.
+
+Cuando hay varias rutas al almacenamiento y se tiene que usar LVM, tiene que habilitar el acceso multivía.

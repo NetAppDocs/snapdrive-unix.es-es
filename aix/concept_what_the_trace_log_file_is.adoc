@@ -1,0 +1,16 @@
+---
+permalink: aix/concept_what_the_trace_log_file_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, trace, log, file 
+summary: El soporte técnico utiliza el archivo de registro de seguimiento para resolver problemas. 
+---
+= Qué es el archivo de registro de seguimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El soporte técnico utiliza el archivo de registro de seguimiento para resolver problemas.
+
+La activación del archivo de registro de seguimiento no afecta al rendimiento del sistema. De forma predeterminada, este archivo está habilitado. Puede desactivar mediante la configuración de `snapdrive.conf trace-enabled` variable a. `off`.

@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_login_information_for_vserver.html 
+sidebar: sidebar 
+keywords: login, information, snap, snapdrive, vserver 
+summary: Un nombre de usuario y una contraseña permiten que SnapDrive para UNIX acceda al Vserver. También proporciona seguridad porque, además de iniciar sesión como vsadmin, debe ejecutar SnapDrive para UNIX y proporcionar el nombre de usuario y la contraseña correctos cada vez que se le solicite. 
+---
+= Información de inicio de sesión para Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un nombre de usuario y una contraseña permiten que SnapDrive para UNIX acceda al Vserver. También proporciona seguridad porque, además de iniciar sesión como vsadmin, debe ejecutar SnapDrive para UNIX y proporcionar el nombre de usuario y la contraseña correctos cada vez que se le solicite.

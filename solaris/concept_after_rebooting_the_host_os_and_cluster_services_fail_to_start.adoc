@@ -1,0 +1,103 @@
+---
+permalink: solaris/concept_after_rebooting_the_host_os_and_cluster_services_fail_to_start.html 
+sidebar: sidebar 
+keywords: reboot, host, os, cluster, fail, start 
+summary: En un host Solaris 10, si el sistema de archivos no se puede montar después del reinicio, el sistema operativo y el clúster no se inician. 
+---
+= Después de reiniciar el host, los servicios de sistema operativo y clúster no se pueden iniciar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En un host Solaris 10, si el sistema de archivos no se puede montar después del reinicio, el sistema operativo y el clúster no se inician.
+
+Después de reiniciar el host Solaris 10, si el servicio `svc:/system/filesystem/local` No se puede montar ninguno de los siguientes sistemas de archivos, los servicios de clúster o sistema operativo dependientes no se inician.
+
+* Sistema de archivos local
+* Sistema de archivos compartidos
+
+
+
+NOTE: SnapDrive debe crear el sistema de archivos anterior para UNIX.
+
+
+
+== Solución alternativa
+
+. Busque el servicio que no se pudo iniciar después del reinicio mediante el siguiente comando:
++
+`svcs -vx /network/inetd`
+
++
+*Ejemplo:*
+
++
+[listing]
+----
+# svcs -vx /network/inetd
+svc:/network/inetd:default (inetd)
+State: offline since Fri 25 May 2008 04:06:59 PM IST
+Reason: Service svc:/system/filesystem/local:default
+is not running because a method failed.
+----
+. Si la `service/system/filesystem/local:default` error, busque el sistema de archivos persistente que no se pudo montar mediante el siguiente comando:
++
+`tail /var/svc/log/system-filesystem-local:default.log`
+
++
+*Ejemplo:*
+
++
+[listing]
+----
+# tail /var/svc/log/system-filesystem-local:default.log
+[ May 25 15:58:35 Method "start" exited with status 95 ]
+[ May 25 16:07:17 Executing start method
+("/lib/svc/method/fs-local") ]
+UX:vxfs fsck: ERROR: V-3-20693: cannot access device
+/dev/vx/rdsk/dg2/fs1_SdHv:
+UX:vxfs mount: ERROR: V-3-20003: Cannot open
+/dev/vx/dsk/dg2/fs1_SdHv: No such device or address
+UX:vxfs mount: ERROR: V-3-24996: Unable to get disk
+layout version
+WARNING: /sbin/mountall -l failed: exit status 1
+[ May 25 16:07:18 Method "start" exited with status 95 ]
+----
+. Comente las entradas en `/etc/vfstab` para el sistema de archivos que no se pudo montar tras reiniciar el host.
+. Reinicie el servicio del sistema operativo: `svc:/system/filesystem/local:default` ejecutando los siguientes comandos:
++
+.. `svcadm disable`
++
+`svc:/system/filesystem/local:default`
+
+.. `svcadm enable`
++
+`svc:/system/filesystem/local:default`
+
+
+
++
+Se inicia el servicio de sistema operativo y clúster.
+
+. Para el sistema de archivos local que no se pudo montar, complete los siguientes pasos:
++
+.. Monte manualmente el sistema de archivos.
+.. Descomente la `/etc/vfstab` entrada.
+
+
+. Para los servicios de clúster, complete los siguientes pasos:
++
+.. Utilice la `cfsmount` comando para comprobar si los sistemas de archivos compartidos están montados correctamente.
+.. Descomente la `/etc/vfstab` entrada en todos los nodos del clúster para este sistema de archivos.
++
+`svcadm enable`
+
++
+`svc:/system/filesystem/local:default`
+
+
+
+. Si no consigue montar el sistema de archivos local o en cluster incluso tras realizar los pasos anteriores, póngase en contacto con el soporte técnico de NetApp.
+

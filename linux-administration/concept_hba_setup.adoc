@@ -1,0 +1,22 @@
+---
+permalink: linux-administration/concept_hba_setup.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, hba, setup, install 
+summary: La configuración de HBA es el proceso de instalar una tarjeta HBA adecuada y los controladores admitidos en un host Linux. 
+---
+= Configuración de HBA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuración de HBA es el proceso de instalar una tarjeta HBA adecuada y los controladores admitidos en un host Linux.
+
+A continuación, se muestran las tarjetas HBA compatibles con una configuración MPIO de Linux:
+
+* QLOGIC
+* EMULEX
+
+
+Estas tarjetas HBA son compatibles con el kit de conexión 3.0 de Linux de utilidades de host FC y versiones posteriores en RHEL4 Update 6 y posteriores.

@@ -1,0 +1,34 @@
+---
+permalink: solaris/task_changing_asnapshot_copyname.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, name, change 
+summary: Puede cambiar el nombre de una copia Snapshot mediante el comando SnapDrive snap rename. La operación de cambio de nombre de Snapshot cambia el nombre de la copia Snapshot de origen al nombre que especifica el argumento de destino. 
+---
+= Cambiar un nombre de copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede cambiar el nombre de una copia Snapshot mediante el `snapdrive snap rename` comando. La operación de cambio de nombre de Snapshot cambia el nombre de la copia Snapshot de origen al nombre que especifica el argumento de destino.
+
+Antes de ejecutar esta sintaxis, debe comprender las opciones, palabras clave y argumentos mencionados en este comando.
+
+.Pasos
+. Introduzca el siguiente comando para cambiar el nombre de la copia Snapshot:
++
+`*snapdrive snap rename [-snapname] _old_long_snap_name new_snap_name_ [-force [-noprompt]]*`
+
+
+
+A continuación, se muestran ejemplos de `snapdrive snap rename` comando. La primera línea de comandos incluye `-force` Opción porque ya existe una copia Snapshot llamada nueva copia Snapshot. En el segundo ejemplo, los nombres de ambas copias Snapshot utilizan la forma larga del nombre, pero ambos resuelven el mismo volumen de sistema de almacenamiento.
+
+[listing]
+----
+snapdrive snap rename -force filer1:/vol/vol1:oldsnap new snapshot
+----
+[listing]
+----
+snapdrive snap rename filer1:/vol/vol1:FridaySnap filer1:/vol/vol1:Snap040130
+----

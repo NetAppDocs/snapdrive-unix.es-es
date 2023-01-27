@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_application_consistentsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, application, consistent, snapshot, copy 
+summary: Para hacer una copia Snapshot coherente con las aplicaciones, debe detener la aplicación antes de la operación Snapshot. 
+---
+= Copias Snapshot consistentes con las aplicaciones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para hacer una copia Snapshot coherente con las aplicaciones, debe detener la aplicación antes de la operación Snapshot.
+
+Para garantizar que una copia Snapshot sea coherente con las aplicaciones, puede que necesite detener o realizar los pasos necesarios para desactivar la aplicación antes de realizar la copia Snapshot. Tenga en cuenta que las instalaciones de copia de seguridad activa de la base de datos dependen de los métodos utilizados por el DBMS y no siempre activan la E/S en los archivos de la base de datos.
+
+Si la aplicación no ha completado sus transacciones y los datos escritos en el sistema de almacenamiento, es posible que la copia Snapshot resultante no sea coherente con la aplicación.
+
+
+NOTE: Si su aplicación puede recuperarse de una copia Snapshot coherente con los fallos, no necesita Para. Consulte la documentación de su aplicación. Para obtener más información sobre cómo realizar copias de Snapshot coherentes con la aplicación.
+
+Debe realizar una nueva copia Snapshot cada vez que agregue o quite un árbol de directorios de volumen de host, LUN o NFS, o bien cambie el tamaño de los volúmenes de host o los sistemas de archivos. Esto garantiza tener una copia coherente del grupo de discos recién configurado que se puede utilizar si es necesario restaurar el grupo de discos.

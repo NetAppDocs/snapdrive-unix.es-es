@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_operation_with_a_single_filespec_on_a_single_storage_object.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, single, filespec, storage, object 
+summary: SnapDrive for UNIX muestra un mensaje de error cuando no se trata de un usuario autorizado para crear un filespec en un volumen especificado. 
+---
+= Funcionamiento con un único filespec en un único objeto de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive for UNIX muestra un mensaje de error cuando no se trata de un usuario autorizado para crear un filespec en un volumen especificado.
+
+_Filespec: Filespec puede ser un sistema de ficheros, un volumen host, un grupo de discos o una LUN._
+
+[listing]
+----
+[john]$ snapdrive storage create -fs /mnt/testfs -filervol storage_array1:/vol/vol1 -dgsize 100m
+0002-332 Admin error:SD.Storage.Write access denied on volume storage_array1:/vol/vol1 for user unix_host\john on Operations Manager server ops_mngr_server
+----
+En este ejemplo, Juan es un usuario no raíz y no está autorizado a crear un filespec en el volumen especificado. John debe pedir al administrador de la consola de Operations Manager que conceda `SD.Storage.Write` acceso en el volumen `storage_array1:/vol/vol1`.

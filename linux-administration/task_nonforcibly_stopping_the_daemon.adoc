@@ -1,0 +1,23 @@
+---
+permalink: linux-administration/task_nonforcibly_stopping_the_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, daemon, stop, nonforcibly, command, configuration 
+summary: Si se cambia el archivo de configuración de SnapDrive para UNIX, debe detener el daemon para que el archivo de configuración tenga efecto. Después de que el daemon se detenga y se reinicie, los cambios en el archivo de configuración tienen efecto. Al detener el daemon de forma no forzada, todos los comandos en la cola pueden completar la ejecución. Una vez recibida la solicitud de detención, no se ejecutan nuevos comandos. 
+---
+= Detener al demonio de manera no forzada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se cambia el archivo de configuración de SnapDrive para UNIX, debe detener el daemon para que el archivo de configuración tenga efecto. Después de que el daemon se detenga y se reinicie, los cambios en el archivo de configuración tienen efecto. Al detener el daemon de forma no forzada, todos los comandos en la cola pueden completar la ejecución. Una vez recibida la solicitud de detención, no se ejecutan nuevos comandos.
+
+Debe iniciar sesión como usuario raíz.
+
+.Pasos
+. Introduzca el siguiente comando para detener el demonio de forma no forzada:
++
+`*snapdrived stop*`
+
+

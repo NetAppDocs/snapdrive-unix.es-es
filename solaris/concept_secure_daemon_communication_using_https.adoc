@@ -1,0 +1,24 @@
+---
+permalink: solaris/concept_secure_daemon_communication_using_https.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, secure, daemon, communication, https 
+summary: Puede utilizar HTTPS para proteger los servicios web y la comunicación del demonio. Para habilitar la comunicación segura, se deben configurar algunas variables de configuración en el archivo snapdrive.conf y generar e instalar el certificado autofirmado o firmado por CA. 
+---
+= Comunicación de demonio segura mediante HTTPS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar HTTPS para proteger los servicios web y la comunicación del demonio. La comunicación segura se habilita mediante el establecimiento de algunas variables de configuración en `snapdrive.conf` Archivo, y generar e instalar el certificado autofirmado o firmado por CA.
+
+Debe proporcionar el certificado autofirmado o firmado por CA en la ruta especificada en el `snapdrive.conf` archivo. Para usar HTTPS para la comunicación, debe configurar los parámetros siguientes en el `snapdrive.conf` archivo:
+
+* `use-https-to-sdu-daemon=on`
+* `contact-https-port-sdu-daemon=4095`
+* `sdu-daemon-certificate-path=/opt/NTAPsnapdrive/snapdrive.pem`
+
+
+
+NOTE: SnapDrive 5.0 para UNIX y las versiones posteriores admiten HTTPS para la comunicación del demonio. De forma predeterminada, la opción se establece en `off`.

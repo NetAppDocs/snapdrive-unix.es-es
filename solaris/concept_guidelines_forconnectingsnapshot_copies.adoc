@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_guidelines_forconnectingsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, snapshot, copy 
+summary: Siga las directrices al conectar a copias snapshot. 
+---
+= Directrices para conectar copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga las directrices al conectar a copias snapshot.
+
+* La `snapdrive snap connect` El comando solo funciona con las copias Snapshot creadas en SnapDrive 4.2 para UNIX.
+* En un host de origen, SnapDrive para UNIX admite la conexión y restauración de las copias Snapshot creadas por versiones anteriores de SnapDrive para UNIX.
+* Para obtener acceso de lectura y escritura a los árboles de directorios de NFS, el `snapdrive snap connect` El comando utiliza la función Data ONTAP FlexVol volume y, por lo tanto, requiere Data ONTAP 7.3 o una versión posterior. Las configuraciones con Data ONTAP 7.1 pueden conectar archivos NFS o árboles de directorios, pero se proporcionan con acceso de sólo lectura.
+* Si establece la `_enable-split-clone_` Valor de la variable de configuración a «'on'» o «sincronizar» durante la operación de conexión snapshot y «'OFF» durante la operación de desconexión de snapshot, SnapDrive para UNIX no elimina el volumen o LUN originales presentes en la copia snapshot.
+* Debe establecer el valor de la opción de configuración vfiler de Data ONTAP 7.2.2. `vol_clone_zapi_allow` A «'on'» para conectarse a una copia Snapshot de un volumen o LUN de una unidad vFiler.
+* La operación de conexión de Snapshot no es compatible con los hosts que tienen diferentes configuraciones de host.
+* La `snapdrive snap connect` Error del comando utilizado para conectarse a un volumen raíz de un sistema de almacenamiento físico o una unidad vFiler porque Data ONTAP no permite clonar un volumen raíz.
+

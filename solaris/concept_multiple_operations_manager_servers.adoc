@@ -1,0 +1,34 @@
+---
+permalink: solaris/concept_multiple_operations_manager_servers.html 
+sidebar: sidebar 
+keywords: manager, console, server, operations,configuration 
+summary: SnapDrive para UNIX admite varios servidores de consola de Operations Manager. Esta función se requiere cuando más de un servidor de consola de Operations Manager gestiona un grupo de sistemas de almacenamiento. SnapDrive para UNIX contacta a los servidores de la consola de Operations Manager en el mismo orden en que los servidores de la consola de Operations Manager están configurados en SnapDrive para UNIX. Puede ejecutar el comando SnapDrive config list para obtener el orden de configuración. 
+---
+= Varios servidores de consola de Operations Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX admite varios servidores de consola de Operations Manager. Esta función se requiere cuando más de un servidor de consola de Operations Manager gestiona un grupo de sistemas de almacenamiento. SnapDrive para UNIX contacta a los servidores de la consola de Operations Manager en el mismo orden en que los servidores de la consola de Operations Manager están configurados en SnapDrive para UNIX. Puede ejecutar el `snapdrive config list` para obtener el orden de configuración.
+
+El siguiente ejemplo muestra el resultado de varios servidores de consola de Operations Manager:
+
+[listing]
+----
+# snapdrive config list
+username    appliance name     appliance type
+---------------------------------------------
+root        storage_array1     StorageSystem
+root        storage_array2     StorageSystem
+sd-admin    ops_mngr_server1   DFM
+sd-admin    ops_mngr_server2   DFM
+----
+En el ejemplo anterior, Storage_array1 es gestionado por OPS_mngr_server1 y Storage_array2 es gestionado por OPS_mngr_server2. En este ejemplo, SnapDrive para UNIX contacta primero con OPS_mngr_server1. Si OPS_mngr_server1 no puede determinar el acceso, SnapDrive para contactos UNIX OPS_mngr_server2.
+
+SnapDrive para UNIX sólo se pone en contacto con la segunda consola de Operations Manager en las siguientes condiciones:
+
+* Cuando la primera consola de Operations Manager no puede determinar el acceso. Esta situación puede ocurrir porque la primera consola de Operations Manager no gestiona el sistema de almacenamiento.
+* Cuando la primera consola de Operations Manager está inactiva.
+

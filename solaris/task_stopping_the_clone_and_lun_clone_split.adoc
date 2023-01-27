@@ -1,0 +1,56 @@
+---
+permalink: solaris/task_stopping_the_clone_and_lun_clone_split.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, stop, volume, clone, split, operation, lun 
+summary: Es posible detener la división de clones de un clon de volumen o un clon de LUN con el ID de trabajo o la especificación del archivo. 
+---
+= Detener la operación de división de clones de volumen o LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible detener la división de clones de un clon de volumen o un clon de LUN con el ID de trabajo o la especificación del archivo.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive clone split stop [-lun] _long_lun_name_ [_long_lun_name..._] |[{-dg | -vg | -fs | -hostvol | -lvol} _file_spec_ [_file_spec..._]] | [-job _<jobid>_]*`
+
++
+SnapDrive para UNIX detiene la operación de detención de división de clones en curso.
+
+
+
+En el siguiente ejemplo, se muestra la operación de división de clones que se detiene con la especificación del archivo.
+
+[listing]
+----
+# snapdrive clone split stop -fs /mnt/my_mnt4 /mnt/my_mnt3
+Clone-Split for "/mnt/my_mnt4" is 0% Completed and Stopped.
+Clone-Split for "/mnt/my_mnt3" is 0% Completed and Stopped.
+----
+En el siguiente ejemplo, se muestra la operación de división de clones que se detiene con el identificador de trabajo.
+
+[listing]
+----
+# snapdrive clone split stop -job B265Dbv8gh
+Clone-Split for "/mnt/my_mnt3" is 14% Completed and Stopped.
+Clone-Split for "/mnt/my_mnt4" is 17% Completed and Stopped.
+----
+El siguiente ejemplo es un resultado típico que muestra la operación de parada de división de clones para una especificación de archivo que ya se ha detenido.
+
+[listing]
+----
+# snapdrive clone split stop -fs /mnt/my_mnt4 /mnt/my_mnt3
+Clone-Split for "/mnt/my_mnt3" is not stopped : No split is in progress for this resource
+Clone-Split for "/mnt/my_mnt4" is not stopped : No split is in progress for this resource
+----
+[NOTE]
+====
+* Si la división de clones se detiene para una especificación de archivo determinada en el identificador de trabajo y la detención de división de clones se realiza correctamente, se elimina la especificación del archivo del trabajo.
+* Si la división de clones se detiene en un trabajo y la detención de división de clones se realiza correctamente para todas las especificaciones de archivo del trabajo, el trabajo se elimina del conjunto de trabajos.
+
+
+====

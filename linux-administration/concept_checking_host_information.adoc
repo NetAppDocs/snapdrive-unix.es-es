@@ -1,0 +1,19 @@
+---
+permalink: linux-administration/concept_checking_host_information.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, check 
+summary: Algunos sistemas de host requieren que se preparen antes de crear LUN nuevos. SnapDrive para UNIX proporciona comandos que completen estos pasos para preparar el host a fin de crear nuevas LUN. 
+---
+= Comprobación de la información del host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Algunos sistemas de host requieren que se preparen antes de crear LUN nuevos. SnapDrive para UNIX proporciona comandos que completen estos pasos para preparar el host a fin de crear nuevas LUN.
+
+Si su sistema operativo requiere que lo prepare antes de crear una LUN nueva, puede utilizar la `snapdrive config` comando. La `snapdrive config` El comando le permite comprobar la información acerca de cuántas LUN se crean en un sistema de almacenamiento que se asigna al host.
+
+
+NOTE: No todos los sistemas operativos de la plataforma host requieren que prepare el host. Actualmente, estos comandos solo son necesarios en los hosts Linux.

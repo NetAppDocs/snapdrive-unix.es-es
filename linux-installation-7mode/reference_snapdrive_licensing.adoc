@@ -1,0 +1,65 @@
+---
+permalink: linux-installation-7mode/reference_snapdrive_licensing.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, license, requirements, software 
+summary: Antes de instalar SnapDrive para UNIX, debe asegurarse de tener las licencias adecuadas para el software y los protocolos necesarios. 
+---
+= Requisitos para la licencia de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar SnapDrive para UNIX, debe asegurarse de tener las licencias adecuadas para el software y los protocolos necesarios.
+
+Los requisitos de licencia de SnapDrive para UNIX son los siguientes:
+
+|===
+| Licencia | Descripción | Donde se instaló 
+
+
+ a| 
+SnapRestore
+ a| 
+Una licencia requerida que permite a SnapDrive para UNIX restaurar copias de Snapshot.
+ a| 
+En sistemas de almacenamiento de NetApp
+
+
+
+ a| 
+FlexClone
+ a| 
+Una licencia opcional para clonar copias Snapshot.
+ a| 
+En sistemas de almacenamiento de NetApp
+
+
+
+ a| 
+Protocolos
+ a| 
+Necesario para LUN, la licencia de iSCSI o FC.
+ a| 
+En sistemas de almacenamiento de NetApp
+
+
+
+ a| 
+SnapMirror
+ a| 
+Una licencia opcional para mirroring de backups en un sistema de almacenamiento.
+ a| 
+En sistemas de almacenamiento de NetApp
+
+
+
+ a| 
+SnapVault
+ a| 
+Una licencia opcional para archivar backups en un sistema de almacenamiento.
+ a| 
+En sistemas de almacenamiento de NetApp
+
+|===

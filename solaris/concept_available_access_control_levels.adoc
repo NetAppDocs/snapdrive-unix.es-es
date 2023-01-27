@@ -1,0 +1,28 @@
+---
+permalink: solaris/concept_available_access_control_levels.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, access, control, level 
+summary: SnapDrive para UNIX ofrece diversos niveles de control de acceso a los usuarios. Estos niveles de acceso se relacionan con las copias de Snapshot y las operaciones de los sistemas de almacenamiento. 
+---
+= Niveles de control de acceso disponibles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX ofrece diversos niveles de control de acceso a los usuarios. Estos niveles de acceso se relacionan con las copias de Snapshot y las operaciones de los sistemas de almacenamiento.
+
+Se pueden configurar los siguientes niveles de acceso:
+
+* NONE: El host no tiene acceso al sistema de almacenamiento.
+* SNAP CREATE: El host puede crear copias de Snapshot.
+* USO SNAP--el host puede eliminar y cambiar el nombre de las copias Snapshot.
+* SNAP ALL: El host puede crear, restaurar, eliminar y cambiar el nombre de las copias Snapshot.
+* STORAGE CREATE DELETE: El host puede crear, redimensionar y eliminar almacenamiento.
+* USO DE ALMACENAMIENTO: El host puede conectar y desconectar el almacenamiento, así como realizar estimación de división de clones y comenzar a usar el almacenamiento.
+* TODO el ALMACENAMIENTO: El host puede crear, eliminar, conectar y desconectar el almacenamiento, y también realizar cálculos de división de clones y comenzar a dividir clones en el almacenamiento.
+* TODOS LOS ACCESOS: El host tiene acceso a todas las operaciones anteriores de la SnapDrive para UNIX.
+
+
+Cada nivel es distinto. Si especifica permisos solo para determinadas operaciones, SnapDrive para UNIX puede ejecutar únicamente esas operaciones. Por ejemplo, si especifica EL USO DE ALMACENAMIENTO, el host puede utilizar SnapDrive para UNIX para conectar y desconectar el almacenamiento, pero no puede realizar ninguna otra operación regulada por los permisos de control de acceso.

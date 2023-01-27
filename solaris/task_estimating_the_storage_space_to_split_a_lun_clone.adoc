@@ -1,0 +1,58 @@
+---
+permalink: solaris/task_estimating_the_storage_space_to_split_a_lun_clone.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, estimate, storage, split, lun, clone 
+summary: 'La estimación de división de clones ayuda a calcular el espacio de almacenamiento necesario \(en MB\) para dividir un clon LUN. Según la estimación de la división de clones que ofrece SnapDrive para UNIX, puede determinar la disponibilidad de espacio para dividir un clon LUN.' 
+---
+= Calcular el espacio de almacenamiento para dividir un clon de LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La estimación de división de clones permite estimar el espacio de almacenamiento necesario (en MB) para dividir un clon de LUN. Según la estimación de la división de clones que ofrece SnapDrive para UNIX, puede determinar la disponibilidad de espacio para dividir un clon LUN.
+
+.Pasos
+. Introduzca el siguiente comando para calcular el espacio de almacenamiento necesario para dividir un clon de LUN.
++
+`*snapdrive clone split estimate [-lun] _long_lun_name_ [_long_lun_name..._] | [{-dg | -vg | -fs | -hostvol | -lvol}_file_spec_ [_file_spec..._]] | [-snapname _long_snap_name_] {-volclone|-lunclone}] [-v | -verbose]*`
+
++
+Esta operación muestra la siguiente información:
+
++
+** Nombre del recurso
+** Contenedor: Volumen para un clon LUN
+** Espacio requerido: Espacio necesario para dividir un clon de LUN
+** Espacio disponible: Espacio disponible en el contenedor
+** Estado de almacenamiento: Indica la disponibilidad de espacio para una división de clones de la LUN
+** Espacio de propiedad: Espacio ocupado por el clon LUN
+** Espacio compartido: Espacio ocupado por el clon de LUN junto con el elemento principal
+
+
++
+La `Owned Space` y.. `Shared Space` aparece cuando se utiliza `-verbose` opción.
+
+
+
+En el ejemplo siguiente se calcula el espacio de almacenamiento para dividir un clon de una LUN.
+
+[listing]
+----
+# snapdrive clone split estimate -fs /mnt/my_mnt1
+Resource     Container Required Available Storage
+                       Space(MB)Space(MB) Status
+/mnt/my_mnt1 f3050-220  5120    9986    AVAILABLE
+             -112:/vol/vol_1
+----
+A continuación se muestra un ejemplo de uso del `-verbose` opción. Como alternativa, puede usar `-v` opción.
+
+[listing]
+----
+# snapdrive clone split estimate -fs /mnt/my_mnt1 -verbose
+Resource    Container  Owned    Shared   Required Available Storage
+                       Space(MB)Space(MB)Space(MB)Space(MB) Status
+/mnt/my_mnt1 f3050-220  365   403      5120     9986 AVAILABLE
+             -112:/vol/vol_1
+----

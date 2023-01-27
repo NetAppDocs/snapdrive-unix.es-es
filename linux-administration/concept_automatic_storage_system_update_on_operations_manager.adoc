@@ -1,0 +1,28 @@
+---
+permalink: linux-administration/concept_automatic_storage_system_update_on_operations_manager.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, update, manager, operations 
+summary: La consola del Gestor de operaciones detecta los sistemas de almacenamiento compatibles con la red. Supervisa periódicamente los datos que recopila de los sistemas de almacenamiento detectados. Los datos se actualizan en un intervalo establecido. El administrador de la consola de Operations Manager puede configurar el intervalo de actualización. 
+---
+= Actualización automática del sistema de almacenamiento en la consola de Operations Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La consola del Gestor de operaciones detecta los sistemas de almacenamiento compatibles con la red. Supervisa periódicamente los datos que recopila de los sistemas de almacenamiento detectados. Los datos se actualizan en un intervalo establecido. El administrador de la consola de Operations Manager puede configurar el intervalo de actualización.
+
+El intervalo de supervisión de LUN, el intervalo de supervisión de qtrees y el intervalo de supervisión de vFiler son campos importantes que deciden la frecuencia de actualizaciones de LUN, qtrees y vFiler. Por ejemplo, si se crea una nueva LUN en un sistema de almacenamiento, la nueva LUN no se actualiza inmediatamente en la consola de Operations Manager. Por este motivo y la comprobación de acceso emitida a la consola de Operations Manager correspondiente a ese LUN en la consola de Operations Manager falla. Para evitar esta situación, puede modificar el intervalo de supervisión de LUN para que se ajuste a sus requisitos.
+
+.Pasos
+. Seleccione *Configuración* > *Opciones* en la consola de Operations Manager para cambiar el intervalo de monitorización.
+. El administrador de la consola de Operations Manager también puede actualizar de forma forzada la consola de Operations Manager mediante la ejecución `dfm host discovery filername` en la interfaz de línea de comandos.
+. También puede conceder el administrador de la consola de Operations Manager `DFM.Database.Write` Capacidad del grupo global para sd-admin para que SnapDrive para UNIX actualice las entidades del sistema de almacenamiento en la consola de Operations Manager.
++
+[listing]
+----
+# dfm role add sd-admin-role DFM.Database.Write Global
+Added 1 capability to role sd-admin-role.
+----
+

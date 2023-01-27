@@ -1,0 +1,22 @@
+---
+permalink: aix/concept_snapshot_connectand_snapshotrestore_operations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, connect, restore, operation 
+summary: La copia Snapshot clona la información cuando se conecta a la copia Snapshot. 
+---
+= Operaciones de conexión de Snapshot y restauración de Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La copia Snapshot clona la información cuando se conecta a la copia Snapshot.
+
+A diferencia de la operación de restauración de Snapshot, la operación de conexión de Snapshot no sustituye el contenido existente de las LUN que conforman la entidad del host con el contenido de la copia de Snapshot. Clona la información.
+
+Una vez establecida la conexión, tanto las operaciones de conexión de Snapshot como de restauración de Snapshot realizan actividades similares:
+
+* La operación Snapshot connect activa los volúmenes lógicos de la entidad de almacenamiento, monta sistemas de archivos y, opcionalmente, añade una entrada a la tabla del sistema de archivos host.
+* La operación de restauración Snapshot activa los volúmenes lógicos de la entidad de almacenamiento, monta los sistemas de archivos y aplica las entradas de montaje del sistema de archivos host que se conservan en la copia Snapshot.
+

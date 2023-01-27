@@ -1,0 +1,29 @@
+---
+permalink: linux-administration/concept_pure_nfs_environment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, subnet, nfs, volumes, interface, data, configure, system, management 
+summary: Si configura un sistema para varias subredes y uno o más volúmenes NFS están montados a través de la interfaz de gestión, debe configurar siempre la primera interfaz de datos como la interfaz de gestión. 
+---
+= Entorno NFS puro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si configura un sistema para varias subredes y uno o más volúmenes NFS están montados a través de la interfaz de gestión, debe configurar siempre la primera interfaz de datos como la interfaz de gestión.
+
+En el ejemplo siguiente, la interfaz de gestión es `10.72.221.19`, y la interfaz de datos es `10.72.220.45`.
+
+[listing]
+----
+# snapdrive config list
+username    appliance name   appliance type
+-------------------------------------------
+root        10.72.221.19     StorageSystem
+
+# snapdrive config list -mgmtpath
+system name    management interface   datapath interface
+--------------------------------------------------------
+f2040-221-19   10.72.221.19           10.72.220.45
+----

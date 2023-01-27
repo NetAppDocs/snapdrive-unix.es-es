@@ -1,0 +1,67 @@
+---
+permalink: aix/task_configuring_sd_admin_using_cli.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, admin, command, line, interface 
+summary: El administrador del sistema de almacenamiento puede configurar el usuario sd-admin mediante la interfaz de línea de comandos. 
+---
+= Configuración de sd-admin mediante la interfaz de línea de comandos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El administrador del sistema de almacenamiento puede configurar el usuario sd-admin mediante la interfaz de línea de comandos.
+
+.Pasos
+. Agregue un usuario llamado sd-admin.
++
+[listing]
+----
+# useradd sd-admin
+----
++
+[listing]
+----
+# passwd sd-admin
+Changing password for sd-admin.
+New password:
+Re-enter new password:
+Password changed
+----
+. Agregue un administrador llamado sd-admin.
++
+[listing]
+----
+# dfm user add sd-admin
+Added administrator sd-admin.
+----
+. Cree una función denominada sd-admin-role.
++
+[listing]
+----
+# dfm role create sd-admin-role
+Created role sd-admin-role.
+----
+. Añada una funcionalidad al rol creado en el paso 3.
++
+[listing]
+----
+# dfm role add sd-admin-role DFM.Core.AccessCheck Global
+Added 1 capability to role sd-admin-role.
+----
+. También puede otorgar el administrador de Operations Manager `DFM.Database.Write` capacidad del grupo global para `<sd-admin>` Para permitir que SnapDrive para UNIX actualice las entidades de los sistemas de almacenamiento en Operations Manager.
++
+[listing]
+----
+# dfm role add sd-admin-role DFM.Database.Write Global
+Added 1 capability to role sd-admin-role.
+----
+. Añada una función sd-admin al usuario sd-admin.
++
+[listing]
+----
+# dfm user role set sd-admin sd-admin-role
+Set 1 role for administrator sd-admin.
+----
+

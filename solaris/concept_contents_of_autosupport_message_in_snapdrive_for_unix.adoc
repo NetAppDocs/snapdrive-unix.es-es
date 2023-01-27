@@ -1,0 +1,47 @@
+---
+permalink: solaris/concept_contents_of_autosupport_message_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, autosupport, message 
+summary: Los mensajes AutoSupport contienen la siguiente información. 
+---
+= Contenido de los mensajes de AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes AutoSupport contienen la siguiente información.
+
+* Origen del evento
+* ID del evento
+* Versión de SnapDrive para UNIX
+* Estado del mensaje: Mensajes de nivel de registro, por ejemplo 1 para alerta, 2 para crítica, 3 para error, 4 para advertencia, 5 para aviso, 6 para información y 7 para depuración
+* Nombre de host
+* Sistema operativo del host
+* Lance la versión del sistema operativo del host
+* Nombre del sistema de almacenamiento
+* Uso de Protection Manager/Role Based Access Control
+* Categoría de error
+* AutoSupport Marcar la entrada del mensaje COMO FALSO
+* Tipo multivía de host: El valor configurado en `snapdrive.conf` el archivo está registrado. Si el asistente no se carga debido a un valor de configuración incorrecto, no se registra ningún tipo de acceso múltiple de host.
+* Virtualización de host habilitada: Esto está capturado solo para el sistema operativo invitado VMware.
+* Protocolo: El valor configurado para `_default-transport_` en la `snapdrive.conf` archivo.
+* Protección habilitada: Si Data Fabric Manager (DFM) de OnCommand está configurado con SnapDrive para UNIX, el valor `_Yes_` está registrado.
++
+
+NOTE: SnapDrive para UNIX no verifica si el DFM de OnCommand está en uso.
+
+
+
+Cuando se ejecuta el, hay disponible la siguiente información adicional `snapdrive storage show -all` comando:
+
+* Tipo de protocolos (FCP/iSCSI): Protocolos que se usan para crear las lun, si las hay.
+* Número de LUN conectados
+* Número de discos o grupos de volúmenes
+* Número de especificaciones de archivo
+* Cantidad de volúmenes de host
+
+
+
+NOTE: Cuando AutoSupport está habilitado en SnapDrive para UNIX, en caso de producirse algún fallo en la operación, los mensajes de error se registran en el sistema de almacenamiento del sistema de administración de eventos (EVM). Si el mensaje de error contiene caracteres especiales, como (<, >, &, ', ", \R), los valores de sangrado se muestran en la vista del registro EMS del sistema de almacenamiento.

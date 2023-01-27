@@ -1,0 +1,32 @@
+---
+permalink: solaris/task_guidelines_fordisplayingsnapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy, guidelines 
+summary: Puede utilizar caracteres comodín para mostrar las copias Snapshot. Puede mostrar todas las copias Snapshot presentes en un objeto específico. 
+---
+= Directrices para mostrar copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar caracteres comodín para mostrar las copias Snapshot. Puede mostrar todas las copias Snapshot presentes en un objeto específico.
+
+Tenga en cuenta lo siguiente antes de trabajar con las copias Snapshot:
+
+* Puede usar el carácter comodín (*) en los nombres de las copias snapshot. La operación Snapshot show permite usar el carácter comodín para mostrar todos los nombres de las copias de Snapshot que coinciden con un patrón determinado o todos los nombres de las copias de Snapshot de un volumen concreto. Al usar el carácter comodín en los nombres de copias de Snapshot, se aplican las siguientes reglas:
++
+** Puede utilizar un comodín al final del nombre únicamente. No puede usar el carácter comodín al principio o a medio de un nombre de copia Snapshot.
+** No se puede usar el carácter comodín en los campos del sistema de almacenamiento o del volumen del sistema de almacenamiento de un nombre de copia de Snapshot.
+
+
+* Este comando también puede usarse para enumerar todas las copias Snapshot en objetos específicos, incluidos los sistemas de almacenamiento y sus volúmenes, los grupos de discos, los grupos de volúmenes de hosts, los sistemas de archivos, los volúmenes de hosts, y volúmenes lógicos.
+* Si introduce un `snapdrive snap show` Command and SnapDrive for UNIX no encuentra ninguna copia snapshot, muestra el mensaje «'no hay copias snapshot coincidentes». Si especifica argumentos en la línea de comandos y no hay algunas partes de ellos, SnapDrive para UNIX devuelve una lista parcial de aquellos para los que se encuentran las copias Snapshot. También enumera los argumentos que no eran válidos.
+* Si la `snapdrive snap create` el comando se cancela abruptamente, un incompleto `.stoc.xml` el archivo se almacena en el volumen del sistema de almacenamiento. Por esta razón, todas las copias snapshot programadas que realice el sistema de almacenamiento tendrán una copia del archivo .stoc.xml incompleto. Para la `snapdrive snap list` comando para funcionar correctamente, complete los siguientes pasos:
+
+
+.Pasos
+. Elimine la incompleto `.stoc.xml` archivo en el volumen.
+. Elimine las copias Snapshot programadas que realiza el sistema de almacenamiento que contiene la incompleta `.stoc.xml` archivo.
+

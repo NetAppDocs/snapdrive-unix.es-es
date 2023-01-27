@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_snapdrive_commands_fails_when_the_transport_protocol_connectivity_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, fail, transport, fc, iscsi, storage 
+summary: Se produce un error en el comando SnapDrive cuando se produce un error en la conexión de iSCSI o FC entre el host y el sistema de almacenamiento, o si se produce un error en iSCSI o FC en el sistema de almacenamiento. 
+---
+= Se produce un error en el comando SnapDrive cuando se produce un error en la conectividad del protocolo de transporte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se produce un error en el comando SnapDrive cuando se produce un error en la conexión de iSCSI o FC entre el host y el sistema de almacenamiento, o si se produce un error en iSCSI o FC en el sistema de almacenamiento.
+
+
+
+== Solución alternativa
+
+Para utilizar correctamente comandos de SnapDrive para UNIX, primero es necesario restaurar el servicio iSCSI o FC.

@@ -1,0 +1,20 @@
+---
+permalink: linux-administration/concept_guidelines_fordeleting_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, snapshot, copy, storage, command 
+summary: No puede eliminar una copia Snapshot que está en uso o si la copia Snapshot se encuentra en varios volúmenes de sistemas de almacenamiento. 
+---
+= Directrices para eliminar copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No puede eliminar una copia Snapshot que está en uso o si la copia Snapshot se encuentra en varios volúmenes de sistemas de almacenamiento.
+
+Siga estas directrices cuando utilice `snapdrive snap delete` comando:
+
+* Se produce un error en la operación de eliminación de Snapshot si alguna de las copias de Snapshot que desea eliminar está en uso o no las crea SnapDrive para UNIX. Puede anular este comportamiento incluyendo la `-force` con la `snapdrive snap delete` comando.
+* Si tiene una copia de Snapshot que abarca varios volúmenes del sistema de almacenamiento, debe eliminar manualmente la copia de Snapshot en cada volumen.
+

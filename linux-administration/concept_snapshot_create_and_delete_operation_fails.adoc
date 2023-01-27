@@ -1,0 +1,115 @@
+---
+permalink: linux-administration/concept_snapshot_create_and_delete_operation_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, create, delete, fail, remove, lun 
+summary: La operación de creación y eliminación de Snapshot no puede quitar copias Snapshot en el sistema de almacenamiento porque las LUN están ocupadas. 
+---
+= La operación de creación y eliminación de Snapshot falla
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La operación de creación y eliminación de Snapshot no puede quitar copias Snapshot en el sistema de almacenamiento porque las LUN están ocupadas.
+
+Aparece el siguiente mensaje de error:
+
+[listing]
+----
+0001-124 Admin error: Failed to remove snapshot <snap-name> on
+filer <filer-name>: LUN clone
+----
+Puede encontrar este error y no ser capaz de eliminar directamente una copia Snapshot si se cumple lo siguiente:
+
+* Un grupo de discos abarca varios sistemas de almacenamiento.
+* Los siguientes comandos SnapDrive se ejecutan en un bucle para más de 50 iteraciones (el número de iteraciones depende del sistema operativo host):
++
+** `snapdrive storage create`
+** `snapdrive snap create`
+** `snapdrive storage delete`
+** `snapdrive snap restore`
+** `snapdrive snap connect`
+** `snapdrive storage delete`
+** `snapdrive snap delete`
+
+
+
+
+En este momento, el estado de la copia Snapshot en el sistema de almacenamiento muestra `*LUNs-Busy*`, y este estado prolonga por unas horas.
+
+
+
+== Solución alternativa
+
+|===
+| *Si...* | *Entonces*... 
+
+
+ a| 
+Hay LUN clonados en una copia de Snapshot que no están conectados a un host.
+ a| 
+Puede realizar una de las siguientes acciones para eliminar la copia Snapshot:
+
+* Divida las LUN clonadas del sistema de almacenamiento mediante el `filer split clone` comando.
+* Elimine las LUN clonadas.
+
+
+
+
+ a| 
+Hay LUN clonados en una copia de Snapshot que no están conectados a un host.
+ a| 
+Siga estos pasos:
+
+. Desconecte los LUN clonados del host mediante el `snapdrive snap disconnect` comando.
+. Elimine las LUN clonadas.
+. Elimine la copia Snapshot.
+
+
+
+
+ a| 
+Hay alguna de las siguientes opciones:
+
+* Las LUN clonadas de una copia Snapshot que también están presentes en otras copias Snapshot
+* LUN clonadas de backup
+
+ a| 
+Complete los siguientes pasos:
+
+. Ejecute el siguiente comando en el símbolo del sistema del sistema de almacenamiento: `lun snap usage -s <volumename>< snap-name>`
++
+Esto enumera el nombre de las copias Snapshot que contienen las copias Snapshot de las LUN clonadas, como se muestra en el ejemplo siguiente:
+
++
+[listing]
+----
+tonic*> lun snap usage vol1
+james_lun (filer view)
+mpiotest2:
+LUN:
+/vol/vol1/.snapshot/mpiotest2/d
+hilip_0
+Backed By:
+/vol/vol1/.snapshot/dhilip_lun/
+james
+----
+. Elimine las copias Snapshot del sistema de almacenamiento en el mismo orden que se enumeran en la salida del comando snap usage de la lun, como se muestra en el siguiente ejemplo.
++
+`snap delete vol1 mpiotest2`
+
++
+
+NOTE: Asegúrese de que ningún otro host utilice la copia Snapshot que va a eliminar. Si se está accediendo a él, no puede eliminar.
+
+
+
+
+
+ a| 
+No hay ninguna LUN clonada
+ a| 
+Espere hasta la `LUNs-Busy` Desaparece el estado de la copia snapshot en el sistema de almacenamiento.
+
+|===

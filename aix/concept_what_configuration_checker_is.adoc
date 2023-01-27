@@ -1,0 +1,22 @@
+---
+permalink: aix/concept_what_configuration_checker_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, checker, tool 
+summary: El comprobador de configuración de SnapDrive ayuda a identificar las configuraciones admitidas por SnapDrive para UNIX. 
+---
+= Qué es el comprobador de configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El comprobador de configuración de SnapDrive ayuda a identificar las configuraciones admitidas por SnapDrive para UNIX.
+
+El comprobador de configuración aborda el problema de varias configuraciones de compatibilidad mediante la verificación de la configuración de usuario en entornos NAS y SAN.
+
+El comprobador de configuración de SnapDrive es compatible con las siguientes comprobaciones de configuración en SnapDrive para UNIX:
+
+* Comprueba la configuración especificada en `snapdrive.conf` archivo, que está disponible en la ubicación predeterminada.
+* Comprueba la configuración especificada mediante la CLI.
+

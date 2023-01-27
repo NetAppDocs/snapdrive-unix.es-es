@@ -1,0 +1,49 @@
+---
+permalink: linux-administration/concept_what_access_control_settings_are.html 
+sidebar: sidebar 
+keywords: access, control, settings, snap, snapdrive, user, storage, files 
+summary: Para determinar el acceso de los usuarios, SnapDrive para UNIX comprueba uno de los dos archivos de permisos en el volumen raíz del sistema de almacenamiento. Debe comprobar las reglas establecidas en esos archivos para evaluar el control de acceso. 
+---
+= Qué configuración de control de acceso son
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para determinar el acceso de los usuarios, SnapDrive para UNIX comprueba uno de los dos archivos de permisos en el volumen raíz del sistema de almacenamiento. Debe comprobar las reglas establecidas en esos archivos para evaluar el control de acceso.
+
+* `sdhost-name.prbac` el archivo está en el directorio `/vol/vol0/sdprbac` (Control de acceso basado en roles con permisos SnapDrive).
++
+El nombre de archivo es `sdhost-name.prbac`, donde `_host-name_` es el nombre del host al que se aplican los permisos. Es posible tener un archivo de permisos para cada host conectado al sistema de almacenamiento. Puede utilizar el `snapdrive config access` comando para mostrar información sobre los permisos disponibles para un host en un sistema de almacenamiento específico.
+
++
+Si la `sdhost-name.prbac` no existe y, a continuación, utiliza el `sdgeneric.prbac` archivo para comprobar los permisos de acceso.
+
+* `sdgeneric.prbac` el archivo también se encuentra en el directorio `/vol/vol0/sdprbac`.
++
+El nombre del archivo `sdgeneric.prbac` se usa como configuración de acceso predeterminada para varios hosts al que no tiene acceso `sdhost-name.prbac` de ficheros en el sistema de almacenamiento.
+
+
+
+Si usted tiene ambos `sdhost-name.prbac` y.. `sdgeneric.prbac` archivos disponibles en la `/vol/vol0/sdprbac` y, a continuación, utilice la `sdhost-name.prbac` para comprobar los permisos de acceso, ya que se sobrescriben los valores proporcionados `sdgeneric.prbac` archivo.
+
+Si no tiene `bothsdhost-name.prbac` y.. `sdgeneric.prbac` archivos y, a continuación, compruebe la variable de configuración `_all-access-if-rbac-unspecified_` que se define en la `snapdrive.conf` archivo.
+
+La configuración del control de acceso desde un host determinado a una unidad vFiler determinada es una operación manual. El acceso desde un host determinado se controla mediante un archivo que reside en el volumen raíz de la unidad vFiler afectada. El archivo contiene `/vol/<vfiler root volume>/sdprbac/sdhost-name.prbac`, donde `_host-name_` es el nombre del host afectado, tal como devuelve gethostname(3). Debe asegurarse de que este archivo sea legible, pero no editable, desde el host que puede acceder a él.
+
+
+NOTE: Para determinar el nombre del host, ejecute el `hostname` comando.
+
+Si el archivo está vacío, no se puede leer o tiene un formato no válido, SnapDrive para UNIX no concede el acceso de host a ninguna de las operaciones.
+
+La configuración del control de acceso desde un host determinado a una determinada unidad Vserver es un funcionamiento manual. El acceso desde un host determinado se controla mediante un archivo que reside en el volumen raíz de la unidad Vserver afectada. Este archivo tiene el nombre `/vol/<vserver root volume>/sdhost-name.prbac`, donde nombre-host es el nombre del host afectado, como lo devuelve `gethostname(3)`. Debe asegurarse de que este archivo sea legible, pero no editable, desde el host que puede acceder a él.
+
+[NOTE]
+====
+Para montar el volumen raíz de Vserver en el sistema host y crear dicho volumen `*.prbac` archivos, ejecute el siguiente comando:
+
+`*mount <vservername>:/ <mntpoint>*`
+
+====
+Si falta el archivo, SnapDrive para UNIX comprueba la variable de configuración `_all-access-if-rbac-unspecified_` en la `snapdrive.conf` archivo. Si la variable está establecida en `on` (valor predeterminado), permite que los hosts tengan acceso completo a todas estas operaciones en ese sistema de almacenamiento. Si la variable está establecida en `off`, SnapDrive para UNIX deniega el permiso de host para realizar cualquier operación regida por el control de acceso en ese sistema de almacenamiento.

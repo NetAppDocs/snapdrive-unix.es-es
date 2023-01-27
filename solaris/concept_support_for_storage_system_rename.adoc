@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_support_for_storage_system_rename.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, storage, rename 
+summary: 'SnapDrive permite cambiar el nombre de los sistemas de almacenamiento. Si se crea una copia Snapshot y se cambia el nombre del sistema de almacenamiento después de crear la copia, SnapDrive permite ejecutar operaciones de Snapshot siempre que se haya autenticado todos los clientes \(hosts\).' 
+---
+= Compatibilidad con el cambio de nombre del sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive permite cambiar el nombre de los sistemas de almacenamiento. Si se crea una copia Snapshot y se cambia el nombre del sistema de almacenamiento después de la creación de la copia, SnapDrive permite ejecutar operaciones de Snapshot siempre que se hayan autenticado todos los clientes (hosts).
+
+Las operaciones de Snapshot, como restaurar, conectar, desconectar, mostrar y eliminar, siguen funcionando en el sistema host solo después de volver a autenticar a los clientes. Debe volver a autenticarse porque el nombre de host se utiliza como parte de la clave de registro para contener la contraseña.

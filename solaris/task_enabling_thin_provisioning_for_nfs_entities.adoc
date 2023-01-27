@@ -1,0 +1,18 @@
+---
+permalink: solaris/task_enabling_thin_provisioning_for_nfs_entities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, enable, thin, provisioning, nfs, entity 
+summary: Puede utilizar SnapDrive para UNIX para realizar el aprovisionamiento ligero para entidades NFS en el sistema de almacenamiento. El thin provisioning se conoce como reserva de espacio. 
+---
+= Habilitar thin provisioning para entidades NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar SnapDrive para UNIX para realizar el aprovisionamiento ligero para entidades NFS en el sistema de almacenamiento. El thin provisioning se conoce como reserva de espacio.
+
+.Pasos
+. Para activar la reserva de espacio para operaciones de conexión rápida, puede habilitar la reserva de espacio para volúmenes mediante la `_-reserve_` Parámetro con los comandos que implican entidades NFS. Para entidades NFS, SnapDrive para UNIX utiliza la reserva de espacio disponible en la copia Snapshot si la `_-reserve_` o. `_-noreserve_` los parámetros no se especifican en un comando.
+

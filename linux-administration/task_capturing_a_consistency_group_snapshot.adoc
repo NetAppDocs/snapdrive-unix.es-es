@@ -1,0 +1,36 @@
+---
+permalink: linux-administration/task_capturing_a_consistency_group_snapshot.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, consistency, group, snapshot, copy, configuration 
+summary: Puede configurar SnapDrive para UNIX a fin de crear una copia de Snapshot de un grupo de consistencia. 
+---
+= Crear una copia Snapshot de grupo de consistencia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar SnapDrive para UNIX a fin de crear una copia de Snapshot de un grupo de consistencia.
+
+.Pasos
+. Introduzca el siguiente comando en el host: +
++
+`*snapdrive snap create -fs /mnt/test -snapname _snapshotname_ -f -noprompt.*`
+
++
+`_snapshotname_` Es el nombre especificado para la copia Snapshot del grupo de coherencia.
+
+
+
+
+
+== Ejemplo
+
+A continuación se muestra un ejemplo del comando:
+
+[listing]
+----
+snapdrive snap create -fs /mnt/test -snapname snap_123 -f -noprompt
+----
+La copia Snapshot del grupo de consistencia se ha creado correctamente.

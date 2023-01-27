@@ -1,0 +1,32 @@
+---
+permalink: aix/concept_using_the_snapshotdisconnectoperation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, disconnect, operation 
+summary: Use el comando SnapDrive snap disconnect para desconectar una copia de Snapshot que se encuentra en varios sistemas de almacenamiento o volúmenes de sistemas de almacenamiento. 
+---
+= Mediante la operación de desconexión de instantánea
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice la `snapdrive snap disconnect` Comando para desconectar una copia de Snapshot que está en varios sistemas de almacenamiento o volúmenes del sistema de almacenamiento.
+
+Utilice la `snapdrive snap disconnect` Comando para quitar las asignaciones de las LUN o de las entidades de almacenamiento y las LUN subyacentes, o de los directorios NFS de la copia Snapshot.
+
+Puede utilizar este comando para desconectar copias de Snapshot que abarcan varios volúmenes de sistemas de almacenamiento o varios sistemas de almacenamiento. Las entidades de almacenamiento y los volúmenes pueden residir en el mismo sistema de almacenamiento o en sistemas de almacenamiento diferentes.
+
+Utilice este comando para desconectar cualquiera de los siguientes elementos:
+
+* LUN
+* Un sistema de archivos creado directamente en un LUN
+* Grupos de discos, volúmenes de hosts y sistemas de archivos creados en LUN
+* Árboles de directorios NFS
+* Grupos de discos compartidos, volúmenes de host y sistemas de archivos creados en LUN
+
+
+La operación de desconexión no modifica la copia de Snapshot conectada. Sin embargo, de forma predeterminada, la operación elimina todos los LUN o clones temporales creados por la operación de conexión correspondiente.
+
+
+NOTE: Para las LUN, los sistemas de archivos en las LUN y las entidades de LVM, este comando es equivalente a. `snapdrive storage delete`.

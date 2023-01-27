@@ -1,0 +1,64 @@
+---
+permalink: linux-administration/task_configuring_management_and_data_interfaces_for_a_storage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, management, configure, data, interface, nfs, traffic 
+summary: Puede configurar varias interfaces de datos para una única interfaz de gestión en un entorno NFS, de modo que pueda separar el tráfico de gestión del tráfico de datos en el sistema de almacenamiento. 
+---
+= Configurar interfaces de gestión y de datos para un sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar varias interfaces de datos para una única interfaz de gestión en un entorno NFS, de modo que pueda separar el tráfico de gestión del tráfico de datos en el sistema de almacenamiento.
+
+.Pasos
+. Establezca la configuración de la nueva interfaz de administración:
++
+`*snapdrive config set root*`
+
++
+[listing]
+----
+# snapdrive config set root f3050-197-91
+Password for root:
+Retype password:
+----
++
+A continuación, se muestra un ejemplo para una máquina virtual de almacenamiento (SVM, antes denominada Vserver).
+
++
+[listing]
+----
+# snapdrive config set vsadmin clstr-vs2
+Password for vsadmin:
+Retype password:
+----
+. Configure la interfaz de datos para la nueva interfaz de gestión:
++
+`*snapdrive config set*`
+
++
+[listing]
+----
+# snapdrive config set -mgmtpath f3050-197-91 f3050-220-91#
+----
++
+En el comando anterior, `f3050-197-191` es la interfaz de gestión y. `f3050-220-91` es la interfaz de datos.
+
++
+A continuación se muestra un ejemplo de una SVM.
+
++
+[listing]
+----
+snapdrive config set -mgmtpath clstr-vs2  clstr-vs2-2
+system name   management interface   datapath interface
+-------------------------------------------------------
+clstr-vs2     10.72.220.203          10.72.221.155
+----
++
+En la salida, `10.72.220.203` es la interfaz de gestión y. `10.72.221.155` es la interfaz de datos.
+
+

@@ -1,0 +1,18 @@
+---
+permalink: aix/concept_what_snapshot_operations_are_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, operation, ontap, data, host 
+summary: 'SnapDrive para UNIX le permite utilizar la tecnología Snapshot de Data ONTAP para crear una imagen \(copia Snapshot\) de los datos host que se almacenan en un sistema de almacenamiento.' 
+---
+= Qué operaciones de Snapshot tienen SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX le permite utilizar la tecnología Snapshot de Data ONTAP para realizar una imagen (copia Snapshot) de los datos de host que se almacenan en un sistema de almacenamiento.
+
+Esta copia Snapshot le proporciona una copia de esos datos que puede restaurar más adelante. Los datos de la copia de Snapshot pueden existir en un sistema de almacenamiento o abarcar varios sistemas de almacenamiento y sus volúmenes. Estos sistemas de almacenamiento pueden ser en un par de alta disponibilidad o sistemas de archivos locales del nodo, o grupos de discos o LUN en un entorno de clústeres de hosts. En un host UNIX no agrupado con SnapDrive para UNIX instalado, puede crear una copia Snapshot de uno o varios grupos de volúmenes en un sistema de almacenamiento.
+
+La copia Snapshot puede contener sistemas de archivos, volúmenes lógicos, grupos de discos, LUN y árboles de directorios NFS. Después de crear una copia Snapshot, puede cambiar el nombre, restaurarla o eliminarla. También puede conectarse a otra ubicación en el mismo host o a otro host. Después de conectarse, puede ver y modificar el contenido de la copia Snapshot, o bien puede desconectar la copia Snapshot. Además, SnapDrive para UNIX le permite mostrar información sobre la copia Snapshot que ha creado. En un host UNIX en clúster que tenga instalado SnapDrive para UNIX, puede realizar operaciones de Snapshot en los nodos del clúster de hosts que incluyan grupos de discos y sistemas de archivos. Entre las operaciones de Snapshot se incluyen crear, cambiar el nombre, restaurar, conectar, desconectar, mostrar y eliminar.

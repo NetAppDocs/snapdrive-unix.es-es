@@ -1,0 +1,41 @@
+---
+permalink: linux-administration/task_adding_a_port_set_in_snapdrive.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, vserver, port, storage, set 
+summary: Puede añadir un conjunto de puertos en el sistema de almacenamiento para comunicarse con un Vserver. Se trata de una actividad que debe realizarse una vez y debe hacerse antes de utilizar el sistema de almacenamiento. 
+---
+= Adición de un conjunto de puertos en SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede añadir un conjunto de puertos en el sistema de almacenamiento para comunicarse con un Vserver. Se trata de una actividad que debe realizarse una vez y debe hacerse antes de utilizar el sistema de almacenamiento.
+
+
+NOTE: Si desea actualizar a SnapDrive 5.2 para UNIX, asegúrese de que las versiones anteriores de SnapDrive para grupos de iniciadores de UNIX estén asociadas manualmente al puerto establecido por el administrador de almacenamiento.
+
+En el siguiente ejemplo, el administrador de almacenamiento utiliza el nombre del Vserver en lugar de la dirección IP y verifica que el nombre del Vserver está registrado en un servidor DNS.
+
+.Pasos
+. Introduzca el siguiente comando en el host:
++
+`*snapdrive portset add _portset_name filername_ [_filername..._]*`
+
++
+`_portset_name_` es el nombre del conjunto de puertos.
+
++
+`_filername_` Es el nombre del Vserver.
+
++
+[listing]
+----
+snapdrive portset add ps2 vs91
+Added portset configuration for appliance: vs91
+----
++
+El conjunto de puertos ps2 se ha agregado correctamente en SnapDrive.
+
+

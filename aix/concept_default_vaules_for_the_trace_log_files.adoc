@@ -1,0 +1,25 @@
+---
+permalink: aix/concept_default_vaules_for_the_trace_log_files.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, default, value, trace, log, file 
+summary: Los archivos de registro de seguimiento permiten establecer varios parámetros y también modificarlos. Estos parámetros deben configurarse en el archivo snapdrive.conf. 
+---
+= Valores predeterminados para los archivos de registro de seguimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los archivos de registro de seguimiento permiten establecer varios parámetros y también modificarlos. Estos parámetros deben configurarse en la `snapdrive.conf` archivo.
+
+Los valores siguientes se deben establecer en la `snapdrive.conf` archivo:
+
+* El nombre del archivo que contiene el registro de seguimiento.
+* Tamaño máximo del archivo de registro de seguimiento. El tamaño predeterminado es "0" bytes. Este valor garantiza que cada archivo de registro de seguimiento contenga sólo un comando SnapDrive para UNIX.
++
+Si restablece el tamaño predeterminado a un valor distinto de 0, cuando el archivo alcanza el tamaño especificado, SnapDrive para UNIX cambia el nombre del archivo de registro de seguimiento actual agregando un número arbitrario al nombre. A continuación, inicia un nuevo archivo de registro de seguimiento utilizando el nombre especificado por `trace-log-file` valor.
+
+* El número máximo de archivos de seguimiento antiguos que guarda SnapDrive para UNIX. El valor predeterminado es 100.
+* Tipos de mensajes que SnapDrive para UNIX escribe en el archivo de registro de seguimiento. De forma predeterminada, el archivo de registro de seguimiento contiene errores graves, errores de administrador, errores de comandos, advertencias y mensajes de información.
+

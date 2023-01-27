@@ -1,0 +1,29 @@
+---
+permalink: solaris/concept_storage_connect_operation_fails_lun_created_on_storage_system_using_lun_create.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, storage, fail, lun, create, command 
+summary: El comando SnapDrive Storage connect no se puede conectar a un LUN si se crea en un sistema de almacenamiento mediante el comando lun create o mediante System Manager. 
+---
+= La operación de conexión de almacenamiento no puede conectarse a un LUN creado en un sistema de almacenamiento mediante el comando LUN create
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage connect` El comando no puede conectarse a una LUN si se crea en un sistema de almacenamiento mediante el `lun create` O mediante System Manager.
+
+Se muestra el siguiente mensaje de error porque el formato de la LUN no es correcto y Solaris no lo reconoce, mientras que se detecta la LUN y se asigna al host.
+
+
+
+== Solución alternativa
+
+No cree LUN manualmente. Utilice la `snapdrive storage create` con el `-lun` Opción para crear LUN. Si tiene que utilizar una LUN existente después de ejecutar el `snapdrive storage connect` complete los siguientes pasos.
+
+. Formatear la LUN de forma manual.
+. Cree un sistema de archivos en él mediante el gestor de volúmenes nativo y los comandos del sistema operativo.
++
+Después de crear un sistema de archivos, puede utilizar las operaciones de SnapDrive para UNIX para esta LUN.
+
+

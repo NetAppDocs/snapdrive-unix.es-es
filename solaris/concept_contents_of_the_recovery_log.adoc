@@ -1,0 +1,20 @@
+---
+permalink: solaris/concept_contents_of_the_recovery_log.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, recovery, log 
+summary: El registro de recuperación permite realizar un seguimiento de los motivos de un estado del sistema incoherente. SnapDrive para UNIX genera este archivo cuando alguna operación deja de funcionar. 
+---
+= Contenido del registro de recuperación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El registro de recuperación permite realizar un seguimiento de los motivos de un estado del sistema incoherente. SnapDrive para UNIX genera este archivo cuando alguna operación deja de funcionar.
+
+Si pulsa Ctrl-C para detener SnapDrive para UNIX, o si el host o el sistema de almacenamiento fallan en mitad de una operación, es posible que el sistema no pueda recuperarse automáticamente.
+
+Durante cualquier operación que, si se interrumpe, podría dejar el sistema en estado incoherente, SnapDrive para UNIX escribe información en un archivo de registro de recuperación. Si se produce un problema, puede enviar este archivo al soporte técnico de NetApp para que pueda ayudarle a recuperar el estado del sistema.
+
+La utilidad de registro de recuperación mantiene los registros de los comandos que se emiten durante la operación. Cada comando está marcado con un operation_index (un número que identifica de forma exclusiva la operación que se está ejecutando), seguido de la Marca de fecha/hora y el texto del mensaje.

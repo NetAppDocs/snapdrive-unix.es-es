@@ -1,0 +1,72 @@
+---
+permalink: aix/task_viewing_the_result_of_a_clone_split_using_filespec.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, view, result, clone, split, job, id, filespec, operation 
+summary: Puede ver el resultado de la operación de división de clones completada mediante el ID de trabajo o la especificación de archivo. 
+---
+= Ver el resultado de una operación de división de clones mediante el ID de trabajo o la especificación de archivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver el resultado de la operación de división de clones completada mediante el ID de trabajo o la especificación de archivo.
+
+.Pasos
+. Introduzca el siguiente comando para ver el resultado de la división de clones con una especificación de archivo:
++
+`*snapdrive clone split result [-lun] _long_lun_name_ [_long_lun_name_...] |[{-dg | -vg | -fs | -hostvol | -lvol} file_spec [file_spec...]] | [-job _<jobid>_]*`
+
++
+SnapDrive para UNIX muestra el resultado de la división de clones que se ha completado o ha fallado para una especificación de archivo, y luego elimina la especificación de archivo del trabajo y quita el trabajo de la cola de trabajos.
+
+
+
+En el siguiente ejemplo, se muestra el resultado de división de clones para un ID de trabajo que se completó correctamente.
+
+[listing]
+----
+# snapdrive clone split result -job VT1ov6Q8vU
+Clone-Split for "/mnt/my_mnt3" is 100% completed and succeeded
+Clone-Split for "/mnt/my_mnt4" is 100% completed and succeeded
+----
+Si hay dos especificaciones de archivo y de las cuales falla una de las especificaciones de archivo debido a la falta de espacio en el sistema de almacenamiento, el resultado de la operación de división de clones muestra como un error en la especificación de archivo y otra especificación de archivo se completó correctamente.
+
+En el siguiente ejemplo, se muestra el resultado de división de clones para una especificación de archivo que se completa correctamente.
+
+[listing]
+----
+# snapdrive clone split result -fs /mnt/my_mnt3 /mnt/my_mnt4
+Clone-Split for "/mnt/my_mnt3" is 100% completed and succeeded
+Clone-Split for "/mnt/my_mnt4" is 100% completed and succeeded
+----
+En el siguiente ejemplo, se muestra el resultado de una división de clones cuando la operación de división de clones aún está en curso y no se ha completado.
+
+[listing]
+----
+# snapdrive clone split result -job R57aCzUaeG
+Clone-Split for "/mnt/my_mnt3" is 0% completed and Split in progress
+----
+En el ejemplo siguiente se muestra un trabajo que se elimina permanentemente del conjunto de trabajos y, cuando intenta ver el resultado mediante la especificación de archivos, SnapDrive para UNIX encuentra un mensaje de error como "no pertenece a ningún trabajo".
+
+[listing]
+----
+# snapdrive clone split result -fs /mnt/my_mnt2
+Storage resource /mnt/my_mnt2 does not belong to any job
+----
+En el ejemplo siguiente se muestra un trabajo que se elimina permanentemente del conjunto de trabajos y, cuando intenta ver el resultado mediante el ID de trabajo, SnapDrive para UNIX encuentra un mensaje de error como "el ID de trabajo no es válido".
+
+[listing]
+----
+# snapdrive clone split result -job T59aCzUaeG
+Job ID is not valid
+----
+En el siguiente ejemplo, se muestra el resultado de división de clones en el que está en curso una de ellas y en el que se produjo un error otro.
+
+[listing]
+----
+# snapdrive clone split result -job qJrG8U59mg
+Clone-Split for "/mnt/my_mnt4" is 100% completed and succeeded
+Clone-Split for "/mnt/my_mnt5" is 0% completed and split failed
+----

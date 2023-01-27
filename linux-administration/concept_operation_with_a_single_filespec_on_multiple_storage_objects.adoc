@@ -1,0 +1,24 @@
+---
+permalink: linux-administration/concept_operation_with_a_single_filespec_on_multiple_storage_objects.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, filespec, storage, objects, single, operation 
+summary: SnapDrive para UNIX muestra un mensaje de error cuando el administrador no tiene el permiso requerido en varios objetos de almacenamiento para realizar las operaciones de almacenamiento. 
+---
+= Funcionamiento con un único filespec sobre múltiples objetos de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX muestra un mensaje de error cuando el administrador no tiene el permiso requerido en varios objetos de almacenamiento para realizar las operaciones de almacenamiento.
+
+`_Filespec: Filespec can be anyone of file system, host volume, disk group, or LUN_`
+
+[listing]
+----
+[root]# snapdrive storage create -fs /mnt/testfs -lun storage_array1:/vol/vol1/lun2 -lun storage_array1:/vol/vol2/lun2  -lunsize 100m
+0002-332 Admin error:SD.Storage.Write access denied on volume storage_array1:/vol/vol1 for user unix_host\root on Operations Manager server ops_mngr_server
+SD.Storage.Write access denied on volume storage_array1:/vol/vol2 for user unix_host\root on Operations Manager server ops_mngr_server
+----
+En este ejemplo, el filespec abarca dos volúmenes de sistema de almacenamiento: Vol1 y vol2. El administrador (raíz) de unix_host no tiene `SD.Storage.Write` acceso en ambos volúmenes. Por lo tanto, SnapDrive para UNIX muestra un mensaje de error en cada volumen. Para continuar `storage create`, El administrador (root) debe pedir al administrador de la consola de Operations Manager que le conceda `SD.Storage.Write` acceso en los dos volúmenes.

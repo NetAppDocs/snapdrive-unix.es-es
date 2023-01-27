@@ -1,0 +1,17 @@
+---
+permalink: solaris/concept_the_storagedeletecommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, delete, command 
+summary: El comando SnapDrive Storage delete quita las entidades de almacenamiento del host además de todas las entidades subyacentes del lado del host y los LUN del sistema de almacenamiento realiza backups de ellos. 
+---
+= El comando Storage delete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage delete` Comando elimina las entidades de almacenamiento del host además de todas las entidades subyacentes del lado del host y los LUN del sistema de almacenamiento que los realizan backups.
+
+
+IMPORTANT: Este comando elimina datos.

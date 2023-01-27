@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_restoring_a_single_storage_entity_on_a_storage_system_or_storagesystem_cluster.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, snapshot, copy, ha, storage, pair 
+summary: Puede restaurar una copia Snapshot que contenga una sola entidad de almacenamiento. 
+---
+= Cuando se restaura una sola entidad de almacenamiento en un sistema de almacenamiento o una pareja de alta disponibilidad de los sistemas de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede restaurar una copia Snapshot que contenga una sola entidad de almacenamiento.
+
+Puede restaurar una copia de Snapshot que contiene una única entidad de almacenamiento que reside en un sistema de almacenamiento o en un par de alta disponibilidad de sistemas de almacenamiento. El nombre del volumen en el sistema de almacenamiento de destino debe coincidir con el nombre del volumen en el sistema de almacenamiento de origen.

@@ -1,0 +1,21 @@
+---
+permalink: aix/concept_what_snapdrive_for_unix_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, management, provisioning 
+summary: SnapDrive para UNIX simplifica las tareas de gestión del almacenamiento. SnapDrive para UNIX utiliza la tecnología Snapshot para crear una imagen de los datos almacenados en un sistema de almacenamiento compartido o no compartido. SnapDrive también le ayuda en el aprovisionamiento de almacenamiento. 
+---
+= Lo que hace SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX simplifica las tareas de gestión del almacenamiento. SnapDrive para UNIX utiliza la tecnología Snapshot para crear una imagen de los datos almacenados en un sistema de almacenamiento compartido o no compartido. SnapDrive también le ayuda en el aprovisionamiento de almacenamiento.
+
+Es posible utilizar SnapDrive para UNIX para realizar las siguientes tareas:
+
+* **Back up and restore data:**SnapDrive para UNIX le permite utilizar la tecnología Snapshot para crear una imagen (copia de Snapshot) de los datos del host que se almacenan en un sistema de almacenamiento. Esta copia Snapshot le proporciona una copia de esos datos que puede restaurar más adelante. Los datos de la copia de Snapshot pueden existir en un sistema de almacenamiento o abarcar varios sistemas de almacenamiento y sus volúmenes. Estos sistemas de almacenamiento pueden ser en parejas de alta disponibilidad o sistemas de archivos locales del nodo o grupos de discos, o LUN en un entorno de clústeres de hosts.
+* *Gestionar almacenamiento:* puede crear y eliminar componentes de almacenamiento, incluidos grupos de discos, volúmenes de host, sistemas de archivos y LUN en entornos de clúster host y no de clúster. SnapDrive para UNIX permite gestionar este almacenamiento ampliando el entorno, conectándolo a un host y desconectándolo.
+* **Control de acceso basado en roles:**SnapDrive para UNIX proporciona control de acceso basado en roles (RBAC). RBAC permite que un administrador de SnapDrive restrinja el acceso a un sistema de almacenamiento para varias operaciones de SnapDrive. Este acceso a las operaciones de almacenamiento depende del rol que se asigne al usuario. RBAC permite que los administradores de almacenamiento limiten las operaciones que pueden realizar los usuarios de SnapDrive según los roles asignados.
+

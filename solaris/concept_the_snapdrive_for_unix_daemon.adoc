@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_the_snapdrive_for_unix_daemon.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, daemon 
+summary: Antes de ejecutar cualquier comando de SnapDrive para UNIX, debe comprender los servicios web y el demonio y cómo utilizarlos. Todos los comandos de la SnapDrive para UNIX funcionan utilizando el servicio daemon. Antes de poder utilizar SnapDrive para UNIX en el host Solaris, tiene que iniciar el daemon, que permite que SnapDrive para UNIX se integre de forma segura y sin problemas con otros productos de NetApp y otros de terceros. 
+---
+= Comprender el daemon SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de ejecutar cualquier comando de SnapDrive para UNIX, debe comprender los servicios web y el demonio y cómo utilizarlos. Todos los comandos de la SnapDrive para UNIX funcionan utilizando el servicio daemon. Antes de poder utilizar SnapDrive para UNIX en el host Solaris, tiene que iniciar el daemon, que permite que SnapDrive para UNIX se integre de forma segura y sin problemas con otros productos de NetApp y otros de terceros.

@@ -1,0 +1,29 @@
+---
+permalink: aix/task_tips_for_usingthe_storage_disconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, command 
+summary: Cuando se utiliza el comando SnapDrive Storage Disconnect en algunos sistemas operativos, se pierde información como los nombres de los volúmenes del host, el punto de montaje del sistema de archivos, los nombres de los volúmenes del sistema de almacenamiento y los nombres de las LUN. Sin esta información, puede volver a conectarse al almacenamiento en un momento posterior es difícil. 
+---
+= Consejos para usar el comando Storage Disconnect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando utilice la `snapdrive storage disconnect` Comando en algunos sistemas operativos, se pierde información como los nombres del volumen del host, el punto de montaje del sistema de archivos, los nombres de los volúmenes del sistema de almacenamiento y los nombres de las LUN. Sin esta información, puede volver a conectarse al almacenamiento en un momento posterior es difícil.
+
+Para evitar la pérdida de información, primero debe crear una copia snapshot del almacenamiento con el `snapdrive snap create` antes de ejecutar el `snapdrive storage disconnect` comando.
+
+De esa manera, si desea volver a conectar el almacenamiento más adelante, puede utilizar la siguiente solución:
+
+.Pasos
+. Ejecute el siguiente comando:
++
+`snapdrive snap restore filespec -snapname long_snap_name`
+
++
+Incluya la ruta completa a la copia Snapshot en este comando.
+
+. Opcionalmente, elimine la copia Snapshot ejecutando el `snapdrive snap delete` comando.
+

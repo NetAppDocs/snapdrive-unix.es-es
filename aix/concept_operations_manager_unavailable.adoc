@@ -1,0 +1,27 @@
+---
+permalink: aix/concept_operations_manager_unavailable.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, manager, console, unavailable, operations 
+summary: SnapDrive para UNIX necesita una consola de Operations Manager para comprobaciones de acceso. En ocasiones, es posible que el servidor de la consola de Operations Manager no esté disponible por varios motivos. 
+---
+= Consola del Gestor de operaciones no disponible
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX necesita una consola de Operations Manager para comprobaciones de acceso. En ocasiones, es posible que el servidor de la consola de Operations Manager no esté disponible por varios motivos.
+
+Cuando el método de RBAC `_rbac-method = dfm_` Is Set (establecer) y Operations Manager Console no está disponible, SnapDrive for UNIX muestra el siguiente mensaje de error:
+
+[listing]
+----
+[root]# snapdrive storage delete -lun storage_array1:/vol/vol2/qtree1/lun1
+0002-333 Admin error: Unable to connect to the DFM ops_mngr_server
+----
+SnapDrive para UNIX también puede mantener una memoria caché de los resultados de la comprobación de acceso del usuario que devuelve la consola de Operations Manager. Esta caché es válida por 24 horas y no se puede configurar. Si la consola de Operations Manager no está disponible, SnapDrive para UNIX utiliza la caché para determinar el acceso. Esta caché se utiliza sólo cuando no responden todos los servidores de consola de Operations Manager configurados.
+
+Para que SnapDrive para UNIX utilice la caché a fin de realizar una comprobación de acceso, debe activar la `_rbac-cache_` la variable de configuración debe estar activada para mantener la caché de los resultados de acceso. La `_rbac-cache_` la variable de configuración está desactivada de forma predeterminada.
+
+Para utilizar SnapDrive para UNIX incluso cuando la consola de Operations Manager no está disponible, el administrador del servidor debe restablecer el método de control de acceso basado en roles (RBAC) a. `_rbac-method = native_` en la `snapdrive.conf` archivo. Después de cambiar la `snapdrive.conf` File, debe reiniciar el daemon de SnapDrive para UNIX. Cuando `_rbac-method = native_` Está establecido, sólo el usuario raíz puede utilizar SnapDrive para UNIX.

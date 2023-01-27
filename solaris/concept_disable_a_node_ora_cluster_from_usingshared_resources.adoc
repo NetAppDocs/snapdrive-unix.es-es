@@ -1,0 +1,18 @@
+---
+permalink: solaris/concept_disable_a_node_ora_cluster_from_usingshared_resources.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disable, node, cluster, resource 
+summary: Tiene que modificar el archivo /etc/VRTSvcs/conf/config/main.cf para deshabilitar un nodo de usar un recurso compartido. Para obtener más información acerca del archivo main.cf, consulte la Guía de instalación de Veritas Cluster Server para Solaris. 
+---
+= Deshabilite un nodo o un clúster del uso de recursos compartidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe modificar el `/etc/VRTSvcs/conf/config/main.cf` archivo para deshabilitar un nodo de mediante un recurso compartido. Para obtener más información acerca del archivo main.cf, consulte Veritas Cluster Server _Installation Guide for Solaris_.
+
+Para deshabilitar un nodo de mediante un recurso compartido, utilice la sintaxis siguiente:
+
+`*snapdrive storage disconnect -fs _file_spec_ -lun _long_lun_name_ [_lun_name..._] [-devicetype shared]*`

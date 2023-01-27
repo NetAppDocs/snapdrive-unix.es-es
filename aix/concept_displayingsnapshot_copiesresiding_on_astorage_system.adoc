@@ -1,0 +1,18 @@
+---
+permalink: aix/concept_displayingsnapshot_copiesresiding_on_astorage_system.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy, storage, system 
+summary: Puede utilizar el comando SnapDrive para mostrar copias Snapshot en un sistema de almacenamiento. 
+---
+= Mostrar las copias Snapshot que residen en un sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el comando SnapDrive para mostrar copias Snapshot en un sistema de almacenamiento.
+
+Para mostrar información sobre las copias Snapshot que residen en un sistema de almacenamiento, utilice la siguiente sintaxis:
+
+`snapdrive snap show -filer filername [filername...] [-verbose]`

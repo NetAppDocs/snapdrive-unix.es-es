@@ -1,0 +1,40 @@
+---
+permalink: linux-administration/reference_snapdrive_for_unix_operations_fails_improper_multipath_settings_aliased_devices_used.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, unix, fail, multipath, settings, device, error, sdu, rhel, command 
+summary: Cuando ejecuta el comando Storage show o snap create en RHEL 5.11, el comando muestra el siguiente mensaje de error. Error en la llamada de estado al daemon SDU y en el host SLES11SP3 con la opción –nolvm cuando el LVM del host no está implicado. 
+---
+= Las operaciones de SnapDrive para UNIX fallan debido a una configuración multivía incorrecta cuando se utilizan dispositivos con alias.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando ejecute el `storage show` o. `snap create` Comando en RHEL 5.11, el comando muestra el siguiente mensaje de error:
+
+`Status call to SDU daemon failed and in SLES11SP3 host with --nolvm option when the host LVM is not involved.`
+
+* *`snapdrive storage show -all` el comando no muestra el nombre de alias apropiado*
++
+SnapDrive para UNIX no muestra un nombre de alias correcto para los dispositivos de asignación. Este problema ocurre cuando la sección Multipaths{ } no es correcta en `multipath.conf` archivo.
+
+* *Solución*
++
+Debe asegurarse de introducir las llaves para cerrar la configuración de la multivía.
+
+* *Las operaciones de SnapDrive fallan con el siguiente error cuando se han establecido los nombres de alias para los dispositivos asignadores*
++
+[listing]
+----
+Snapdrive could not import /dev/mapper/lvm_fs_SdDg:   device-mapper: resume ioctl failed: Invalid argument
+  Unable to resume lvm_fs_SdDg-lvm_fs_SdHv (252:4)   1 logical volume(s) in volume group "lvm_fs_SdDg" now active”
+----
++
+Este problema ocurre cuando la asignación de nombres de alias con los dispositivos no es adecuada.
+
+* *Solución*
++
+Rendimiento `multipath-ll` Y asegúrese de que la asignación de nombres de alias con los dispositivos sea correcta y, a continuación, ejecute las operaciones de SnapDrive para UNIX.
+
+

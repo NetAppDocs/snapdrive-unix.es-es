@@ -1,0 +1,182 @@
+---
+permalink: linux-administration/concept_supported_partition_devices.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, storage, partitioning, multipathing 
+summary: SnapDrive para UNIX 5.0 o posterior proporciona particiones de almacenamiento en Linux para entornos multivía y sin multivía. 
+---
+= Dispositivos de partición compatibles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX 5.0 o posterior proporciona particiones de almacenamiento en Linux para entornos multivía y sin multivía.
+
+Debe seguir las directrices para dividir los dispositivos de almacenamiento en particiones con SnapDrive para UNIX.
+
+Cuando se utiliza el administrador de volúmenes lógicos con Linux, se deben utilizar LUN sin particiones.
+
+Las siguientes tablas proporcionan información de partición y cómo se puede activar para diferentes sistemas operativos:
+
+|===
+| De NetApp | Partición única | Partición múltiple | Dispositivos sin partición | Sistema de archivos o dispositivos RAW 
+
+
+ a| 
+5 veces Red Hat Enterprise Linux
+
+o.
+
+5 veces Oracle Enterprise Linux
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+ext3*
+
+
+
+ a| 
+Red Hat Enterprise Linux 6 veces
+
+o.
+
+6 veces Oracle Enterprise Linux
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+ext3 o ext4*
+
+
+
+ a| 
+SUSE Linux Enterprise Server 11
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+ext3*
+
+
+
+ a| 
+SUSE Linux Enterprise Server 10
+ a| 
+No
+ a| 
+No
+ a| 
+Sí
+ a| 
+ext3***
+
+
+
+ a| 
+Red Hat Enterprise Linux 5 o posterior
+
+o.
+
+Oracle Enterprise Linux 5 o posterior
+ a| 
+Sí
+ a| 
+No
+ a| 
+Sí
+ a| 
+ASM con ASMLib**
+
+
+
+ a| 
+SUSE Linux Enterprise Server 10 SP4
+
+o.
+
+SUSE Linux Enterprise Server 11
+ a| 
+Sí
+ a| 
+No
+ a| 
+Sí
+ a| 
+ASM con ASMLib**
+
+
+
+ a| 
+SUSE Linux Enterprise Server 10 SP4 o posterior
+
+o.
+
+SUSE Linux Enterprise Server 11
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+ASM sin ASMLib****
+
+
+
+ a| 
+*
+
+Para un entorno que no es MPIO, introduzca el comando siguiente: `*sfdisk -uS -f -L -q /dev/ _device_name_*`
+
+Para un entorno MPIO, introduzca los comandos siguientes:
+
+* `*sfdisk -uS -f -L -q /dev/ _device_name_*`
+* `*kpartx -a -p p /dev/mapper/ _device_name_*`
+
+
+
+
+ a| 
+**
+
+Para un entorno que no es MPIO, introduzca el comando siguiente:
+`*fdisk /dev/_device_name_*`
+
+Para un entorno MPIO, introduzca los comandos siguientes:
+
+* `*fdisk /dev/mapper/_device_name_*`
+* `*kpartx -a -p p /dev/mapper/_device_name_*`
+
+
+
+
+ a| 
+\***
+
+No aplicable
+
+
+
+ a| 
+\****
+
+Para un entorno MPIO, introduzca el comando siguiente:
+
+* `*kpartx -a -p p /dev/$kernel*`
+
+
+|===
+*Consideraciones generales*
+
+Las copias Snapshot creadas en SnapDrive para UNIX 4.2 se basan en dispositivos con particiones. Estas copias Snapshot pueden restaurarse y conectarse y ser compatibles con SnapDrive para UNIX 5.0 y versiones posteriores.

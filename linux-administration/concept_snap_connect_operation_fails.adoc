@@ -1,0 +1,62 @@
+---
+permalink: linux-administration/concept_snap_connect_operation_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, connect, fail, error, operation, reboot, reload 
+summary: La operación de conexión de Snap falla y el grupo de volúmenes original no se carga después de reiniciar el host. 
+---
+= Error en la operación de conexión de snap
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La operación de conexión de Snap falla y el grupo de volúmenes original no se carga después de reiniciar el host.
+
+En un host Linux, se produce un error en la operación de conexión de Snapshot en un host de origen si se interrumpe SnapDrive para UNIX, ya sea reiniciando el host o mediante el uso de `Ctrl-C`. La interrupción da como resultado la `#SDUTEMP` etiqueta agregada a la `/etc/lvm/lvm.conf` Archivo; las operaciones posteriores de SnapDrive para UNIX producen errores con el siguiente mensaje de error:
+
+[listing]
+----
+0001-945 Admin error: Volume Manager's configuration file contains
+tags from previous SDU operation. Please cleanup the cloned lun(s),
+if any, existing from a previous unsuccessful operation and cleanup
+the configuration file before proceeding.
+----
+
+
+== Solución alternativa
+
+. Quite todos los LUN clonados del sistema de almacenamiento que puedan existir desde una operación de conexión de snapshot interrumpida o con errores anteriores.
++
+
+NOTE: Puede utilizar el `snapdrive storage show` comando con la opción -alloption que se va a verificar.
+
+. Compruebe si la LUN se ha quitado del host introduciendo el siguiente comando:
++
+** Para iSCSI, introduzca el comando `/etc/init.d/iscsi` vuelva a cargar
++
+
+NOTE: `/etc/init.d/iscsi reload` Esta opción es aplicable para las versiones RHEL 4 Update 6 y anteriores.
+
+** Para RHEL 5 y versiones posteriores, si utiliza iSCSI, debe quitar LUN manualmente. Además, debe volver a analizar el host manualmente.
++
+Si utiliza una solución multivía, vuelva a analizar para el acceso multivía también manualmente. Para hacerlo, puede ejecutar el comando `multipath`
+
++
+
+NOTE: Si utiliza FC, el proceso anterior se aplica a todas las versiones anteriores a RHEL 4 Update 6 y RHEL 5 y posteriores.
+
+
+
+. Quite el grupo de volúmenes del `/etc/lvm/lvm.conf` archivo.
++
+Después de quitar las LUN clonadas del `/etc/lvm/lvm.conf` file, el archivo puede tener el siguiente aspecto:
+
++
+`#SDUEXISTING volume_list = [ "vgX" , "vgY" ] volume_list = [ "vgX" ] #SDUTEMP`
+
+. Elimine toda la línea que contiene `#SDUTEMP` etiquetar al final Si existe una línea que comienza con `#SDUEXISTING` etiquete, quite sólo la etiqueta y conserve la línea.
+. Ejecute el `vgscan` comando para conservar los cambios realizados en el archivo de configuración.
+. Introduzca el `vgchange -a y` comando para conservar el grupo de volúmenes original.
+. Ejecute el comando de montaje apropiado para montar el grupo de volúmenes lógicos después de revisar el `/etc/fstab` archivo en el host para volver a montar el sistema de archivos.
+

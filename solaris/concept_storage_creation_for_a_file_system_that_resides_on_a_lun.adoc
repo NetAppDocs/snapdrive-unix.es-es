@@ -1,0 +1,17 @@
+---
+permalink: solaris/concept_storage_creation_for_a_file_system_that_resides_on_a_lun.html 
+sidebar: sidebar 
+keywords: storage, create, snap, snapdrive, lun, file 
+summary: Si utiliza SnapDrive para UNIX para crear un sistema de archivos que se encuentra directamente en un LUN, SnapDrive para UNIX crea y asigna el LUN y, a continuación, crea y monta el sistema de archivos sin afectar al LVM del host. 
+---
+= Creación de almacenamiento para un sistema de archivos que reside en una LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza SnapDrive para UNIX para crear un sistema de archivos que se encuentra directamente en un LUN, SnapDrive para UNIX crea y asigna el LUN y, a continuación, crea y monta el sistema de archivos sin afectar al LVM del host.
+
+
+NOTE: No se admiten las operaciones de SnapDrive para UNIX si el sistema de archivos raíz del host tiene permisos de solo lectura.

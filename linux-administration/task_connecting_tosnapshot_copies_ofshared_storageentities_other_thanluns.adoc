@@ -1,0 +1,27 @@
+---
+permalink: linux-administration/task_connecting_tosnapshot_copies_ofshared_storageentities_other_thanluns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, storage, lun, command, connect 
+summary: Puede utilizar el comando SnapDrive snap connect para conectar a una copia Snapshot de entidades de almacenamiento compartido que no sean las LUN. 
+---
+= Conectarse a las copias Snapshot de entidades de almacenamiento compartido distintas de LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el `snapdrive snap connect` Comando para conectarse a una copia Snapshot de entidades de almacenamiento compartido distintas de las LUN.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive snap connect _fspec_set_ [_fspec_set..._] -snapname _long_snap_name_*`
+
++
+`*_fspec_set_ [_fspec_set..._] -snapname _long_snap_name_ [-devicetype shared] [-split]*`
+
++
+En esta sintaxis, `_fspec_set_` es: `{-dg | -fs} _src_file_spec [dest_file_spec_ ] [-destdg _dgname_]``
+
+

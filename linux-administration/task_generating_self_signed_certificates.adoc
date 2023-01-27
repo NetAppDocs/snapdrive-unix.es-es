@@ -1,0 +1,84 @@
+---
+permalink: linux-administration/task_generating_self_signed_certificates.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, certificate, self, signed, daemon, cli 
+summary: El servicio del demonio de SnapDrive para UNIX requiere que genere un certificado autofirmado para la autenticación. Es necesario esta autenticación mientras se comunica con la CLI. 
+---
+= Generación de certificados autofirmados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El servicio del demonio de SnapDrive para UNIX requiere que genere un certificado autofirmado para la autenticación. Es necesario esta autenticación mientras se comunica con la CLI.
+
+.Pasos
+. Genere una clave RSA:
++
+`*$ openssl genrsa 1024 > host.key $ chmod 400 host.key*`
+
++
+[listing]
+----
+# openssl genrsa 1024 > host.key Generating
+RSA private key, 1024 bit long modulus
+...............................++++++ ...++++++ e is 65537(0x10001)
+# chmod 400 host.key
+----
+. Cree el certificado:
++
+`*$ openssl req -new -x509 -nodes -sha1 -days 365 -key host.key > host.cert*`
+
++
+La `-new`, `-x509`, y. `-nodes` las opciones se utilizan para crear un certificado no cifrado. La `-days` la opción especifica la cantidad de días que el certificado sigue siendo válido.
+
+. Cuando se le solicite que rellene los datos x509 del certificado, introduzca los datos locales:
++
+[listing]
+----
+# openssl req -new -x509 -nodes -sha1 -days 365 -key host.key > host.cert
+You are about to be asked to enter information that will be incorporated into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN. There are quite a few fields
+but you can leave some blank For some fields there will be a default value, If you enter '.', the field will be left blank.
+
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:California
+Locality Name (eg, city) []:Sunnyvale
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:abc.com
+Organizational Unit Name (eg, section) []:
+Common Name (eg, YOUR name) []:localhost
+Email Address []:postmaster@example.org
+----
++
+
+NOTE: La `Common Name` el valor debe ser _localhost_.
+
+. Extraer metadatos (opcional).
++
+ $ openssl x509 -noout -fingerprint -text < host.cert > host.info
++
+Es posible guardar los metadatos del certificado para consultarlo más adelante.
+
+. Combinar datos de clave y certificado.
++
+SnapDrive para UNIX requiere que los datos de la clave y del certificado estén en el mismo archivo. Debe protegerse el archivo combinado como archivo de claves.
+
++
+`*$ cat host.cert host.key > host.pem \*`
+
++
+`*&& rm host.key*`
+
++
+`*$ chmod 400 host.pem*`
+
++
+[listing]
+----
+# cat host.cert host.key >  /opt/NetApp/snapdrive.pem
+# rm host.key rm: remove regular file `host.key'? y
+# chmod 400 /opt/NetApp/snapdrive.pem
+----
+. Agregue la ruta completa del certificado del daemon al `_sdu-daemon-certificate-path_` variable de `snapdrive.conf` archivo.
+

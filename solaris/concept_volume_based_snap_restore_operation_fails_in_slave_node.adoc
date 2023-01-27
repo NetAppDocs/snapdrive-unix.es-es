@@ -1,0 +1,26 @@
+---
+permalink: solaris/concept_volume_based_snap_restore_operation_fails_in_slave_node.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, snaprestore, fail, slave, mode 
+summary: 'Con SFRAC en Solaris, se produce un error en la operación de restauración snap basada en volúmenes \(vbsr\) en el nodo esclavo.' 
+---
+= Se produce un error en la operación de restauración del ajuste de snap basada en volúmenes en el nodo esclavo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con SFRAC en Solaris, se produce un error en la operación de restauración automática basada en volumen (vbsr) en el nodo esclavo.
+
+SnapDrive para UNIX muestra el siguiente mensaje de error.
+
+[listing]
+----
+Status call to SDU daemon failed
+----
+
+
+== Solución alternativa
+
+Mientras ejecuta un `snap restore` comando con `-vbsr` opcional, debe asegurarse de utilizar `-force` junto con `-noprompt` opción en el nodo esclavo.

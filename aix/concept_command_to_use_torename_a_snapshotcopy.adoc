@@ -1,0 +1,14 @@
+---
+permalink: aix/concept_command_to_use_torename_a_snapshotcopy.html 
+sidebar: sidebar 
+keywords: snap, snapshot, command, rename, snapshot, copy 
+summary: Utilice el comando instantánea snap rename para cambiar el nombre de una copia snapshot. 
+---
+= Comando que se utiliza para cambiar el nombre de una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice la `snapshot snap rename` Comando para cambiar el nombre de una copia Snapshot.

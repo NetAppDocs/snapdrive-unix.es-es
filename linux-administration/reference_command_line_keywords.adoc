@@ -1,0 +1,144 @@
+---
+permalink: linux-administration/reference_command_line_keywords.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, keywords, host, destination, flexcone, nfs, storage, lvm 
+summary: SnapDrive para UNIX utiliza palabras clave para especificar el nombre del grupo de discos de host, el grupo de destino, el volumen o FlexClone, el archivo NFS el sistema de almacenamiento, etc. 
+---
+= Palabras clave de la línea de comandos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX utiliza palabras clave para especificar el nombre del grupo de discos de host, el grupo de destino, el volumen o FlexClone, el archivo NFS el sistema de almacenamiento, etc.
+
+Estas son las palabras clave que puede utilizar con los comandos de SnapDrive para UNIX. Estos elementos se usan para especificar los destinos de las operaciones SnapDrive para UNIX. Estas palabras clave pueden tomar uno o más argumentos.
+
+
+NOTE: Algunos LVM hacen referencia a los grupos de discos y algunos a los grupos de volúmenes. En SnapDrive para UNIX, estos términos se tratan como sinónimos. Además, algunos LVM hacen referencia a los volúmenes lógicos y otros a los volúmenes. SnapDrive para UNIX trata el término volumen de host (que se creó para evitar confundir los volúmenes lógicos del host con volúmenes del sistema de almacenamiento) y el término volumen lógico como sinónimo.
+
+|===
+| Palabra clave | Argumento utilizado con esta palabra clave 
+
+
+ a| 
+`-dg` (sinónimo de `-vg`)
+ a| 
+El nombre del grupo de discos de host. Es posible introducir el nombre de un grupo de discos o de un grupo de volúmenes con esta opción.
+
+
+
+ a| 
+`-destdg`
+
+`-desthv`
+
+`-destlv`
+
+`-destvg`
+ a| 
+El grupo o el volumen de destino.
+
+
+
+ a| 
+`-destfv`
+ a| 
+El nombre del volumen FlexClone especificado en la línea de comandos para los clones de volúmenes creados por SnapDrive para UNIX durante la operación de conexión de Snapshot NFS.
+
+
+NOTE: Este argumento solo admite volúmenes NFS, no directorios NFS.
+
+
+
+ a| 
+`-file`
+ a| 
+El nombre de un archivo NFS.
+
+
+
+ a| 
+`-filer`
+ a| 
+El nombre de un sistema de almacenamiento.
+
+
+
+ a| 
+`-filervol`
+ a| 
+El nombre del sistema de almacenamiento y un volumen sobre él.
+
+
+
+ a| 
+`-fs`
+ a| 
+El nombre de un sistema de archivos en el host. El nombre utilizado es el directorio donde el sistema de archivos está montado actualmente o se va a montar (el punto de montaje).
+
+
+
+ a| 
+`-hostvol` o. `-lvol`
+ a| 
+El nombre del volumen de host, incluido el grupo de discos que lo contiene. Por ejemplo, puede introducir `large_vg/accounting_lvol`.
+
+
+
+ a| 
+`-igroup`
+ a| 
+El nombre de un iGroup.
+
+NetApp recomienda utilizar el igroup predeterminado que crea SnapDrive para UNIX en lugar de especificar un igroup en el sistema de almacenamiento de destino. El igroup predeterminado es hostname_protocol_SdIg.
+
+* `_hostname_` es el nombre local (no calificado por el dominio) del host actual.
+* `_protocol_` es cualquiera de los dos `_FCP_` o. `_iSCSI_`, dependiendo del protocolo que esté utilizando el host.
+
+
+Si no existe el igroup hostname_protocol_SdIg, SnapDrive para UNIX lo crea y coloca todos los iniciadores del host en él.
+
+Si existe y tiene los iniciadores correctos, SnapDrive para UNIX utiliza el igroup existente.
+
+Si hay el igroup, pero no contiene los iniciadores para este host, SnapDrive para UNIX crea un nuevo igroup con un nombre diferente y usa ese igroup en la operación actual. Para evitar el uso del mismo nombre, SnapDrive para UNIX incluye un número único al crear el nuevo nombre. En este caso, el formato del nombre es hostname-number_protocol_SdIg.
+
+Si suministra su propio nombre de igroup, SnapDrive para UNIX no valida el contenido del igroup. Esto se debe a que no siempre puede determinar qué iGroups correspondientes al host están presentes en el sistema de almacenamiento.
+
+Todos los comandos que utilizan esta opción para especificar iGroups no pueden aceptarla con los grupos de discos compartidos y los sistemas de archivos. Esta opción solo se permite para recursos locales.
+
+El comando SnapDrive for UNIX falla si hay grupos de iniciadores externos involucrados en la línea de comandos. Asegúrese de que todos los iGroups especificados en la línea de comandos contengan iniciadores del host local.
+
+
+
+ a| 
+`-lun`
+ a| 
+El nombre de una LUN en un sistema de almacenamiento. Para el primer nombre de LUN que proporcione esta palabra clave, debe proporcionar el nombre completo de la ruta (nombre del sistema de almacenamiento, nombre del volumen y nombre de LUN). Para los nombres de LUN adicionales, puede especificar solo los nombres dentro de su volumen (si el volumen permanece sin cambios) o una ruta para indicar un nuevo nombre del sistema de almacenamiento o un nuevo nombre de volumen (si solo desea cambiar los volúmenes).
+
+
+NOTE: En una `snapdrive snap connect` comando, el `_lun_name_` debe estar en el `lun_name` o. `tree_name/lun_name` formato.
+
+
+
+ a| 
+`-lvol` o. `-hostvol`
+ a| 
+El nombre del volumen lógico, incluido el grupo de volúmenes que lo contiene. Por ejemplo, puede introducir `large_vg/accounting_lvol` como nombre del volumen lógico.
+
+
+
+ a| 
+`-snapname`
+ a| 
+El nombre de una copia Snapshot.
+
+
+
+ a| 
+`-vg` o. `-dg`
+ a| 
+El nombre del grupo de volúmenes. Es posible introducir el nombre de un grupo de discos o de un grupo de volúmenes con esta opción.
+
+|===

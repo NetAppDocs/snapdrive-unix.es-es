@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_how_to_configure_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configure 
+summary: Puede editar el archivo snapdrive.conf, que contiene todas las variables de configuración y las opciones utilizadas en SnapDrive para UNIX, para habilitar o deshabilitar las opciones según sus necesidades. También puede añadir variables para crear un uso específico del host. 
+---
+= Configuración de SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar el `snapdrive.conf` File, que contiene todas las variables y opciones de configuración utilizadas en SnapDrive para UNIX, para poder habilitar o deshabilitar las opciones según sus necesidades. También puede añadir variables para crear un uso específico del host.

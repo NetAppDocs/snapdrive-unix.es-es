@@ -1,0 +1,56 @@
+---
+permalink: linux-installation-7mode/task_provisioning_rdm_luns.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, rdm, lun, provision, create 
+summary: SnapDrive para UNIX permite crear y aprovisionar LUN RDM con el protocolo FC habilitado en un sistema operativo invitado en un entorno virtual de VMware. También es posible aprovisionar LUN de RDM con ONTAP. 
+---
+= Aprovisionar LUN de RDM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX permite crear y aprovisionar LUN RDM con el protocolo FC habilitado en un sistema operativo invitado en un entorno virtual de VMware. También es posible aprovisionar LUN de RDM con ONTAP.
+
+* Virtual Storage Console (VSC) de NetApp debe estar instalado y configurado con VMware vCenter™.
+* La capacidad de backup y recuperación de datos de Virtual Storage Console de NetApp para VMware vSphere™ debe instalarse en el sistema operativo Windows que esté registrado en vCenter™.
+* `default-transport` se debe establecer como fcp en el `snapdrive.conf` Y el daemon SnapDrive para UNIX debe reiniciarse.
+
+
+.Pasos
+. Configure el sistema operativo invitado para crear un LUN de RDM:
++
+`*snapdrive config set-viadmin _user viadmin_name_*`
+
++
+** `_user_` es el nombre del sistema de interfaz virtual.
+** `_viadmin_name_` Es el nombre de la dirección IP del sistema de interfaz virtual.
+
+
+. Compruebe la información de inicio de sesión de Virtual Storage Console:
++
+`*snapdrive config list*`
+
++
+Este comando muestra el nombre de usuario o la interfaz virtual especificada en SnapDrive para UNIX.
+
+. Verifique que el sistema operativo invitado pueda comunicarse con el sistema de almacenamiento:
++
+`*storage show -all _command_*`
+
+. Cree un LUN de RDM en el sistema de almacenamiento:
++
+`*snapdrive storage create -lun _long_lun_name_ -lunsize _size_of_the_lun_*`
+
+. Conecte el LUN de RDM al host:
++
+`*snapdrive storage connect -lun _long_lun_name_*`
+
+
+
+*Información relacionada*
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2843698["Guía de administración de Virtual Storage Console, proveedor VASA y Storage Replication Adapter para VMware vSphere para la versión 7.2"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1368859["Guía de gestión del almacenamiento de Data ONTAP 8.2 para 7-Mode"]

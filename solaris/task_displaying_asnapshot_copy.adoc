@@ -1,0 +1,86 @@
+---
+permalink: solaris/task_displaying_asnapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, display, snapshot, copy 
+summary: El comando snap show o list de SnapDrive muestra el nombre del sistema de almacenamiento donde se crea la copia Snapshot, el nombre de host, la fecha y la hora, etc. 
+---
+= Mostrar una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El comando `snapdrive snap show` o. `list` Muestra el nombre del sistema de almacenamiento donde se crea la copia Snapshot, el nombre de host, la fecha y la hora, etc.
+
+.Pasos
+. Introduzca la siguiente sintaxis de comando para mostrar una copia Snapshot:
++
+`*snapdrive snap show [-snapname] _long_snap_name_ [_snap_name_...] [-verbose]*`
+
+
+
+Esta operación muestra, como mínimo, la siguiente información sobre la copia Snapshot:
+
+* El nombre del sistema de almacenamiento donde se crea la copia Snapshot
+* El nombre del host que tomó la copia Snapshot
+* La ruta a las LUN en el sistema de almacenamiento
+* La fecha y la hora en la que se creó la copia Snapshot
+* El nombre de la copia Snapshot
+* Los nombres de los grupos de discos incluidos en la copia Snapshot
+
+
+*Ejemplo*: Los siguientes son ejemplos de `snapdrive snap show` comandos:
+
+[listing]
+----
+# snapdrive snap show -snapname toaster:/vol/vol2:snapA snapX snapY
+
+# snapdrive snap show -verbose toaster:/vol/vol2:snapA /vol/vol3:snapB snapC
+
+# snapdrive snap show toaster:/vol/vol2:snapA
+
+# snapdrive snap list -dg dg1 dg2
+----
+*Ejemplo*: En este ejemplo se utiliza un comodín para mostrar información acerca de las copias Snapshot disponibles en un volumen concreto:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/vol1:*
+snap name host date
+snapped
+------------------------------------------------------------------
+-------------
+toaster:/vol/vol1:sss1 DBserver Mar 12
+16:19 dg1
+toaster:/vol/vol1:testdg DBserver Mar 12
+15:35 dg1
+toaster:/vol/vol1:t1 DBserver Mar 10
+18:06 dg1
+toaster:/vol/vol1:hp_1 HPserver Mar 8
+19:01 vg01
+toaster:/vol/vol1:r3 DBserver Mar 8
+13:39 rdg1
+toaster:/vol/vol1:r1 DBserver Mar 8
+13:20 rdg1
+toaster:/vol/vol1:snap2 DBserver Mar 8
+11:51 rdg1toaster:/vol/vol1:snap_p1 DBserver
+Mar 8 10:18 rdg1
+----
+*Ejemplo*: Los ejemplos siguientes usan comodín:
+
+[listing]
+----
+# snapdrive snap show toaster:/vol/volX:*
+# snapdrive snap show -v toaster:/vol/volX:DB1*
+filer1:/vol/volY:DB2*
+# snapdrive snap show toaster:/vol/vol2:mysnap* /vol/vol2:yoursnap*
+hersnap*
+# snapdrive snap show toaster:/vol/volX:*
+----
+*Ejemplo*: En este ejemplo, el uso de un comodín no es válido porque el comodín está en el centro del nombre en lugar de ser colocado al final:
+
+[listing]
+----
+# snap show toaster:/vol/vol1:my*snap
+----

@@ -1,0 +1,33 @@
+---
+permalink: linux-administration/concept_snapshot_restore_operation_fails_to_restore_file_system_on_raw_lun.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, restore, fail, lun, snapshot, host 
+summary: Se produce un error en la operación de restauración de Snapshot del sistema de archivos en un LUN sin configurar después de ejecutar una operación de conexión de Snapshot en un host no originario. 
+---
+= La operación de restauración de Snapshot no puede restaurar el sistema de archivos en un LUN sin configurar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se produce un error en la operación de restauración de Snapshot del sistema de archivos en un LUN sin configurar después de ejecutar una operación de conexión de Snapshot en un host no originario.
+
+Cuando la LUN clonada está conectada con el mismo filespec en una copia Snapshot y se intenta ejecutar el comando SnapDrive snap restore, aparece el siguiente mensaje de error.
+
+[listing]
+----
+"0001-034 Command error: mount failed: mount: <device name> is not
+a valid block device"
+----
+Se produce un error en el comando porque el daemon iSCSI vuelve a asignar la entrada de dispositivo para la LUN restaurada cuando se elimina la LUN clonada.
+
+
+
+== Solución alternativa
+
+Puede realizar cualquiera de las siguientes acciones:
+
+* Ejecute el `snapdrive snap restore` comando de nuevo.
+* Elimine la LUN conectada (si está montada en el mismo filespec. Que en la copia Snapshot) antes de intentar restaurar una copia Snapshot de una LUN original.
+

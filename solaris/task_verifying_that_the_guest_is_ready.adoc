@@ -1,0 +1,28 @@
+---
+permalink: solaris/task_verifying_that_the_guest_is_ready.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, verify, guest 
+summary: SnapDrive para UNIX debe asegurarse de que el invitado esté listo para comunicarse con el sistema de almacenamiento. 
+---
+= Verificando que el invitado está listo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX debe asegurarse de que el invitado esté listo para comunicarse con el sistema de almacenamiento.
+
+Comprobar que la funcionalidad de backup y recuperación de datos de Virtual Storage Console de NetApp para VMware vSphere esté instalada en el sistema Windows y registrada en vCenter.
+
+La configuración de Virtual Storage Console de NetApp solo se requiere para LUN de RDM FC.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config set -viadmin user viadmin_name*`
+
++
+Una vez completado el comando, puede confirmar que el invitado puede comunicarse con el sistema de almacenamiento ejecutando el `snapdrive storage show -all` comando.
+
+

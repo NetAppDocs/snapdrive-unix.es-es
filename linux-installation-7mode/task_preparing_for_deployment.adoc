@@ -1,0 +1,30 @@
+---
+permalink: linux-installation-7mode/task_preparing_for_deployment.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, deployment, prepare, hosts 
+summary: Los hosts en los que se instala SnapDrive para UNIX deben cumplir con los requisitos específicos de software, hardware, explorador, base de datos y sistema operativo. Para obtener más información sobre los requisitos, consulte herramienta matriz de interoperabilidad. 
+---
+= Preparación para la implementación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los hosts en los que se instala SnapDrive para UNIX deben cumplir con los requisitos específicos de software, hardware, explorador, base de datos y sistema operativo. Para obtener más información sobre los requisitos, consulte herramienta matriz de interoperabilidad.
+
+.Pasos
+. Compruebe que tiene las licencias necesarias.
+. Compruebe la compatibilidad de SnapDrive con la configuración.
+. Compruebe que el host Linux cumple los requisitos de SnapDrive.
+
+
+*Información relacionada*
+
+xref:reference_snapdrive_licensing.adoc[Requisitos para la licencia de SnapDrive para UNIX]
+
+xref:reference_supported_configurations.adoc[Configuraciones admitidas]
+
+xref:reference_linux_host_requirements.adoc[Requisitos del host Linux]
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"]

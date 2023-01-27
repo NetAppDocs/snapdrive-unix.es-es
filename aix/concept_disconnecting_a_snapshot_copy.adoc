@@ -1,0 +1,17 @@
+---
+permalink: aix/concept_disconnecting_a_snapshot_copy.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, snapshot, copy 
+summary: Puede desconectar una copia Snapshot de un LUN, un sistema de archivos en un LUN, grupos de discos, directorios de NFS o grupos de discos compartidos, volúmenes de hosts y sistemas de archivos en un LUN. 
+---
+= Desconectar una copia Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede desconectar una copia Snapshot de un LUN, un sistema de archivos en un LUN, grupos de discos, directorios de NFS o grupos de discos compartidos, volúmenes de hosts y sistemas de archivos en un LUN.
+
+
+NOTE: Es posible desconectar los volúmenes de división de clones de SnapDrive para UNIX 4.2 y las versiones posteriores.

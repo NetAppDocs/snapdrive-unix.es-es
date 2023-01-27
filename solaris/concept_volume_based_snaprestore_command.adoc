@@ -1,0 +1,87 @@
+---
+permalink: solaris/concept_volume_based_snaprestore_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, snaprestore, command 
+summary: En esta sección se describen los comandos y las opciones para usar SnapRestore basado en volúmenes. 
+---
+= Comando SnapRestore basado en volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En esta sección se describen los comandos y las opciones para usar SnapRestore basado en volúmenes.
+
+`-vbsr` Esta opción se añade en la interfaz de línea de comandos de restauración en snap para seleccionar SnapRestore basadas en volúmenes. Use la siguiente sintaxis de comando para realizar una restauración con SnapRestore basado en volúmenes:
+
+[listing]
+----
+snapdrive snap restore {-lun | -dg | -vg | -hostvol |
+-lvol | -fs |-file} file_spec [file_spec ...] [{-lun | -dg |
+-vg | -hostvol | -lvol | -fs -file} file_spec [file_spec ...]
+...] -snapname snap_name [-force [-noprompt]][{-reserve |
+-noreserve}] \[-devicetype \{shared \| dedicated\}\]
+[-vbsr [execute | preview]]
+----
+Si no se proporciona ningún argumento con el `-vbsr`, la salida predeterminada es la de la opción de vista previa. A. `-verbose` se utiliza la opción que permite la salida detallada de todas las comprobaciones obligatorias que el usuario puede sobreponer. La salida predeterminada cuando no se proporciona la opción -verbose muestra los resultados de las comprobaciones que han fallado.
+
+`-devicetype shared | dedicated` la opción admite con `-vbsr`. De este modo, posibilita una espec estructura de host compartida de todo el clúster con SnapRestore basado en volumen. Es lo mismo que admitir la restauración instantánea de un solo archivo.
+
+Si no desea que aparezca ningún mensaje de confirmación al ejecutar SnapRestore basado en volumen, puede utilizar `-noprompt` y.. `-force` opción con `snap restore -vbsr execute` comando. En la tabla siguiente se describe el comportamiento de SnapDrive para UNIX en función de las opciones proporcionadas por usted.
+
+|===
+| S. N. | -vbsr ejecutar | -fuerza | -noprompt | Resultado 
+
+
+ a| 
+1.
+ a| 
+No
+ a| 
+NA
+ a| 
+NA
+ a| 
+El modo de vista previa es el modo predeterminado. Se realizan todas las comprobaciones y se genera un informe para cada comprobación.
+
+
+
+ a| 
+2.
+ a| 
+Sí
+ a| 
+No
+ a| 
+No
+ a| 
+Se realizan todos los cheques. Si cualquier comprobación obligatoria de que un usuario puede anular falla, SnapDrive para UNIX muestra un mensaje de error.
+
+
+
+ a| 
+3.
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+ a| 
+Se realizan todas las comprobaciones. Si se produce un error en las comprobaciones obligatorias, SnapDrive para UNIX muestra un mensaje de error. Si se produce un error en la comprobación de que un usuario puede anular, SnapDrive for UNIX le solicita.
+
+
+
+ a| 
+4.
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Se realizan todas las comprobaciones. Si se produce un error en las comprobaciones obligatorias, SnapDrive para UNIX muestra un mensaje de error. Si se comprueba que un usuario puede anular este error, SnapDrive for UNIX no le solicita información.
+
+|===

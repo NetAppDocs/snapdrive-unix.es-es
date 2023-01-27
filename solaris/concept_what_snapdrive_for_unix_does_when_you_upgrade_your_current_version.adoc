@@ -1,0 +1,23 @@
+---
+permalink: solaris/concept_what_snapdrive_for_unix_does_when_you_upgrade_your_current_version.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, upgrade, current, version 
+summary: Puede actualizar fácilmente SnapDrive para UNIX a la última versión. Como parte del proceso de actualización, pocas variables cambian en el archivo snapdrive.conf. Para asegurarse de que SnapDrive para UNIX funciona correctamente, compruebe los diversos valores predeterminados en el archivo snapdrive.conf. 
+---
+= Actualice SnapDrive para UNIX a la versión actual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede actualizar fácilmente SnapDrive para UNIX a la última versión. Como parte del proceso de actualización, pocas variables cambian en el `snapdrive.conf` archivo. Para asegurarse de que SnapDrive para UNIX funciona correctamente, compruebe los diversos valores predeterminados en la `snapdrive.conf` archivo.
+
+Para actualizar su versión actual de SnapDrive para UNIX, no tiene que desinstalarla. En su lugar, debe instalar la versión más reciente del software en la parte superior de la versión actual.
+
+Al instalar una nueva versión, SnapDrive para UNIX comprueba si ya tiene instalada una versión. Si lo hace, conserva la corriente `snapdrive.conf` archivo y cambia el nombre de la versión del archivo en el que está instalando `snapdrive.conf.x`. De esta manera, evita sobrescribir su `snapdrive.conf` archivo, por lo que no pierde ninguna configuración personalizada en el archivo.
+
+De forma predeterminada, SnapDrive para UNIX retoma las variables de `snapdrive.conf` archivo. Esto significa que utiliza automáticamente los valores predeterminados para todas las variables, excepto los que personalice. Si desea cambiar estos valores, debe agregar las variables a su actual `snapdrive.conf` file y especifique los valores que desee.
+
+
+NOTE: Al realizar una actualización de parches, la versión de SnapDrive en `snapdrive.conf` el archivo no cambia. Sin embargo, la `snapdrive version` el comando proporciona la versión adecuada.

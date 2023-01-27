@@ -1,0 +1,26 @@
+---
+permalink: solaris/task_forcing_daemon_restart.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, force, daemon, restart, command 
+summary: Puede forzar el reinicio del demonio. Un reinicio enérgico del daemon detiene la ejecución de todos los comandos en ejecución. 
+---
+= Forzado del reinicio del demonio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede forzar el reinicio del demonio. Un reinicio enérgico del daemon detiene la ejecución de todos los comandos en ejecución.
+
+Asegúrese de que ha iniciado sesión como usuario raíz.
+
+.Pasos
+. Introduzca el siguiente comando para reiniciar el daemon de forma forzada:
++
+`*snapdrived -force restart*`
+
++
+Una vez recibida la solicitud de reinicio de fuerza, el daemon detiene todos los comandos en ejecución y en cola. El daemon se reinicia sólo después de cancelar la ejecución de todos los comandos en ejecución.
+
+

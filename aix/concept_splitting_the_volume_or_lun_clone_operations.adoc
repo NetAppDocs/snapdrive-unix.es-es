@@ -1,0 +1,33 @@
+---
+permalink: aix/concept_splitting_the_volume_or_lun_clone_operations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, split, volume, lun, clone 
+summary: SnapDrive para UNIX permite dividir un clon de volúmenes o de LUN. Una vez finalizada la división de clones, se destruye la relación entre el volumen principal y el clon, y ambas entidades son independientes entre sí y tienen su propio espacio de almacenamiento individual. 
+---
+= Dividir un clon de volumen o LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX permite dividir un clon de volúmenes o de LUN. Una vez finalizada la división de clones, se destruye la relación entre el volumen principal y el clon, y ambas entidades son independientes entre sí y tienen su propio espacio de almacenamiento individual.
+
+A continuación, se muestran las operaciones de división de clones:
+
+* Estime el espacio en disco (en MB) para un clon de volumen o LUN.
+* Divida un clon de volumen o un clon de LUN.
+* Detenga el clon de volumen o la división del clon de LUN.
+* Vea el estado de la división de clones que está en curso, completada o con errores.
+
+
+[NOTE]
+====
+* Si un clon de volumen está dividido, se eliminan todas las copias de Snapshot del volumen clonado.
+* Es obligatorio ejecutar el comando clone split Estimate antes de dividir la especificación del archivo para determinar si hay alguna copia snapshot tomada en el volumen clonado.
+* Para todos los comandos de división de clones, solo debe especificarse un nombre de LUN largo con `-lun` opción. No puede especificar `-lun` opción en la misma línea de comandos junto con otras entidades de almacenamiento ( opciones -vg, -dg, -fs, - lvol o -hostvol).
+* Siempre es obligatorio utilizar el nombre de ruta absoluto para las especificaciones de archivo con comandos de división de clones.
+* La estimación de la división de clones de las LUN mediante Snapshot solo está disponible para las copias de Snapshot que se crean a partir de SnapDrive 4.2 para UNIX y versiones posteriores.
+
+
+====

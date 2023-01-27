@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_using_port_set_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, port, set, san, data, interface, control, host 
+summary: El conjunto de puertos es un grupo de interfaz o puerto DE datos SAN, y se utiliza para controlar la ruta disponible a un host mediante la agrupación del conjunto de puertos DE datos SAN o de interfaz. 
+---
+= Uso del conjunto de puertos en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El conjunto de puertos es un grupo de interfaz o puerto DE datos SAN, y se utiliza para controlar la ruta disponible a un host mediante la agrupación del conjunto de puertos DE datos SAN o de interfaz.
+
+El administrador de almacenamiento crea la configuración del conjunto de puertos en el sistema de almacenamiento y es una tarea opcional. Cuando no hay ningún conjunto de puertos configurado en el host, el host puede ver todas las rutas, según los límites de configuración SCSI del host. SnapDrive para UNIX permite al administrador de almacenamiento especificar un conjunto de puertos único por Vserver. Por lo tanto, hay una restricción en el número de rutas que puede ver el host a través del Vserver.

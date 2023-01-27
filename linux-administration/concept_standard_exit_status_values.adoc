@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_standard_exit_status_values.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, exit, status, fail 
+summary: Los ID de mensajes de error de SnapDrive para UNIX tienen valores de estado de salida asociados a ellos. Puede utilizar el valor de estado exit para determinar el éxito o el fallo de un comando de la SnapDrive para UNIX. 
+---
+= Valores de estado de salida estándar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los ID de mensajes de error de SnapDrive para UNIX tienen valores de estado de salida asociados a ellos. Puede utilizar el valor de estado exit para determinar el éxito o el fallo de un comando de la SnapDrive para UNIX.

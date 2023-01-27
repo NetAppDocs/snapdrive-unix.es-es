@@ -1,0 +1,28 @@
+---
+permalink: linux-administration/concept_checks_that_can_be_overridden_by_the_user.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, override, check 
+summary: Antes de llevar a cabo la SnapRestore basada en volúmenes, SnapDrive para UNIX realiza algunas comprobaciones que los usuarios pueden anular mediante la opción -force. Estas comprobaciones son necesarias para que el SnapRestore basado en volúmenes se utilice de forma segura. 
+---
+= Comprobaciones que el usuario puede anular
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de llevar a cabo la SnapRestore basada en volúmenes, SnapDrive para UNIX realiza algunas comprobaciones que puede anular el uso por parte de un usuario `-force` opción. Estas comprobaciones son necesarias para que el SnapRestore basado en volúmenes se utilice de forma segura.
+
+Se recomienda seguir las distintas comprobaciones que realiza el sistema, pero puede anular estas comprobaciones mediante el `-force` opción.
+
+En el caso de comprobaciones de SnapRestore basadas en volúmenes, es posible anular la siguiente instancia de SnapDrive para UNIX:
+
+* SnapDrive para UNIX comprueba las LUN de la copia snapshot que no son consistentes con los fallos. Si encuentra una LUN incoherente para aplicaciones en la copia Snapshot, le advierte sobre ella.
+* SnapDrive para UNIX comprueba si hay más LUN en el volumen activo que se han creado después de realizar la copia snapshot. Si SnapDrive para UNIX encuentra LUN adicionales, le advierte que se pierden esas LUN adicionales en el volumen activo.
+* SnapDrive para UNIX comprueba las nuevas copias Snapshot. Estas nuevas copias Snapshot no se restauran y se pierden.
+* SnapDrive para UNIX comprueba si hay un archivo normal (archivos que son visibles desde el host local) en un volumen.
+* SnapDrive para UNIX comprueba las exportaciones de NFS.
+* SnapDrive para UNIX comprueba si hay recursos compartidos de CIFS.
+
+
+Si se crearon copias de Snapshot con SnapDrive 3.0 para UNIX o una versión anterior, la vista previa de SnapRestore basada en volumen no puede realizar las dos primeras comprobaciones en la lista anterior mencionada. Si ha proporcionado `-force` A continuación, durante la ejecución de SnapRestore basada en volumen, se muestra un mensaje de aviso para sobreconducir estas comprobaciones y continuar.

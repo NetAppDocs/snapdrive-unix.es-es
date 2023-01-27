@@ -1,0 +1,25 @@
+---
+permalink: linux-administration/concept_when_to_use_the_snapdrive_configuration_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, configuration, wizard, update 
+summary: Use el asistente de configuración de SnapDrive para actualizar las variables de configuración del asistente. Es posible ejecutar el asistente de configuración en cualquier momento para modificar los cambios de configuración en SnapDrive. 
+---
+= Asistente de configuración de SnapDrive
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use el asistente de configuración de SnapDrive para actualizar las variables de configuración del asistente. Es posible ejecutar el asistente de configuración en cualquier momento para modificar los cambios de configuración en SnapDrive.
+
+Puede ejecutar el asistente de configuración desde
+`/opt/NetApp/snapdrive/setup/config_wizard`
+
+Introduzca `exit` para cerrar el asistente de configuración, sin guardar los cambios.
+
+También puede modificar el valor de las variables de configuración directamente en `snapdrive.conf` archivo.
+
+*Información relacionada*
+
+xref:reference_stack_requirements.adoc[Requisitos de pila]

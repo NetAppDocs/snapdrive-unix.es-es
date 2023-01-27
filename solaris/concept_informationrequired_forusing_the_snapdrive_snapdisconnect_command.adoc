@@ -1,0 +1,114 @@
+---
+permalink: solaris/concept_informationrequired_forusing_the_snapdrive_snapdisconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, disconnect, command 
+summary: Para desconectar una copia de Snapshot, especifique el tipo de entidad de almacenamiento que se va a utilizar, como LUN, grupos de discos, sistemas de archivos, o volumen host. 
+---
+= Información necesaria para utilizar el comando SnapDrive snap disconnect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para desconectar una copia de Snapshot, especifique el tipo de entidad de almacenamiento que se va a utilizar, como LUN, grupos de discos, sistemas de archivos, o volumen host.
+
+En la siguiente tabla se proporciona la información que necesita para proporcionar cuando utiliza `snapdrive snap disconnect` comando.
+
+|===
+| Requisito/opción | Argumento 
+
+
+ a| 
+LUN (-lun `_file_spec_`)
+ a| 
+_Nombre de la LUN. Incluya el nombre del servidor de almacenamiento, el volumen y la LUN._
+
+
+
+ a| 
+Grupo de discos (-dg `_file_spec_` ) o grupo de volúmenes (-vg `_file_spec_` )
+ a| 
+_nombre del disco o del grupo de volúmenes_
+
+
+
+ a| 
+Sistema de archivos (-fs `_file_spec_` )
+ a| 
+`_filesystem_name_`
+
+
+
+ a| 
+Volumen del host (-hostvol `_file_spec_` ) o volumen lógico (-lvol `_file_spec_` )
+ a| 
+_nombre del host o del volumen lógico_
+
+
+
+ a| 
+Especifique el tipo de entidad de almacenamiento que desea usar para desconectar la copia Snapshot y suministrar el nombre de la entidad con el argumento correspondiente.
+
+Este es el valor para `_file_spec_` argumento.
+
+
+
+ a| 
+`-devicetype~`
+ a| 
+~
+
+
+
+ a| 
+Opcional: Especifica el tipo de dispositivo que se va a utilizar para las operaciones de SnapDrive para UNIX. Esto puede ser «esencial» que especifique el ámbito de la LUN, el grupo de discos y el sistema de archivos como host en todo el clúster o «objetivos» que especifica el ámbito de la LUN, el grupo de discos y el sistema de archivos como local.
+
+Si especifica el `-devicetype dedicated` todas las opciones de `snapdrive snap disconnect` El comando que se admite actualmente en SnapDrive 2.1 para UNIX funciona como siempre.
+
+Si inicia el `snapdrive snap disconnect` con el `-devicetype` opción compartida desde cualquier nodo no maestro del clúster de hosts, el comando se envía al nodo maestro y se ejecuta. Para que esto suceda, debe asegurarse de que el `rsh` o. `ssh` se debe configurar el acceso sin una solicitud de contraseña para el usuario raíz para todos los nodos del clúster de hosts.
+
+
+
+ a| 
+`-full`
+ a| 
+~
+
+
+
+ a| 
+Incluya la opción -full en la línea de comandos si desea que SnapDrive para UNIX desconecte los objetos de la copia de Snapshot aunque una entidad del lado del host de la línea de comandos tenga otras entidades (como un grupo de discos que tiene uno o más volúmenes de hosts). Si no incluye esta opción, debe especificar solo entidades vacías del lado del host.
+
+
+
+ a| 
+`-fstype`
+ a| 
+`_type_`
+
+
+
+ a| 
+`-vmtype`
+ a| 
+`_type_`
+
+
+
+ a| 
+Opcional: Indique el tipo de sistema de archivos y gestor de volúmenes que se utilizarán.
+
+
+
+ a| 
+`-split`
+ a| 
+~
+
+
+
+ a| 
+Permite dividir los volúmenes o LUN clonados durante las operaciones de conexión de Snapshot y desconexión de Snapshot.
+
+|===

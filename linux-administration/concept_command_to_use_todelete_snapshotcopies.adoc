@@ -1,0 +1,16 @@
+---
+permalink: linux-administration/concept_command_to_use_todelete_snapshotcopies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, command, delete, snapshot, copy 
+summary: Use el comando SnapDrive snap delete para eliminar una copia snapshot. 
+---
+= Comando que se utiliza para eliminar copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice la `snapdrive snap delete` Comando para eliminar una copia Snapshot.
+
+La `snapdrive snap delete` El comando elimina las copias de Snapshot que especifique de un sistema de almacenamiento. Este comando no realiza ninguna operación en el host. Solo elimina la copia de Snapshot de un sistema de almacenamiento, si cuenta con permisos para hacerlo. (Si desea mantener las LUN y las asignaciones).

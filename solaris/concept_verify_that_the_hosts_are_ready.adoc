@@ -1,0 +1,36 @@
+---
+permalink: solaris/concept_verify_that_the_hosts_are_ready.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, host, verify 
+summary: Debe verificar que los hosts estén listos. Para iniciar las operaciones de verificación, primero debe probar si el host está conectado al sistema de almacenamiento introduciendo el comando ping filername. 
+---
+= Verificación de que los hosts están listos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe verificar que los hosts estén listos. Para iniciar las operaciones de verificación, primero debe probar si el host está conectado al sistema de almacenamiento, introduzca el `ping filername` comando.
+
+También debe confirmar que los hosts y el sistema de almacenamiento pueden comunicarse entre sí. Para confirmar esto, ejecute el `snapdrive storage show -all` comando y compruebe si los hosts y el sistema de almacenamiento se comunican. Compruebe que los hosts estén listos realizando ciertas operaciones:
+
+* Confirme que ha configurado correctamente el host y el sistema de almacenamiento según las instrucciones que se indican en la documentación de Utilidades de host para el host.
+* Confirme que tiene una configuración que utiliza NFS y configure el archivo exports.
+* Confirmar que el host cumple los requisitos mínimos de SnapDrive para UNIX, incluidos los parches necesarios para el sistema operativo.
+* Instale la biblioteca NTAPasl antes de instalar la pila Veritas en el host.
++
+
+NOTE: Si instaló la pila Veritas sin instalar la biblioteca NTAPasl, debe instalar la biblioteca NTAPasl y ejecutar el `vxinstall` Comando para conectar las LUN y los grupos de discos.
+
+
+
+*Información relacionada*
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["Referencia de NFS de ONTAP 9"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1401220["Guía de acceso a archivos y gestión de protocolos de Data ONTAP 8.2 para 7-Mode"]
+
+http://mysupport.netapp.com["Soporte de NetApp"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148981["Guía de instalación y configuración de Solaris Host Utilities 6.1"]

@@ -1,0 +1,51 @@
+---
+permalink: linux-administration/concept_snapdrive_for_unix_incorrectly_interprets_the_dollar_sign_symbol.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, dollar, sign, special, characters, value 
+summary: 'SnapDrive para UNIX interpreta incorrectamente el signo de dólar \($\) y todos los caracteres especiales de forma diferente si los caracteres especiales se especifican como parte de un valor de configuración.' 
+---
+= SnapDrive para UNIX interpreta incorrectamente el signo del dólar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX interpreta incorrectamente el signo de dólar ($) y todos los caracteres especiales de forma diferente si los caracteres especiales se especifican como parte de un valor de configuración.
+
+Todos los valores de configuración especificados deben ser numéricos. Si especifica $ o cualquier otro carácter especial como parte del valor de configuración, SnapDrive para UNIX acepta el valor pero interpreta el valor numérico mencionado después del carácter especial de una manera diferente.
+
+
+
+== Ejemplo
+
+A continuación se muestra un ejemplo de cómo se interpreta $:
+
+[listing]
+----
+#a=$123
+#echo $a
+23
+
+[root@vm-linux-51-233 ~]# /opt/NetApp/snapdrive/bin/config_set volume-clone-retry-sleep=$129
+[root@vm-linux-51-233 ~]# /opt/NetApp/snapdrive/bin/config_show |grep volume-clone-retry-sleep
+volume-clone-retry-sleep:Number of seconds between retries during flex-clone create:'3':'29':1:0:'^[0-9]+$':filer
+----
+En este ejemplo, SnapDrive para UNIX interpreta el valor de configuración ($123) como 23.
+
+
+
+== Solución alternativa
+
+Especifique una barra invertida (\) antes de $. Modifique el ejemplo anterior de la siguiente forma:
+
+[listing]
+----
+#a=\$123
+#echo $a
+23
+
+[root@vm-linux-51-233 ~]# /opt/NetApp/snapdrive/bin/config_set volume-clone-retry-sleep=$129
+[root@vm-linux-51-233 ~]# /opt/NetApp/snapdrive/bin/config_show |grep volume-clone-retry-sleep
+volume-clone-retry-sleep:Number of seconds between retries during flex-clone create:'3':'29':1:0:'^[0-9]+$':filer
+----

@@ -1,0 +1,24 @@
+---
+permalink: solaris/concept_deleting_storage_using_a_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, storage, wizard 
+summary: Puede usar el asistente para la eliminación de almacenamiento para realizar ciertas operaciones de eliminación. 
+---
+= Eliminar almacenamiento con un asistente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el asistente para la eliminación de almacenamiento para realizar ciertas operaciones de eliminación.
+
+Puede iniciar el asistente mediante la `snapdrive storage wizard delete` comando.
+
+Puede eliminar las siguientes entidades:
+
+* UNA LUN
+* Un grupo de discos
+* Un volumen lógico
+* Un sistema de archivos
+

@@ -1,0 +1,14 @@
+---
+permalink: solaris/concept_snapshot_copies_in_snapdrive_for_unix.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, snapshot, copy 
+summary: SnapDrive para UNIX le permite crear copias Snapshot de datos de host. 
+---
+= Crear y utilizar copias de Snapshot en SnapDrive para UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX le permite crear copias Snapshot de datos de host.

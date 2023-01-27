@@ -1,0 +1,24 @@
+---
+permalink: solaris/concept_support_for_guest_operating_systems.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, support, guest, operating, system 
+summary: 'La compatibilidad de SnapDrive para UNIX con sistemas operativos invitados permite crear almacenamiento y gestionar copias Snapshot de LUN, sistemas de archivos, volúmenes lógicos y grupos de discos. Para aprovisionar LUN de RDM, debe especificar el protocolo Fibre Channel \(FC\) en el archivo snapdrive.conf.' 
+---
+= Soporte para sistemas operativos invitados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La compatibilidad de SnapDrive para UNIX con sistemas operativos invitados permite crear almacenamiento y gestionar copias Snapshot de LUN, sistemas de archivos, volúmenes lógicos y grupos de discos. Para aprovisionar LUN de RDM, debe especificar el protocolo Fibre Channel (FC) en el archivo snapdrive.conf.
+
+* Crear almacenamiento que incluya LUN, LUN de RDM, sistemas de archivos, volúmenes lógicos y grupos de discos.
++
+Después de crear el almacenamiento, es posible aumentar o reducir la capacidad de almacenamiento, conectar el almacenamiento a un host o desconectar, y mostrar información de configuración acerca del almacenamiento.
+
+* Cree una copia Snapshot de uno o más grupos de volúmenes en un sistema de almacenamiento.
++
+La copia Snapshot puede contener sistemas de archivos, volúmenes lógicos, grupos de discos, LUN, LUN de RDM, Y los árboles de directorios NFS. Después de crear una copia Snapshot, puede cambiar el nombre, restaurar o eliminar la copia Snapshot. También puede conectar una copia Snapshot a otra ubicación en el mismo host o en otro. Después de conectar la copia Snapshot, puede ver y modificar el contenido o desconectar. También puede mostrar información sobre las copias Snapshot.
+
+

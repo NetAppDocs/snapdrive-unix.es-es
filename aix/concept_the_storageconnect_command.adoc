@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_the_storageconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, connect, command 
+summary: El comando SnapDrive Storage connect conecta entidades de almacenamiento con el host. Con este comando puede conectar LUN y entidades de almacenamiento al host 
+---
+= El comando Storage connect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `snapdrive storage connect` el comando conecta las entidades de almacenamiento con el host. Con este comando puede conectar LUN y entidades de almacenamiento al host
+
+Utilice la `snapdrive storage connect` comando para conectarse a:
+
+* LUN
+* Un sistema de archivos creado directamente en un LUN
+* Grupos de discos, volúmenes de hosts y sistemas de archivos creados en LUN
+
+
+Cuando introduzca la `snapdrive storage connect` Comando para conectar las LUN al host, SnapDrive para UNIX realiza la detección y la asignación necesarias. No modifica el contenido de las LUN.

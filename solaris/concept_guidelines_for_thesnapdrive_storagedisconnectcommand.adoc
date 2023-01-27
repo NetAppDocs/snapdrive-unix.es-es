@@ -1,0 +1,19 @@
+---
+permalink: solaris/concept_guidelines_for_thesnapdrive_storagedisconnectcommand.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, strorage, disconnect, command 
+summary: Siga estas directrices al utilizar el comando SnapDrive Storage Disconnect. 
+---
+= Directrices para el comando SnapDrive Storage Disconnect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estas directrices cuando utilice `snapdrive storage disconnect` comando:
+
+* Al desconectar un sistema de archivos, SnapDrive para UNIX elimina siempre el punto de montaje.
+* Si utiliza la `-lun` Opción para especificar el nombre de una LUN que sea miembro de un grupo de discos de host o de un sistema de archivos, el `snapdrive storage disconnect` error del comando.
+* Si utiliza `-lun` Opción para especificar el nombre del LUN que no se ha detectado mediante software multivía en el host, el `snapdrive storage disconnect` error del comando.
+

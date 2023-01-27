@@ -1,0 +1,21 @@
+---
+permalink: linux-administration/concept_snapdrived_start_command_fails.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, start, command, fails, troubleshoot, resolve, issue 
+summary: En algunas condiciones, el comando de arranque de snapdrived puede fallar. Existen algunos pasos para solucionar este problema. 
+---
+= el comando snapdrived start falla
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En algunas condiciones `snapdrived start` es posible que no se pueda ejecutar el comando Existen algunos pasos para solucionar este problema.
+
+* Compruebe si el puerto del daemon especificado en `snapdrive.conf` el archivo ya está en uso por otra aplicación.
+* Compruebe si una instancia anterior de daemon se ha detenido correctamente.
+* Compruebe si se alcanza el límite del semáforo en todo el sistema, en cuyo caso el inicio del daemon no funciona.
+* Compruebe si alguno de los servicios como iSCSI, VxVM no se está ejecutando en el equipo.
+* Si HTTPS está configurado como `on`, compruebe si el certificado autofirmado está instalado en el directorio especificado.
+

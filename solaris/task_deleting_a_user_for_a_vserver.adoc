@@ -1,0 +1,33 @@
+---
+permalink: solaris/task_deleting_a_user_for_a_vserver.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, delete, user, vserver 
+summary: Puede eliminar la información de inicio de sesión de un Vserver mediante la ejecución del comando SnapDrive config delete. 
+---
+= Eliminación de un usuario de un Vserver
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar la información de inicio de sesión de un Vserver mediante la ejecución de `snapdrive config delete` comando.
+
+.Pasos
+. Introduzca el siguiente comando:
++
+`*snapdrive config delete _appliance_name_*`
+
++
+`_appliance_name_` Es el nombre del Vserver en el que se desea eliminar la información de inicio de sesión.
+
++
+[listing]
+----
+# snapdrive config delete clstr-vs2
+Deleted configuration for appliance: clstr-vs2
+----
++
+SnapDrive para UNIX elimina la información de inicio de sesión del Vserver especificado.
+
+

@@ -1,0 +1,14 @@
+---
+permalink: linux-administration/concept_common_error_messages.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, message, common 
+summary: SnapDrive para UNIX tiene algunos mensajes de error comunes. Consulte la lista de los mensajes de error comunes. 
+---
+= Mensajes de error comunes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX tiene algunos mensajes de error comunes. Consulte la lista de los mensajes de error comunes.

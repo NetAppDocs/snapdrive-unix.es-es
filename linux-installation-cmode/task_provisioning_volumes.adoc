@@ -1,0 +1,18 @@
+---
+permalink: linux-installation-cmode/task_provisioning_volumes.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, provision, volume, storage 
+summary: Data ONTAP permite aprovisionar almacenamiento mediante la creación de un volumen en el sistema de almacenamiento y el montaje del volumen en el host con el protocolo NFS habilitado. 
+---
+= Aprovisionamiento de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP permite aprovisionar almacenamiento mediante la creación de un volumen en el sistema de almacenamiento y el montaje del volumen en el host con el protocolo NFS habilitado.
+
+*Información relacionada*
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1368859["Guía de gestión del almacenamiento de Data ONTAP 8.2 para 7-Mode"]

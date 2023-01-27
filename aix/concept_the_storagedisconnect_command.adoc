@@ -1,0 +1,23 @@
+---
+permalink: aix/concept_the_storagedisconnect_command.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, disconnect, command 
+summary: La operación de desconexión de almacenamiento elimina las LUN, o los LUN y las entidades de almacenamiento que se asignaron al host mediante el comando SnapDrive Storage create o SnapDrive Storage connect. 
+---
+= El comando Storage disconnect
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La `storage disconnect` La operación elimina los LUN o las LUN y entidades de almacenamiento que se asignaron al host mediante el `snapdrive storage create` o. `snapdrive storage connect` comando.
+
+Utilice la `snapdrive storage disconnect` comando para desconectar:
+
+* LUN
+* Un sistema de archivos creado directamente en un LUN
+* Grupos de discos, volúmenes de hosts y sistemas de archivos creados en LUN
+
+
+Cuando SnapDrive para UNIX quita las asignaciones de LUN, exporta los grupos de discos o los sistemas de archivos que contienen las LUN. Esta acción, que Marca el disco y el sistema de archivos como exportados, es el único cambio que desconecta las asignaciones tiene en el contenido de las LUN.

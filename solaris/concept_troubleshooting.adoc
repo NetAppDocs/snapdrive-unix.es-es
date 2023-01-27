@@ -1,0 +1,16 @@
+---
+permalink: solaris/concept_troubleshooting.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, troubleshoot 
+summary: La herramienta de solución de problemas de SnapDrive para UNIX le permite encontrar información además de resolver problemas. 
+---
+= Resolución de problemas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La herramienta de solución de problemas de SnapDrive para UNIX le permite encontrar información además de resolver problemas.
+
+En el momento de esta versión, se conocían algunos problemas y limitaciones de SnapDrive para UNIX. Aunque algunos problemas afectan a todas las plataformas host de SnapDrive para UNIX, otros solo afectan a una plataforma de host específica. Para obtener información acerca de problemas conocidos y sugerencias para la solución de problemas, consulte las notas de la versión de _SnapDrive para UNIX._

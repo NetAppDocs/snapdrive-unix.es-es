@@ -1,0 +1,20 @@
+---
+permalink: linux-installation-cmode/concept_creating_snapshot_copies.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, create, snapshot, copy 
+summary: SnapDrive para UNIX cuando se implementa como producto independiente utiliza la tecnología Snapshot de NetApp, lo que permite crear y gestionar copias Snapshot de los datos del host. Puede usar las copias Snapshot para restaurar los datos. 
+---
+= Crear copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX cuando se implementa como producto independiente utiliza la tecnología Snapshot de NetApp, lo que permite crear y gestionar copias Snapshot de los datos del host. Puede usar las copias Snapshot para restaurar los datos.
+
+*Información relacionada*
+
+xref:task_creating_a_snapshot_copy.adoc[Crear una copia Snapshot]
+
+xref:task_verifying_the_snapshot_copy.adoc[Verificación de la copia Snapshot]

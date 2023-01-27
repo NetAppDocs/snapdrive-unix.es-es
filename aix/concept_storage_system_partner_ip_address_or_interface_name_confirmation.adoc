@@ -1,0 +1,33 @@
+---
+permalink: aix/concept_storage_system_partner_ip_address_or_interface_name_confirmation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, system, ip, interface, name, address 
+summary: Cuando ejecuta el programa de instalación en el sistema de almacenamiento, le solicita que proporcione una dirección IP o un nombre de interfaz para que lo utilice un sistema de almacenamiento de otros socios en caso de que se produzca una conmutación por error. Si no se proporciona esto, SnapDrive para UNIX no podrá buscar las entidades de almacenamiento en un sistema de almacenamiento que haya tomado el control. 
+---
+= Dirección IP del partner del sistema de almacenamiento o confirmación del nombre de la interfaz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando ejecuta el programa de instalación en el sistema de almacenamiento, le solicita que proporcione una dirección IP o un nombre de interfaz para que lo utilice un sistema de almacenamiento de otros socios en caso de que se produzca una conmutación por error. Si no se proporciona esto, SnapDrive para UNIX no podrá buscar las entidades de almacenamiento en un sistema de almacenamiento que haya tomado el control.
+
+Una dirección IP del compañero o el nombre de la interfaz son la dirección IP o el nombre de la interfaz del sistema de almacenamiento del compañero en una configuración de par de alta disponibilidad. Si falla el sistema de almacenamiento primario, el sistema de almacenamiento de los partners asume el control del funcionamiento del sistema de almacenamiento principal.
+
+
+
+== Ejemplo: Script de configuración del sistema de almacenamiento
+
+El siguiente ejemplo de resultado del script de configuración del sistema de almacenamiento solicita la dirección IP:
+
+[listing]
+----
+storage_system_A> setup...
+Should interface e0 take over a partner IP address during failover?
+[n]: y
+Please enter the IP address or interface name to be taken over by e0
+[]: 10.2.21.35
+storage_system_A> reboot -t 0
+----
+En este ejemplo se utiliza la dirección IP 10.2.21.35.

@@ -1,0 +1,43 @@
+---
+permalink: linux-administration/concept_error_message_locations.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, error, message, location 
+summary: SnapDrive para UNIX proporciona información sobre los mensajes de error como la salida del comando y en varios archivos de registro. 
+---
+= Ubicaciones de mensajes de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapDrive para UNIX proporciona información sobre los mensajes de error como la salida del comando y en varios archivos de registro.
+
+SnapDrive para UNIX proporciona información sobre los mensajes de error en los lugares siguientes:
+
+* El resultado del comando
++
+Muestra todos los mensajes al resultado de error estándar del comando SnapDrive para UNIX.
+
+* El registro del sistema
++
+SnapDrive para UNIX registra todos los errores que tienen un nivel de gravedad de error grave y de administrador en el registro del sistema mediante el mecanismo de syslog(3).
+
+* El archivo de registro de auditoría
++
+El registro de auditoría registra la siguiente información de cada comando de SnapDrive para UNIX:
+
++
+** Quién lo emitió
+** Cuando fue emitida
+** Su estado de salida.
++
+Esto es muy útil para determinar lo que realmente sucedió en un sistema.
+
+
+
+* El archivo de registro de seguimiento
++
+El registro de seguimiento registra información más detallada sobre los errores que se produzcan. El soporte técnico de NetApp utiliza este registro cuando se diagnostican problemas.
+
+

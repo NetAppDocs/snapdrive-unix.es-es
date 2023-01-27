@@ -1,0 +1,74 @@
+---
+permalink: aix/concept_managing_snapshot_copy_using_a_wizard.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, wizard, manage 
+summary: Puede utilizar un asistente para gestionar copias de Snapshot. Este asistente le ejecuta una serie de preguntas y le ayuda a realizar las operaciones de conexión snap, restauración snap y desconexión snap. 
+---
+= Gestionar copias Snapshot con un asistente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar un asistente para gestionar copias de Snapshot. Este asistente le ejecuta una serie de preguntas y le ayuda a realizar las operaciones de conexión snap, restauración snap y desconexión snap.
+
+Puede ejecutar el asistente mediante la `snapdrive snap wizard` comando.
+
+En la siguiente tabla, se enumeran las diferentes operaciones y los comandos correspondientes para ejecutar el asistente. Después de iniciar el asistente, siga los pasos de la ventana de la aplicación.
+
+|===
+| Funcionamiento | Comando 
+
+
+ a| 
+Restauración de Snapshot
+ a| 
+`snapdrive snap wizard restore`
+
+
+
+ a| 
+Conexión Snapshot
+ a| 
+`snapdrive snap wizard connect`
+
+
+
+ a| 
+Operación de conexión de snapshots para el sistema de archivos con un volumen del sistema de almacenamiento
+
+
+
+ a| 
+Conexión de snapshot para el grupo de discos
+
+
+
+ a| 
+Desconexión de Snapshot para la LUN
+ a| 
+`snapdrive snap wizard disconnect`
+
+
+
+ a| 
+Desconexión de instantánea de un grupo de discos
+
+
+
+ a| 
+Desconexión Snapshot para el volumen host
+
+
+
+ a| 
+Desconexión de instantánea para el sistema de archivos
+
+|===
+*Limitaciones:* en SnapDrive para UNIX 4.1 y posterior, el `snapdrive snap wizard` el comando tiene las siguientes limitaciones:
+
+* El SnapRestore basado en volúmenes no se admite con el `snap wizard restore` comando.
+* El volumen FlexClone® no es compatible con `snap wizard connect` comando.
+* No se admiten las operaciones en especificaciones de archivo que no responden con `snap wizard` comandos.
+

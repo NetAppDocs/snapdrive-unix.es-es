@@ -1,0 +1,26 @@
+---
+permalink: linux-administration/concept_what_volume_based_snaprestore_is.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, volume, snaprestore, vbsr, storage, object, flexcone, vfiler, ontap 
+summary: 'La SnapRestore \(VBSR\) basada en volúmenes restaura el volumen con todos sus objetos de almacenamiento. La restauración basada en volumen es más rápida que cada objeto de almacenamiento se restaura de forma individual. VBSR también funciona con volúmenes FlexClone y configuraciones vFiler. VBSR para vFiler está disponible para Data ONTAP 7.3 y versiones posteriores.' 
+---
+= Qué es SnapRestore basado en volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La SnapRestore basada en volúmenes (VBSR) restaura el volumen con todos sus objetos de almacenamiento. La restauración basada en volumen es más rápida que cada objeto de almacenamiento se restaura de forma individual. VBSR también funciona con volúmenes FlexClone y configuraciones vFiler. VBSR para vFiler está disponible para Data ONTAP 7.3 y versiones posteriores.
+
+SnapDrive 3.0 para UNIX y versiones anteriores pueden restaurar LUN para una entidad en el lado del host, como sistema de archivos, grupos de discos y volúmenes de host, o archivos normales creados a través de NFS a partir de una instantánea coherente con la aplicación. SnapDrive para UNIX utiliza la restauración de archivo único SFSR implementado en Data ONTAP. SFSR funciona como siguiente:
+
+* En el caso de los archivos normales mientras se realiza la SFSR, se suspende cualquier operación que intente cambiar el archivo hasta que se complete la SFSR.
+* Para las LUN, cuando SFSR está avanzando la LUN está disponible, y se permiten las I/o (tanto de lectura como de escritura). SFSR para los archivos normales, así como las LUN, pueden tardar un largo tiempo, según el tamaño de la LUN o el archivo que se va a restaurar.
+
+
+Por lo tanto, en algunos entornos, SFSR es una obstrucción.
+
+A partir de SnapDrive 4.0 para UNIX, podrá realizar copias Snapshot basadas en volúmenes. VBSR es mucho más rápido y requiere menos recursos de CPU y almacenamiento. Restaura todos los datos del sistema de archivos activo. Esta funcionalidad puede utilizarse si un usuario desea restaurar todos los LUN o archivos normales de un volumen de la misma copia Snapshot.
+
+La copia de Snapshot basada en volúmenes se debe usar con precaución, ya que todas las copias de Snapshot realizadas después de la copia de Snapshot de volumen que se usa para la operación de restauración se eliminan. Se deben eliminar todos los archivos nuevos y las nuevas LUN creadas en este volumen.

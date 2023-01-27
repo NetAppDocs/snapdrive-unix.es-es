@@ -1,0 +1,41 @@
+---
+permalink: linux-administration/concept_guidelines_for_thestorage_createoperation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, storage, create, operation, lun, guidelines 
+summary: Debe seguir ciertas directrices al usar el comando SnapDrive Storage create para la operación de creación de almacenamiento. 
+---
+= Directrices para la operación de creación de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al utilizar el, debe seguir ciertas directrices `snapdrive storage create` comando para la operación de creación de almacenamiento.
+
+* Si enumera las LUN de diferentes volúmenes de sistema de almacenamiento con la opción -lun, no puede incluir la `-dg`, `-hostvol`, o. `-fs` opción en el símbolo del sistema.
+* La `-nolvm` La opción crea un sistema de archivos directamente en un LUN sin activar el LVM del host.
++
+Cuando se usa esta opción, no se pueden especificar volúmenes de hosts o grupos de discos.
+
+* No es posible utilizar SnapDrive para comando de aprovisionamiento de almacenamiento UNIX para archivos NFS ni árboles de directorios.
+* Si utiliza la `snapdrive storage create` Comando para crear un sistema de archivos directamente en una LUN, no puede especificar más de una LUN.
++
+SnapDrive para UNIX siempre crea una nueva LUN cuando se utiliza esta forma del comando.
+
+* Algunos sistemas operativos tienen límites en cuanto al número de LUN que puede crear.
++
+Si el host ejecuta uno de estos sistemas operativos, quizás desee ejecutar el `snapdrive config check luns` comando.
+
+* Se admite la creación de un sistema de archivos en una LUN sin configurar con multivía de DMP.
+* La `enable-mount-with-netdev` permite incluir el `_netdev` opción de sistema de archivos con `/etc/fstab` archivo.
++
+Cuando el valor se establece en OFF (valor predeterminado), debe especificar manualmente `-mntopts _netdev` en la `snapdrive storage create` comando. Sin embargo, si cambia el valor a On, el `-mntopts _netdev` se ejecuta automáticamente al ejecutar el `snapdrive storage create` comando.
+
+
+
+*Información relacionada*
+
+xref:concept_snapdrive_create_comand_fails_while_discovering_mapped_devices.adoc[El comando SnapDrive para UNIX Storage create falla al detectar algunos dispositivos asignados]
+
+xref:concept_configuration_options_and_their_default_values.adoc[Las opciones de configuración y sus valores predeterminados]

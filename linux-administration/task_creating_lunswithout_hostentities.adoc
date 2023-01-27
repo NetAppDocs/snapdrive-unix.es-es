@@ -1,0 +1,30 @@
+---
+permalink: linux-administration/task_creating_lunswithout_hostentities.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, lun, host, command, storage 
+summary: Puede utilizar los comandos de SnapDrive para UNIX para aprovisionar almacenamiento mediante la creación de una LUN en el sistema de almacenamiento. 
+---
+= Creación de LUN sin entidades de host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar los comandos de SnapDrive para UNIX para aprovisionar almacenamiento mediante la creación de una LUN en el sistema de almacenamiento.
+
+.Pasos
+. En la interfaz de línea de comandos de, introduzca el siguiente comando:
++
+`*snapdrive storage create -lun _long_lun_name_ -lunsize _[lun_name ...]_ -lunsize__size__ [{-reserve | -noreserve}] -igroup ig_name [ig_name ...]]_ig_name [ig_name ...]]_*``
+
++
+SnapDrive para UNIX crea las LUN que especifique.
+
+
+
+
+
+== Ejemplo: Crear tres LUN de 10 GB en un sistema de almacenamiento
+
+`snapdrive storage create -lun acctfiler:/vol/vol1/lunA lunB lunC - lunsize 10g`

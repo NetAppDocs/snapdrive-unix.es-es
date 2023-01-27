@@ -1,0 +1,36 @@
+---
+permalink: linux-administration/concept_guidelines_forsnapshot_copycreation.html 
+sidebar: sidebar 
+keywords: snap, snapdrive, snapshot, copy, create 
+summary: Tenga en cuenta lo siguiente al crear copias Snapshot con SnapDrive para UNIX. Puede conservar un máximo de 255 copias snapshot por volumen, SnapDrive para UNIX admite solo las copias snapshot que cree, no puede crear copias snapshot de grupos de discos raíz ni dispositivos de arranque o de intercambio. SnapDrive para UNIX requiere una operación de congelación para mantener la coherencia de los fallos. 
+---
+= Directrices para la creación de copias Snapshot
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tenga en cuenta lo siguiente al crear copias Snapshot con SnapDrive para UNIX: Puede conservar un máximo de 255 copias snapshot por volumen, SnapDrive para UNIX admite solo las copias snapshot que cree, no puede crear copias snapshot de grupos de discos raíz ni dispositivos de arranque o de intercambio. SnapDrive para UNIX requiere una operación de congelación para mantener la coherencia de los fallos.
+
+Siga estas directrices al introducir comandos que creen copias Snapshot:
+
+* Puede conservar un máximo de 255 copias snapshot por volumen de sistema de almacenamiento. El sistema de almacenamiento define este límite. La cantidad total puede variar en función de si otras herramientas utilizan estas copias Snapshot.
++
+Cuando el número de copias Snapshot ha alcanzado el límite máximo, se produce un error en la operación de creación de Snapshot. Debe eliminar algunas de las copias snapshot antiguas antes de poder usar SnapDrive para UNIX para volver a realizar.
+
+* SnapDrive para UNIX no es compatible con las copias Snapshot que no crea. Por ejemplo, no admite copias Snapshot que se crean desde la consola del sistema de almacenamiento, ya que una práctica puede dar lugar a inconsistencias en el sistema de archivos.
+* No se puede usar SnapDrive para UNIX para crear copias Snapshot de las siguientes operaciones:
++
+** Grupos de discos raíz
++
+Se produce un error en la operación de creación Snapshot cuando se intenta tomar una copia Snapshot de un grupo de discos raíz para un LVM.
+
+** Dispositivo de arranque o dispositivo de intercambio
++
+SnapDrive para UNIX no realiza una copia snapshot de un dispositivo de arranque del sistema o de un dispositivo de intercambio del sistema.
+
+
+
+* Cuando una copia Snapshot abarca varios sistemas de almacenamiento o volúmenes de sistemas de almacenamiento, SnapDrive para UNIX requiere una operación de congelación para garantizar la coherencia de los fallos. Para obtener información acerca de la creación de copias snapshot en configuraciones para las que no se proporciona una operación de congelación.
+
