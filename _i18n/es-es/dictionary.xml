@@ -438,7 +438,6 @@
   <block id="464731ea68043c5dbd4b1a2255e0ddc9" category="summary">La función de thin provisioning de SnapDrive para UNIX permite al usuario tener más espacio de almacenamiento para los hosts del que realmente está disponible en el sistema de almacenamiento.</block>
   <block id="b5e25c86b8fc4729491227e86c44097c" category="paragraph">Dentro de SnapDrive para UNIX, no se puede establecer el valor de reserva fraccionaria y no hay integración con funciones de Data ONTAP como la eliminación automática y el ajuste de tamaño automático. Estas funciones de Data ONTAP se pueden utilizar de forma segura con SnapDrive para UNIX; sin embargo, no hay conocimiento de SnapDrive para UNIX, si se produce un evento de eliminación automática o autotamaño.</block>
   <block id="0fbd8971220ee7d0340edcc5aa07a5c0" category="inline-link">Informe técnico de NetApp 3483: Thin Provisioning en un entorno empresarial SAN o SAN IP DE NetApp</block>
-  <block id="d067ada9dffcf5d06f760689bd642d06" category="paragraph"><block ref="d067ada9dffcf5d06f760689bd642d06" category="inline-link-rx"></block></block>
   <block id="9466679b82912f7fa4733214072096ec" category="summary">Puede utilizar el comando snap show o list de SnapDrive para mostrar información acerca de sistemas de almacenamiento, volúmenes del sistema de almacenamiento, discos o grupos de volúmenes, sistema de archivos, Copias Snapshot, etc.</block>
   <block id="163c3baadf8f524248a7cccf97d7ef8c" category="doc">Información necesaria para utilizar los comandos snap show o list de SnapDrive</block>
   <block id="47ef82e2f9b0df03ef3cd979a5548c09" category="paragraph">Puede usar el comando<block ref="7721fb8fddef83d6178d34220356e3a3" prefix=" " category="inline-code"></block> o.<block ref="10ae9fc7d453b0dd525d0edf2ede7961" prefix=" " category="inline-code"></block> para visualizar información sobre sistemas de almacenamiento, volúmenes del sistema de almacenamiento, discos o grupos de volúmenes, sistema de archivos, Copias Snapshot, etc.</block>
@@ -6001,4 +6000,5 @@
   <block id="f8627092c31ff43a006814ef7cf773a5" category="sidebar">Administración de Linux</block>
   <block id="42bd37a4c5629f76f268e0de7f45570f" category="sidebar">Instalación y Administración de Solaris</block>
   <block id="80dd8a6d27a4c1b305d26c223c52a9a7" category="sidebar">Instalación y administración de IBM AIX</block>
+  <block id="2a7e0c5b8e814e03c21799cbb69f2d18" category="paragraph"><block ref="2a7e0c5b8e814e03c21799cbb69f2d18" category="inline-link-rx"></block></block>
 </blocks>

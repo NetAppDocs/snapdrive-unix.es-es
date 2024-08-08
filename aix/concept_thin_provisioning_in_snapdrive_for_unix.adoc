@@ -17,4 +17,4 @@ Dentro de SnapDrive para UNIX, no se puede establecer el valor de reserva fracci
 
 *Información relacionada*
 
-http://www.netapp.com/us/media/tr-3483.pdf["Informe técnico de NetApp 3483: Thin Provisioning en un entorno empresarial SAN o SAN IP DE NetApp"]
+https://www.netapp.com/pdf.html?item=/media/19670-tr-3483.pdf["Informe técnico de NetApp 3483: Thin Provisioning en un entorno empresarial SAN o SAN IP DE NetApp"^]
