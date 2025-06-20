@@ -2731,4 +2731,4 @@ sidebar:
           - title: Argumentos de la línea de comandos
             url: "/aix/reference_command_line_arguments.html"
   - title: Avisos legales
-    url: "/reference_legal_notices.html"
+    url: legal-notices.html

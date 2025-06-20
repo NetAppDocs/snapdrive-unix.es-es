@@ -20,8 +20,6 @@ Debe especificar la información de inicio de sesión del usuario para el Vserve
 +
 ** `_user_name_` Es el nombre de usuario que se especificó para el Vserver al configurarlo por primera vez. El usuario predeterminado es vsadmin. `_filername_` Es el nombre del Vserver.
 ** `_filer_name_` Permite introducir varios vServers en una línea de comandos si todos tienen el mismo inicio de sesión de usuario o contraseña. Debe introducir al menos un nombre de Vserver.
-
-
 +
 [listing]
 ----
@@ -29,4 +27,6 @@ Debe especificar la información de inicio de sesión del usuario para el Vserve
 Password for vsadmin:
 Retype password:
 ----
+
+
 
